@@ -187,5 +187,9 @@ class AlunoController extends Controller
         return response()->json($sms);
 
     }
+
+    public function cursos(){
+        return view('aluno.cursos');
+    }
 }
 

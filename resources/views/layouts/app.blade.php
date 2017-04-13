@@ -15,7 +15,7 @@
 <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <!-- Optional theme -->
-{{--    <link rel="stylesheet" href="{{url('assets/font-awesome/css/font-awesome.min.css')}}">--}}
+    <link rel="stylesheet" href="{{url('assets/font-awesome/css/font-awesome.min.css')}}">
 <!-- Optional theme -->
     <link rel="stylesheet" href="{{url('assets/css/bootstrap-theme.min.css')}}">
     <!-- Chamadas JS -->
@@ -54,7 +54,23 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                    <li><a href="/admin/home">Alunos</a></li>
+                    <li><a href="/admin/curso">Cursos</a></li>
+                    <li><a href="/admin/pacote">Pacotes</a></li>
+                    <li><a href="/admin/premios">Premios</a></li>
+                    <li><a href="/admin/empresas">Empresas Parceiras</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -141,6 +157,8 @@
 </script>
 
 @yield('content2')
+
+
 
 </body>
 </html>

@@ -82,7 +82,8 @@
         </label>
     </div>
 
-    <strong> 5) Quantos animais de cada espécie Moisés levou na arca? </strong>
+    <strong> 5) Seis pessoas comem 6 biscoitos em seis minutos. Quantas pessoas comerão 80 biscoitos em 48
+        minutos? </strong>
     <div class="radio">
         <label>
             <input type="radio" name="questao5" id="5" class="soma" value="1">

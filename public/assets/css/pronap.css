@@ -365,3 +365,37 @@ p.copyrigth{
 /*.w100{*/
     /*width: 100%;*/
 /*}*/
+
+ul.list li{
+    width: auto;
+    float: left;
+    text-decoration: none;
+    list-style: none;
+    font-size: large;
+    padding: 10px;
+}
+
+.cursos{
+    padding-top: 10px;
+    color: #fff;
+    text-align: center;
+    font-size: large;
+
+    background-color: #66512c;
+    margin: 10px;
+}
+
+.projeto-curso{
+    /*padding: 20px !important;*/
+    background-color: #6b9dbb;
+    /*margin: 2px;*/
+}
+.box-curso{
+    max-width: 100%;
+    position: absolute;
+    z-index: 0;
+    float: left;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+}
