@@ -96,7 +96,7 @@
                     <p class="descricao-slide">Temos mais de 50 cursos para atender as mais diversas demandas do mercado,
                         para atender ao aluno que deseja iniciar na área de informática, como também o profissional
                         que deseja se especializar.
-                        Cursos na área de informática e administrativos.</p>
+                        Cursos na área de informática, administrativos e inglês.</p>
                     <div class="text-center">
                         <a type="button" class="btn btn-danger btn-lg" href="/cursos-disponiveis">
                             <i class="fa fa-laptop" aria-hidden="true"></i>
