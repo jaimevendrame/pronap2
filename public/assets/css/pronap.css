@@ -188,7 +188,7 @@ ul.menu li{
     display: inline;
 }
 ul.menu li a{
-    margin: 8px 32px;
+    margin: 8px 26px;
     color: #FFFFFF !important;
     /* font-weight: bold; */
     font-size: 14px;
@@ -398,4 +398,61 @@ ul.list li{
     top: 0;
     left: 0;
     margin-top: 10px;
+}
+/*@media screen and (max-width: 468px) {*/
+    /*.titulo-slide{font-size: 26px;}*/
+    /*.descricao-slide{padding-bottom: 20px; font-size: 14px;}*/
+    /*.btn-saiba-mais {font-size: 12px;}*/
+    /*.btn-cad {padding: 30px 0px;}*/
+/*}*/
+
+/*@media screen and (max-width: 768px) {*/
+    /*.titulo-slide{font-size: 26px;}*/
+    /*.descricao-slide{padding-bottom: 20px; font-size: 14px;}*/
+    /*.btn-saiba-mais {font-size: 12px;}*/
+    /*.btn-cad {padding: 30px 0px;}*/
+/*}*/
+
+/*@media screen and (min-width: 992px) {*/
+    /*.titulo-slide{font-size: 68px;}*/
+    /*.btn-cad {padding: 30px 0px;}*/
+/*}*/
+
+/*@media screen and (min-width: 1200px) {*/
+    /*.titulo-slide{*/
+        /*font-size: 78px;*/
+    /*}*/
+/*}*/
+
+@media  screen and (max-width: 480px) {
+    .titulo-slide{font-size: 22px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 16px;}
+    .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
+    .btn-cad {padding: 30px 0px;}
+    .slide {min-height: 60%;}
+}
+@media  screen and (min-width: 600px) {
+    .titulo-slide{font-size: 32px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 22px;}
+    .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
+    .btn-cad {padding: 30px 0px;}
+    .slide {min-height: 60%;}
+}
+@media  screen and (min-width: 768px) {
+    .titulo-slide{font-size: 62px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 22px;}
+    .btn-saiba-mais {font-size: 22px; margin: 0px; padding: 9px 9px;}
+    .btn-cad {padding: 0px 0px;}
+    .slide {min-height: 40%;}
+}
+@media  screen and (min-width: 992px) {
+    .titulo-slide{font-size: 44px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 24px;}
+    .slide {min-height: 90%;}
+
+}
+@media  screen and (min-width: 1382px) {
+    .titulo-slide{font-size: 68px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 32px;}
+    .slide {min-height: 100%;}
 }

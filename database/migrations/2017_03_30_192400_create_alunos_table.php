@@ -22,11 +22,9 @@ class CreateAlunosTable extends Migration
             $table->string('curso_ingl');
             $table->string('escolaridade');
             $table->string('in_teste');
-            $table->string('rua');
             $table->string('bairro');
             $table->string('cidade');
             $table->string('uf');
-            $table->string('ibge');
 
             $table->timestamps();
         });

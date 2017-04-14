@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>PRONAP</title>
     <!--CSS Personalizado-->
-    <link rel="stylesheet" type="text/css" href="{{url('assets/css/pronap.css')}}">
+    <link rel="stylesheet"  href="{{url('assets/css/pronap.css')}}">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <!-- Optional theme -->
@@ -38,13 +38,16 @@
             $("#cep").unmask();
             var dadosForm = jQuery(this).serialize();
 
-
+alert(dadosForm);
             jQuery.ajax({
                 url: 'add-aluno',
                 data: dadosForm,
                 method: 'POST'
 
+
             }).done(function (data) {
+
+                alert(data);
                 if (data == '1') {
                     jQuery(".errors-msg").hide();
 
@@ -57,6 +60,7 @@
                     jQuery(".success-msg").show();
 
                     setTimeout("location.reload();", 5000);
+
                 } else {
                     jQuery(".errors-msg").html(data);
                     jQuery(".errors-msg").show();
@@ -88,22 +92,22 @@
 
     function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
-        document.getElementById('rua').value = ("");
+//        document.getElementById('rua').value = ("");
         document.getElementById('bairro').value = ("");
         document.getElementById('cidade').value = ("");
         document.getElementById('uf').value = ("");
-        document.getElementById('ibge').value = ("");
+//        document.getElementById('ibge').value = ("");
     }
 
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
             jQuery(".cep-msg ").show();
             //Atualiza os campos com os valores.
-            document.getElementById('rua').value = (conteudo.logradouro);
+//            document.getElementById('rua').value = (conteudo.logradouro);
             document.getElementById('bairro').value = (conteudo.bairro);
             document.getElementById('cidade').value = (conteudo.localidade);
             document.getElementById('uf').value = (conteudo.uf);
-            document.getElementById('ibge').value = (conteudo.ibge);
+//            document.getElementById('ibge').value = (conteudo.ibge);
         } //end if.
         else {
             //CEP não Encontrado.
@@ -127,11 +131,11 @@
             if (validacep.test(cep)) {
 
                 //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value = "...";
+//                document.getElementById('rua').value = "...";
                 document.getElementById('bairro').value = "...";
                 document.getElementById('cidade').value = "...";
                 document.getElementById('uf').value = "...";
-                document.getElementById('ibge').value = "...";
+//                document.getElementById('ibge').value = "...";
 
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
@@ -168,8 +172,8 @@
                 <h4 class="modal-title" id="myModalLabel">Cadastra-se</h4>
             </div>
             <div class="modal-body">
-                <div class="errors-msg alert alert-danger" style="display:none;"></div>
-                <div class="success-msg alert alert-success" style="display:none;">
+
+                <div class="success-msg alert alert-success text-center" style="display:none;">
                     <h1>ATENÇÃO</h1>
                     <p>O seu cadastro foi realizado com sucesso!!</p>
                 </div>
@@ -189,31 +193,31 @@
                             <input type="text" class="form-control cep" id="cep" name="cep" placeholder="CEP"
                                    onblur="pesquisacep(this.value);">
                         </div>
-                        <div class="cep-msg alert alert-info col-md-12" style="display:none;">
-
-                            <div class="form-group col-md-8">
-                                <input class="form-control" name="rua" type="text" id="rua" placeholder="rua"
-                                       readOnly="readOnly"/>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <input class="form-control" name="bairro" type="text" id="bairro" placeholder="Bairro"
-                                       readOnly="readOnly"/>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <input class="form-control" name="cidade" type="text" id="cidade" placeholder="Cidade"
-                                       readOnly="readOnly"/>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <input class="form-control" name="uf" type="text" id="uf" placeholder="Estado"
-                                       readOnly="readOnly"/>
-                            </div>
-                            <div class=" form-group col-md-4">
-                                <input class="form-control" name="ibge" type="text" id="ibge" placeholder="IBGE"
-                                       readOnly="readOnly"/>
-                            </div>
-
-
+                        <div class="form-group col-md-4">
+                            <input class="form-control" name="bairro" type="text" id="bairro" placeholder="Bairro"
+                                   readOnly="readOnly"/>
                         </div>
+                        <div class="form-group col-md-4">
+                            <input class="form-control" name="cidade" type="text" id="cidade" placeholder="Cidade"
+                                   readOnly="readOnly"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input class="form-control" name="uf" type="text" id="uf" placeholder="Estado"
+                                   readOnly="readOnly"/>
+                        </div>
+                        {{--<div class=" form-group col-md-4">--}}
+                            {{--<input class="form-control" name="ibge" type="text" id="ibge" placeholder="IBGE"--}}
+                                   {{--readOnly="readOnly"/>--}}
+                        {{--</div>--}}
+
+                        {{--<div class="cep-msg alert alert-info col-md-12" style="display:none;">--}}
+
+                            {{--<div class="form-group col-md-8">--}}
+                                {{--<input class="form-control" name="rua" type="text" id="rua" placeholder="rua"--}}
+                                       {{--readOnly="readOnly"/>--}}
+                            {{--</div>--}}
+
+                        {{--</div>--}}
                         <div class=" row">
                             <div class="col-md-12">
 
@@ -332,6 +336,7 @@
                                 </div>
                             </div>
                             <div class="preloader" style="display:none;">Enviando dados</div>
+                            <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar
                                 </button>

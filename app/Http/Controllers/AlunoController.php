@@ -42,6 +42,8 @@ class AlunoController extends Controller
 
         $validator = validator($dadosForm, $this->aluno->rules);
 
+//        dd($validator);
+
         if ($validator->fails()) {
             $messages = $validator->messages();
 
@@ -62,6 +64,8 @@ class AlunoController extends Controller
 //        $sms = $this->enviarSMS($insert->cell);
 
         if ($insert)
+
+//            dd($this->enviarSMS($insert->id));
 
             return $this->enviarSMS($insert->id);
 
@@ -93,12 +97,10 @@ class AlunoController extends Controller
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
         curl_setopt($curl, CURLOPT_URL, $url);
         $return = curl_exec($curl);
-        $valor1 = ['ret' => '1'];
-        $valor2 = ['ret' => '2'];
         if ($return != FALSE) {
-            return $valor1;
+            return '1';
         } else {
-            return $valor2;
+            return '2';
         }
         curl_close($curl);
 

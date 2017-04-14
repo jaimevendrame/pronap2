@@ -68,11 +68,12 @@
 
                     jQuery(".success-msg").html(
                         "<h1>PARABÉNS! Seu Teste Lógico foi enviado com sucesso!</h1><br>" +
-                        "<h4>Aguarde nosso contato.</h4>"
+                        "<h4>O resultado sai em poucos dias e é enviado para você por SMS.</h4>"+
+                    "<a class='btn btn-success' href='./'>Voltar</a>"
                     );
                     jQuery(".success-msg").show();
 
-                    setTimeout("location.reload();", 5000);
+//                    setTimeout("location.reload();", 5000);
                 } else {
                     jQuery(".errors-msg").html(data);
                     jQuery(".errors-msg").show();

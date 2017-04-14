@@ -1,5 +1,5 @@
 <form>
-    <strong> 1) Em uma corrida, você ultrapassa 2º colocado. Qual lugar você fica? </strong>
+    <strong> 1) Em uma corrida, você ultrapassa o 2º colocado. Qual lugar você fica? </strong>
     <div class="radio">
         <label>
             <input type="radio" name="questao1" id="1" class="soma" value="0">
@@ -19,7 +19,7 @@
         </label>
     </div>
 
-    <strong> 2) Quantos algarismos 1 (um) existem entre 0 e 20? </strong>
+    <strong> 2) Quantos algarismos 1 existem entre 0 e 20? </strong>
     <div class="radio form-group">
         <label>
             <input type="radio" name="questao2" id="2" class="soma" value="0">
@@ -62,13 +62,13 @@
     <strong> 4) Qual o rio mais extenso do mundo? </strong>
     <div class="radio">
         <label>
-            <input type="radio" name="questao4" id="4" class="soma" value="1">
+            <input type="radio" name="questao4" id="4" class="soma" value="0">
             Rio Nilo
         </label>
     </div>
     <div class="radio">
         <label>
-            <input type="radio" name="questao4" id="4" class="soma" value="0">
+            <input type="radio" name="questao4" id="4" class="soma" value="1">
             Rio Amazonas
         </label>
     </div>

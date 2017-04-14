@@ -53,6 +53,8 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
+                @if (Auth::guest())
+                @else
                 <ul class="nav navbar-nav">
                     <li><a href="/admin/home">Alunos</a></li>
                     <li><a href="/admin/curso">Cursos</a></li>
@@ -72,7 +74,7 @@
                         </ul>
                     </li>
                 </ul>
-
+            @endif
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->

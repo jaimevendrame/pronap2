@@ -34,7 +34,9 @@ Route::get('/sms/{idAluno}', 'AlunoController@sms');
 
 Route::get('/cursos-disponiveis', 'AlunoController@cursos');
 
+Route::get('/premios', 'PremioController@premios');
 
+Route::get('/empresas', 'EmpresaController@empresas');
 
 
 Route::get('/home', function (){
