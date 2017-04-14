@@ -184,7 +184,7 @@
                             <input type="text" class="form-control" id="InputName" name="nome" placeholder="NOME">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control telefone" id="telefone" name="cell"
+                            <input type="text" class="form-control telefone" id="telefone" name="celular"
                                    placeholder="CELULAR">
                         </div>
                         <div class="form-group">

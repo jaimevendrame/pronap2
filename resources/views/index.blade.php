@@ -75,11 +75,16 @@
 
 <section id="participar" class="slide background-parallax-detalhes color-white">
     <div class="container text-center col-md-12">
-        <h1 class="titulo-slide">Como ganhar Bolsa de Estudo e concorrer a vários prêmios.</h1>
+        <h1 class="titulo-slide">Como ganhar Bolsa de Estudos e concorrer a vários prêmios.</h1>
         <div class="divider"></div>
-        <p class="descricao-slide">Infelizmente a demanda é maior que nossa capacidade de atendimento,
-            então criamos um pequeno teste seletivo com 5 perguntas objetivas de raciocínio lógico e
-            interpretação de texto para premiar quem tiver desempenho acima da média.</p>
+        <p class="descricao-slide">Para concorrer às bolsas de estudo e ainda concorrer a prêmios
+            você precisa se cadastrar e responder a um teste seletivo de apenas 5 perguntas objetivas.
+            Quem obter resultados acima da média receberá as bolsas disponíveis para sua cidade e ainda
+            concorrerá a prêmios.<br>
+            Para se cadastrar clique aqui:<br>
+            <a class="btn-saiba-mais add btn-enviar"
+               data-toggle="modal" data-target="#cadCandidato"
+               href="">CADASTRE-SE</a></p>
     </div>
 </section>
 <!--Final da section como ganhar-->
