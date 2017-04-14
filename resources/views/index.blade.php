@@ -75,7 +75,7 @@
 
 <section id="participar" class="slide background-parallax-detalhes color-white">
     <div class="container text-center col-md-12">
-        <h1 class="titulo-slide">Como ganhar Bolsa Integral e concorrer a vários prêmios.</h1>
+        <h1 class="titulo-slide">Como ganhar Bolsa de Estudo e concorrer a vários prêmios.</h1>
         <div class="divider"></div>
         <p class="descricao-slide">Infelizmente a demanda é maior que nossa capacidade de atendimento,
             então criamos um pequeno teste seletivo com 5 perguntas objetivas de raciocínio lógico e
