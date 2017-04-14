@@ -20,7 +20,7 @@ class Aluno extends Model
     ];
 
     public $rules = [
-        'name'  => 'required|min:3|max:150',
+        'nome'  => 'required|min:3|max:150',
         'celular'  => 'required|min:11|unique:alunos',
         'cep'   => 'required',
     ];
