@@ -102,4 +102,10 @@ class EmpresaController extends StandardController
                 ->withErrors(['errors'=> 'Falha ao Editar'])
                 ->withInput();
     }
+
+    public function empresas(){
+
+        return view('empresas.empresas-parceiras');
+
+    }
 }

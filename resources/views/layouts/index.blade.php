@@ -38,7 +38,6 @@
             $("#cep").unmask();
             var dadosForm = jQuery(this).serialize();
 
-alert(dadosForm);
             jQuery.ajax({
                 url: 'add-aluno',
                 data: dadosForm,
@@ -47,7 +46,6 @@ alert(dadosForm);
 
             }).done(function (data) {
 
-                alert(data);
                 if (data == '1') {
                     jQuery(".errors-msg").hide();
 
@@ -183,7 +181,7 @@ alert(dadosForm);
                     <form method="post" action="/add-aluno" id="form-add-aluno" autocomplete="off">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <input type="text" class="form-control" id="InputName" name="name" placeholder="NOME">
+                            <input type="text" class="form-control" id="InputName" name="nome" placeholder="NOME">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control telefone" id="telefone" name="cell"
@@ -336,12 +334,15 @@ alert(dadosForm);
                                 </div>
                             </div>
                             <div class="preloader" style="display:none;">Enviando dados</div>
-                            <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
+
                             <div class="modal-footer">
+
+
                                 <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar
                                 </button>
                                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
                             </div>
+                            <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
                         </div>
 
                     </form>

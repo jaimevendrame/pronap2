@@ -21,5 +21,9 @@ class PremioController extends  StandardController
         $this->request = $request;
     }
 
+    public function premios(){
+        return view('premios.tabela-premios');
+    }
+
 
 }

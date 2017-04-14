@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Aluno extends Model
 {
     protected $fillable = [
-        'name',
-        'cell',
+        'nome',
+        'celular',
         'cep',
         'bairro',
         'cidade',
@@ -21,7 +21,11 @@ class Aluno extends Model
 
     public $rules = [
         'name'  => 'required|min:3|max:150',
-        'cell'  => 'required|min:11|unique:alunos',
+        'celular'  => 'required|min:11|unique:alunos',
         'cep'   => 'required',
     ];
+
+    public function getNomeAttribute($nome){
+        return strtoupper($nome);
+    }
 }

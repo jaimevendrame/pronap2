@@ -61,7 +61,7 @@ class AlunoController extends Controller
         $insert = $this->aluno->create($dadosForm);
 
         //envio de SMS
-//        $sms = $this->enviarSMS($insert->cell);
+//        $sms = $this->enviarSMS($insert->celular);
 
         if ($insert)
 
@@ -82,17 +82,17 @@ class AlunoController extends Controller
 
 
         //capturar primeiro nome
-        $string = $alunos['name'];
+        $string = $alunos['nome'];
         $string = explode(" ", $string);
         $nome = $string[0];
 
         //capturar numero de celular
-        $cell = $alunos['cell'];
+        $celular = $alunos['celular'];
 
-        $mensagem = 'Ola+' . $nome . ',+clique+no+link+http://pronap.info/tst/' . $cell . '+para+acessar+seu+teste+e+concorrer+a+BOLSA+DE+ESTUDO+e+diversos+outros+premios';
+        $mensagem = 'Ola+' . $nome . ',+clique+no+link+http://pronap.info/tst/' . $celular . '+para+acessar+seu+teste+e+concorrer+a+BOLSA+DE+ESTUDO+e+diversos+outros+premios';
 
 
-        $url = 'http://www.painelsms.com.br/sms.php?i=4551&s=ozqpxz&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $cell . '';
+        $url = 'http://www.painelsms.com.br/sms.php?i=4551&s=ozqpxz&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -143,7 +143,7 @@ class AlunoController extends Controller
     {
 
         $alunos = $this->aluno
-            ->where('cell', 'LIKE', "%{$pesquisa}%")
+            ->where('celular', 'LIKE', "%{$pesquisa}%")
             ->get();
 
         return view('testes.index', compact('alunos', 'pesquisa'));

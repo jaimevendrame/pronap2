@@ -43,7 +43,7 @@
         <h1 class="titulo-slide">Cadastre-se e concorra a bolsas de estudo e diversos prêmios.</h1>
         <p class="descricao-slide">Faça seu cadastro para ter acesso ao teste seletivo e
             concorra a Bolsas de Estudo INTEGRAIS e PARCIAIS,
-            SMARTPHONES, TABLETS, SMARTWATCHS (<a href="#">consulte a premiação</a>)</p>
+            SMARTPHONES, TABLETS, SMARTWATCHS (<a href="/premios">consulte a premiação</a>)</p>
         <div class="col-md-6 col-sm-12">
             <a class="btn-saiba-mais large"
                onclick="$('#pronap').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">SAIBA MAIS SOBRE O

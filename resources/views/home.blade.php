@@ -29,10 +29,10 @@
                                         {{$aluno->id}}
                                     </td>
                                     <td>
-                                        {{$aluno->name}}
+                                        {{$aluno->nome}}
                                     </td>
                                     <td>
-                                        {{$aluno->cell}}
+                                        {{$aluno->celular}}
                                     </td>
                                     <td>
                                         {{$aluno->cidade}}-{{$aluno->uf}}

@@ -15,8 +15,8 @@ class CreateAlunosTable extends Migration
     {
         Schema::create('alunos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('cell')->unique();
+            $table->string('nome');
+            $table->string('celular')->unique();
             $table->string('cep');
             $table->string('curso_info');
             $table->string('curso_ingl');
