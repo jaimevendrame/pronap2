@@ -21,8 +21,7 @@
 <body>
 <div class="container col-md-12">
     <div class="col-md-10 text-center">
-        <div class="errors-msg alert alert-danger" style="display:none;"></div>
-        <div class="success-msg alert alert-success" style="display:none;"></div>
+
         @yield('teste')
     </div>
 </div>
@@ -49,9 +48,37 @@
 
     });
 
+
     $(function () {
         jQuery("#form-edit-aluno").submit(function (){
+
+            if (! $("input[type='radio'][name='questao1']").is(':checked') ){
+                alert("Ops!\nPor favor, Responda a Questão 1.");
+                return false; // para submit habilite esta linha
+            }
+
+            if (! $("input[type='radio'][name='questao2']").is(':checked') ){
+                alert("Ops!\nPor favor, Responda a Questão 2.");
+                return false; // para submit habilite esta linha
+            }
+
+            if (! $("input[type='radio'][name='questao3']").is(':checked') ){
+                alert("Ops!\nPor favor, Responda a Questão 3.");
+                return false; // para submit habilite esta linha
+            }
+
+            if (! $("input[type='radio'][name='questao4']").is(':checked') ){
+                alert("Ops!\nPor favor, Responda a Questão 4.");
+                return false; // para submit habilite esta linha
+            }
+
+            if (! $("input[type='radio'][name='questao5']").is(':checked') ){
+                alert("Ops!\nPor favor, Responda a Questão 5.");
+                return false; // para submit habilite esta linha
+            }
+
             var dadosForm = jQuery(this).serialize();
+
 
 //            alert(dadosForm);
 
@@ -69,7 +96,7 @@
                     jQuery(".success-msg").html(
                         "<h1>PARABÉNS! Seu Teste Lógico foi enviado com sucesso!</h1><br>" +
                         "<h4>O resultado sai em poucos dias e é enviado para você por SMS.</h4>"+
-                    "<a class='btn btn-success' href='./'>Voltar</a>"
+                    "<a class='btn btn-success' href='../'>Voltar</a>"
                     );
                     jQuery(".success-msg").show();
 

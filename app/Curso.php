@@ -7,13 +7,35 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'nome',
+        'descricao',
+        'id_pacote',
+        'objetivo',
+        'carga',
+        'ordem',
+        'imagem'
+    ];
 
-    static $rules = [
+
+    public $rules = [
         'nome' => 'required|min:3|max:100',
-        'objetivo' => 'required',
-        'carga' => 'required|min:1|max:3',
-        'imagem' => 'required',
+        'descricao' => 'required|min:3|max:255',
+        'id_pacote' => 'required',
+        'objetivo' => 'required|min:3|max:255',
+        'carga' => 'required|min:1|max:30',
+        'ordem' => 'required',
+        'imagem' => 'required|image|max:5000|mimes:jpg,png,jpeg'
+    ];
+
+    public $rulesEdit = [
+        'nome' => 'required|min:3|max:100',
+        'descricao' => 'required|min:3|max:255',
+        'id_pacote' => 'required',
+        'objetivo' => 'required|min:3|max:255',
+        'carga' => 'required|min:1|max:30',
+        'ordem' => 'required',
+        'imagem' => 'image|max:5000|mimes:jpg,png,jpeg'
     ];
 
     //um para muitos

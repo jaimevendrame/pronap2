@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Empresa extends Model
 {
     protected $fillable = [
-        'nome_fatasia',
+        'nome',
         'cnpj',
         'cep',
         'rua',
@@ -18,7 +18,7 @@ class Empresa extends Model
     ];
 
     public $rules = [
-        'nome_fatasia' => 'required|min:3|max:100',
+        'nome' => 'required|min:3|max:100',
         'cnpj' => 'required|min:14|max:100',
         'cep' => 'required|',
         'rua' => 'required|min:3|max:100',
@@ -29,7 +29,7 @@ class Empresa extends Model
     ];
 
     public $rulesEdit = [
-        'nome_fatasia' => 'required|min:3|max:100',
+        'nome' => 'required|min:3|max:100',
         'cnpj' => 'required|min:14|max:100',
         'cep' => 'required|',
         'rua' => 'required|min:3|max:100',
@@ -39,5 +39,16 @@ class Empresa extends Model
         'logo_img' => 'image|max:5000|mimes:jpg,png,jpeg'
     ];
 
+    public function getNomeAttribute($nome){
+        return strtoupper($nome);
+    }
+
+    public function getRuaAttribute($rua){
+        return strtoupper($rua);
+    }
+
+    public function getCidadeAttribute($cidade){
+        return strtoupper($cidade);
+    }
 
 }

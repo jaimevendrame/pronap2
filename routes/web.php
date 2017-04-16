@@ -32,7 +32,7 @@ Route::get('/pesquisar/{cell}', 'AlunoController@pesquisar');
 
 Route::get('/sms/{idAluno}', 'AlunoController@sms');
 
-Route::get('/cursos-disponiveis', 'AlunoController@cursos');
+Route::get('/cursos-disponiveis', 'CursoController@pacote_cursos');
 
 Route::get('/premios', 'PremioController@premios');
 
@@ -58,7 +58,7 @@ Route::group([
         Route::get('/show/{idAluno}', 'AlunoController@show')->name('show');
         Route::get('/sms/{idAluno}', 'AlunoController@sms')->name('sms');
         //Gestão de Cursos
-        Route::get('/curso', 'CursoController@index')->name('curso');
+        Route::get('/cursos', 'CursoController@index')->name('cursos');
 
         //Gestão pacotes
         Route::get('/pacote', 'PacoteController@index')->name('pacote');
@@ -87,6 +87,14 @@ Route::group([
         Route::get('/empresas/delete/{id}', 'EmpresaController@delete')->name('empresa-delete');
         Route::post('/empresas/pesquisar', 'EmpresaController@pesquisar')->name('empresa-pesquisa');
 
+        //Gestão de Cursos
+        Route::get('/cursos', 'CursoController@index')->name('cursos');
+        Route::get('/cursos/cadastrar', 'CursoController@cadastrar')->name('cursos-cad');
+        Route::post('/cursos/cadastrar', 'CursoController@cadastroGo')->name('cursos-cad');
+        Route::get('/cursos/editar/{id}', 'CursoController@edit')->name('cursos-edit');
+        Route::post('/cursos/editar/{id}', 'CursoController@editGo')->name('cursos-edit');
+        Route::get('/cursos/delete/{id}', 'CursoController@delete')->name('cursos-delete');
+        Route::post('/cursos/pesquisar', 'CursoController@pesquisar')->name('cursos-pesquisa');
 
     });
 

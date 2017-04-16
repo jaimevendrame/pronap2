@@ -17,6 +17,12 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Jaime Filho',
                 'email' => 'admin@user.com',
             ]);
+        factory(\pronap\User::class,1)
+            ->states('admin')
+            ->create([
+                'name' => 'Marcio Piske',
+                'email' => 'marciopiske@gmail.com',
+            ]);
 
         factory(\pronap\User::class,1)
             ->create([

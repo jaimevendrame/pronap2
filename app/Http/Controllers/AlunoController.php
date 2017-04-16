@@ -40,7 +40,10 @@ class AlunoController extends Controller
 
 //        dd($dadosForm);
 
-        $validator = validator($dadosForm, $this->aluno->rules);
+        $mensagens = ['celular.unique' => 'Você ou outra pessoa já se cadastrou usando este celular.
+Favor usar um celular diferente para cada participante.'];
+
+        $validator = validator($dadosForm, $this->aluno->rules, $mensagens);
 
 //        dd($validator);
 
@@ -92,7 +95,9 @@ class AlunoController extends Controller
         $mensagem = 'Ola+' . $nome . ',+clique+no+link+http://pronap.info/tst/' . $celular . '+para+acessar+seu+teste+e+concorrer+a+BOLSA+DE+ESTUDO+e+diversos+outros+premios';
 
 
-        $url = 'http://www.painelsms.com.br/sms.php?i=4551&s=ozqpxz&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
+//        $url = 'http://www.painelsms.com.br/sms.php?i=4551&s=ozqpxz&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
+        $url = 'http://172.246.132.10/app/modulo/api/index.php?action=sendsms&lgn=4499962520&pwd=mpkgpc2308&msg=' . $mensagem . '&numbers=' . $celular . '';
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
         curl_setopt($curl, CURLOPT_URL, $url);

@@ -22,7 +22,8 @@ class PremioController extends  StandardController
     }
 
     public function premios(){
-        return view('premios.tabela-premios');
+        $data = $this->model->all();
+        return view('premios.tabela-premios', compact('data'));
     }
 
 

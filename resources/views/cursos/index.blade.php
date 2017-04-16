@@ -3,10 +3,10 @@
 @section('content')
     <div class="col-md-12">
 
-        <form class="form-inline" method="POST" action="/admin/empresas/pesquisar">
+        <form class="form-inline" method="POST" action="/admin/cursos/pesquisar">
             {{ csrf_field() }}
-            <a href="{{url('/admin/empresas/cadastrar')}}" class="btn btn-primary""><i
-             class="fa fa-plus-circle btn-cad-edit" alt="Cadastrar"></i></a>
+            <a href="{{url('/admin/cursos/cadastrar')}}" class="btn btn-primary""><i
+                    class="fa fa-plus-circle" alt="Cadastrar"></i></a>
 
             <input class="form-group" type="text" name="pesquisar" placeholder="Pesquisa">
             <button type="submit" class="btn btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -20,55 +20,41 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard - Listagem de Empresas Parceiras  ({{$data->count()}}):</div>
+                    <div class="panel-heading">Dashboard - Listagem de Cursos  ({{$data->count()}}):</div>
 
                     <div class="panel-body">
 
                         <table class="table table-striped  table-hover">
                             <tr>
                                 <th></th>
-                                <th>Cód.</th>
-                                <th>Nome Fantásia</th>
-                                <th>CNPJ</th>
-                                <th>CEP</th>
-                                <th>Rua</th>
-                                <th>Cidade/UF</th>
+                                <th>Pacote</th>
+                                <th>Curso</th>
+                                <th>Carga horária</th>
                                 <th colspan="2">Ações</th>
                             </tr>
-                            @forelse( $data as $empresa)
+                            @forelse( $data as $curso)
                                 <tr>
                                     <td>
-                                        <img class=" img-list" src="{{url('assets/uploads/imgs-empresas/')}}/{{$empresa->logo_img}}" alt="{{$empresa->nome}}">
+                                        <img class=" img-list" src="{{url('assets/uploads/img-cursos/')}}/{{$curso->imagem}}" alt="{{$curso->nome}}">
 
                                     </td>
                                     <td>
-                                        {{$empresa->id}}
+                                        {{$curso->pacotenome}}
                                     </td>
                                     <td>
-                                        {{$empresa->nome}}
+                                        {{$curso->nome}}
                                     </td>
                                     <td>
-                                        {{$empresa->telefone}}
-                                    </td>
-                                    <td>
-                                        {{$empresa->cnpj}}
-                                    </td>
-                                    <td>
-                                        {{$empresa->cep}}
-                                    </td>
-                                    <td>
-                                        {{$empresa->rua}}
-                                    </td>
-                                    <td>
-                                        {{$empresa->cidade}}/{{$empresa->uf}}
+                                        {{$curso->carga}}
                                     </td>
 
+
                                     <td>
-                                        <a href="/admin/empresas/editar/{{$empresa->id}}" type="button"
+                                        <a href="/admin/cursos/editar/{{$curso->id}}" type="button"
                                            class="btn btn-warning">
                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                         </a>
-                                        <a href="/admin/empresas/delete/{{$empresa->id}}" type="button"
+                                        <a href="/admin/cursos/delete/{{$curso->id}}" type="button"
                                            class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>
                                     <td>

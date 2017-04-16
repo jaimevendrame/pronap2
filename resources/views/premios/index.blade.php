@@ -66,11 +66,11 @@
 
 
                                     <td>
-                                        <a href="/admin/pacote/editar/{{$premio->id}}" type="button"
+                                        <a href="/admin/premios/editar/{{$premio->id}}" type="button"
                                            class="btn btn-warning">
                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                         </a>
-                                        <a href="/admin/pacote/delete/{{$premio->id}}" type="button"
+                                        <a href="/admin/premios/delete/{{$premio->id}}" type="button"
                                            class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>
                                     <td>

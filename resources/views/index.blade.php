@@ -38,7 +38,7 @@
 </header>
 <!-- Final Menu -->
 <div class="clear"></div>
-<section id="home" class="slide text-center color-white">
+<section id="home" class="slide text-center color-red background-parallax-slide">
     <div class=" container col-md-12">
         <h1 class="titulo-slide">Cadastre-se e concorra a bolsas de estudo e diversos prêmios.</h1>
         <p class="descricao-slide">Faça seu cadastro para ter acesso ao teste seletivo e
@@ -77,12 +77,12 @@
     <div class="container text-center col-md-12">
         <h1 class="titulo-slide">Como ganhar Bolsa de Estudos e concorrer a vários prêmios.</h1>
         <div class="divider"></div>
-        <p class="descricao-slide">Para concorrer às bolsas de estudo e ainda concorrer a prêmios
-            você precisa se cadastrar e responder a um teste seletivo de apenas 5 perguntas objetivas.
-            Quem obter resultados acima da média receberá as bolsas disponíveis para sua cidade e ainda
-            concorrerá a prêmios.<br>
-            Para se cadastrar clique aqui:<br>
-            <a class="btn-saiba-mais add btn-enviar"
+        <p class="descricao-slide">Para concorrer às bolsas de estudo e vários prêmios você precisa
+            se cadastrar e responder a um teste seletivo com apenas 5 perguntas objetivas. Quem obter
+            resultados acima da média receberá as bolsas disponíveis para sua cidade e também concorre
+            aos prêmios de incentivo.<br>
+            Para se cadastrar clique aqui:<br><br
+            <a class="btn-saiba-mais btn-enviar"
                data-toggle="modal" data-target="#cadCandidato"
                href="">CADASTRE-SE</a></p>
     </div>
@@ -127,9 +127,10 @@
                 <div class="col-md-6">
                     <h1 class="titulo">Certificados</h1>
                     <div class="divider"></div>
-                    <p class="descricao-slide">Os Cursos Livres de formação continuada do PRONAP, tem base Legal no Decreto
-                        Nº 5.154, 23 de Julho de 2004, Art. 1º e 3º e de acordo com as normas do Ministério da Educação
-                        (MEC) pela Resolução CNE nº 04/09, Art. 11º. Válido em todo Território Nacional.</p>
+                    <p class="descricao-slide">O PRONAP oferece cursos de formação continuada que tem
+                        base Legal no Decreto Nº 5.154, 23 de Julho de 2004, Art. 1º e 3º e de acordo
+                        com as normas do Ministério da Educação (MEC) pela Resolução CNE nº 04/09, Art.
+                        11º. Válido em todo Território Nacional.</p>
                 </div>
             </div>
         </div>
@@ -160,12 +161,12 @@
 
 
 
-<div class="video-background">
-    <div class="video-foreground">
-        <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ"
-                frameborder="0" allowfullscreen></iframe>
-    </div>
-</div>
+{{--<div class="video-background">--}}
+    {{--<div class="video-foreground">--}}
+        {{--<iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ"--}}
+                {{--frameborder="0" allowfullscreen></iframe>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
 

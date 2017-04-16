@@ -36,138 +36,35 @@
         </nav>
     </header>
     <!-- Final Menu -->
-    <section class="slide">
+    <section class="slide2">
         <div class="container">
-
             <div class="col md-12">
-                <h1>CURSOS DISPONIVEIS</h1></p>
+                <h1>Cursos oferecidos pelo PRONAP</h1>
+                <p class="descricao">(os cursos disponíveis em cada cidade podem variar de acordo com as demandas identificadas e parcerias realizadas)</p>
             </div>
-
-            <div >
-                <ul class="list">
-                    <li><a href="">Mostrar todos</a></li>
-                    <li>/</li>
-                    <li><a href="">Operador de Computador</a></li>
-                    <li>/</li>
-                    <li><a href="">Designer Gráfico</a></li>
-                    <li>/</li>
-                    <li><a href="">Web Designer</a></li>
-                    <li>/</li>
-                    <li><a href="">Desenhista CAD</a></li>
-                    <li>/</li>
-                    <li><a href="">Programador</a></li>
-                    <li>/</li>
-                    <li><a href="">Desenvolvimento Jogos</a></li>
-                </ul>
+            <div class="toolbar mb2 mt2">
+                <button class="btnx fil-cat" data-rel="all">Mostrar todos</button>
+                @foreach($pacotes as $pacote)
+                <button class="btnx fil-cat" data-rel="{{$pacote->id}}">{{$pacote->nome}}</button>
+                @endforeach
             </div>
-
         </div>
-        <div class="container">
-
-            <div class="">
-                <div class="row">
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/windows.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/word2016.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/excel2016.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/powerpoint2016.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/access2016.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/corelx7.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/photoshopcs6.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/photoshopcs6projeto.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/indesign.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/illustratorcs6.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/3ds.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/html5.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/css.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/dreamweavercs6.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/flashcs6.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/fireworkscs6.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/fireworkscs6site.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/autocad2016basico.png')}}" alt="">
-                        </div>
-                    </article>
-                    <article class="col-md-3 box-curso">
-                        <div>
-                            <img class="img-responsive" src="{{url('assets/img/cursos/autocad2016projcivil.png')}}" alt="">
-                        </div>
-                    </article>
-
-
-                </div>
+        <div class="container center-block">
+            {{--<div style="clear:both;"></div>--}}
+            <div id="portfolio">
+                @forelse($data as $curso)
+                    <div class="tile scale-anm all {{$curso->id_pacote}}">
+                        <img class="img-responsive" src="{{url('assets/uploads/img-cursos/')}}/{{$curso->imagem}}" alt="{{$curso->imagem}}">
+                    </div>
+                @empty
+                    <tr>
+                        <td colspan="500"></td>
+                    </tr>
+                @endforelse
             </div>
-
         </div>
     </section>
+    <div style="clear:both;"></div>
 
 
 

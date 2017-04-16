@@ -12,6 +12,7 @@
 
     <!-- Styles -->
 {{--<link href="/css/app.css" rel="stylesheet">--}}
+
 <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <!-- Optional theme -->
@@ -29,6 +30,11 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <style type="text/css">
+        .img-list {
+            max-height: 50px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -57,22 +63,10 @@
                 @else
                 <ul class="nav navbar-nav">
                     <li><a href="/admin/home">Alunos</a></li>
-                    <li><a href="/admin/curso">Cursos</a></li>
+                    <li><a href="/admin/cursos">Cursos</a></li>
                     <li><a href="/admin/pacote">Pacotes</a></li>
                     <li><a href="/admin/premios">Premios</a></li>
                     <li><a href="/admin/empresas">Empresas Parceiras</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
                 </ul>
             @endif
                 <!-- Right Side Of Navbar -->
@@ -110,12 +104,99 @@
     </nav>
 
     @yield('content')
+
 </div>
 
 
 <!-- Scripts -->
 {{--<script src="/js/app.js"></script>--}}
 <script type="text/javascript" src="{{url('assets/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/jquery.mask.js')}}"></script>
+
+<script>
+    $(document).ready(function() {
+        //limpa formulário
+        $("#form-cad-edit").trigger("reset");
+
+        //aplica mascára nos inputs
+        $('#telefone').mask('(00)0000-0000');
+        $('#cep').mask('00000-000');
+        $('#cnpj').mask('00.000.000/0000-00');
+    });
+
+</script>
+<script type="text/javascript">
+
+    function limpa_formulário_cep() {
+        //Limpa valores do formulário de cep.
+        document.getElementById('rua').value = ("");
+//        document.getElementById('bairro').value = ("");
+        document.getElementById('cidade').value = ("");
+        document.getElementById('uf').value = ("");
+//        document.getElementById('ibge').value = ("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            jQuery(".cep-msg ").show();
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value = (conteudo.logradouro);
+//            document.getElementById('bairro').value = (conteudo.bairro);
+            document.getElementById('cidade').value = (conteudo.localidade);
+            document.getElementById('uf').value = (conteudo.uf);
+//            document.getElementById('ibge').value = (conteudo.ibge);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if (validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value = "...";
+//                document.getElementById('bairro').value = "...";
+                document.getElementById('cidade').value = "...";
+                document.getElementById('uf').value = "...";
+//                document.getElementById('ibge').value = "...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+</script>
 
 <script>
 

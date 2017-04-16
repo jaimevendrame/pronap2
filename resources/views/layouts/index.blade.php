@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>PRONAP</title>
     <!--CSS Personalizado-->
-    <link rel="stylesheet"  href="{{url('assets/css/pronap.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/pronap.css')}}">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <!-- Optional theme -->
@@ -32,6 +32,21 @@
 <script type="text/javascript" src="{{url('assets/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{url('assets/js/jquery.mask.js')}}"></script>
 <script>
+    $(function() {
+        var selectedClass = "";
+        $(".fil-cat").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(100, 0.1);
+            $("#portfolio div").not("."+selectedClass).fadeOut().removeClass('scale-anm');
+            setTimeout(function() {
+                $("."+selectedClass).fadeIn().addClass('scale-anm');
+                $("#portfolio").fadeTo(300, 1);
+            }, 300);
+
+        });
+    });
+</script>
+<script>
     $(function () {
         jQuery("#form-add-aluno").submit(function () {
             $("#telefone").unmask();
@@ -53,11 +68,12 @@
 
                     jQuery(".success-msg").html(
                         "<h1>Seu Cadastro foi realizado com sucesso!</h1><br>" +
-                        "<h4>Você receberá seu teste por SMS</h4>"
+                        "<h4>Você receberá seu teste por SMS</h4>" +
+                        "<button type='button' class='btn btn-default btn-lg' data-dismiss='modal'>Fechar</button>"
                     );
                     jQuery(".success-msg").show();
 
-                    setTimeout("location.reload();", 5000);
+//                    setTimeout("location.reload();", 5000);
 
                 } else {
                     jQuery(".errors-msg").html(data);
@@ -155,8 +171,7 @@
             //cep sem valor, limpa formulário.
             limpa_formulário_cep();
         }
-    }
-    ;
+    };
 
 </script>
 
@@ -204,16 +219,16 @@
                                    readOnly="readOnly"/>
                         </div>
                         {{--<div class=" form-group col-md-4">--}}
-                            {{--<input class="form-control" name="ibge" type="text" id="ibge" placeholder="IBGE"--}}
-                                   {{--readOnly="readOnly"/>--}}
+                        {{--<input class="form-control" name="ibge" type="text" id="ibge" placeholder="IBGE"--}}
+                        {{--readOnly="readOnly"/>--}}
                         {{--</div>--}}
 
                         {{--<div class="cep-msg alert alert-info col-md-12" style="display:none;">--}}
 
-                            {{--<div class="form-group col-md-8">--}}
-                                {{--<input class="form-control" name="rua" type="text" id="rua" placeholder="rua"--}}
-                                       {{--readOnly="readOnly"/>--}}
-                            {{--</div>--}}
+                        {{--<div class="form-group col-md-8">--}}
+                        {{--<input class="form-control" name="rua" type="text" id="rua" placeholder="rua"--}}
+                        {{--readOnly="readOnly"/>--}}
+                        {{--</div>--}}
 
                         {{--</div>--}}
                         <div class=" row">
@@ -337,12 +352,13 @@
 
                             <div class="modal-footer">
 
+                                <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
 
                                 <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar
                                 </button>
                                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
                             </div>
-                            <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
+
                         </div>
 
                     </form>

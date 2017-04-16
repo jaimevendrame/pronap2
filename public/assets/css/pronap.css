@@ -53,7 +53,7 @@ h1 {
 
 
 /*Backgrounds Parallax*/
-.background-parallax-slide{background: url("../img/background-parallax-home.png"); background-attachment: fixed;}
+.background-parallax-slide{background: url("../img/parralax-background-1.jpg"); background-attachment: fixed;}
 .background-parallax-detalhes{
     background: url("../img/background-parallax.png");
     background-attachment: fixed;
@@ -64,6 +64,8 @@ h1 {
 
 /*Cores*/
 .color-white{color: #FFF;}
+.color-blue{color: #1f648b;}
+.color-red{color: darkred;}
 .color-web{
     color: #357CB8;
 }
@@ -73,6 +75,13 @@ h1 {
 .color-black{
     background-color: #1a1a1a;
 }
+
+.vertical {
+    padding: 5%;
+    width: 100%;
+    height: 100%;
+    line-height:150px;
+    vertical-align: middle;}
 
 .background-color-white{
     background-color: #FFFFFF;
@@ -97,7 +106,9 @@ a:hover{text-decoration: none !important;}
     border-width: thin;
 }
 .btn-saiba-mais.add{
-    background: transparent;
+    /*background: transparent;*/
+    background-color: midnightblue;
+    border-color: midnightblue;
 }
 
 .btn-saiba-mais.large {
@@ -150,6 +161,16 @@ a:hover{text-decoration: none !important;}
     box-sizing: border-box;
     box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
     transform-style: inherit;
+}
+
+.slide2 {
+    /*position: relative;*/
+    padding: 10% 10%;
+    /*min-height: 100%;*/
+    /*width: 100%;*/
+    /*box-sizing: border-box;*/
+    /*box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);*/
+    /*transform-style: inherit;*/
 }
 
 .slide.safe {
@@ -399,30 +420,6 @@ ul.list li{
     left: 0;
     margin-top: 10px;
 }
-/*@media screen and (max-width: 468px) {*/
-    /*.titulo-slide{font-size: 26px;}*/
-    /*.descricao-slide{padding-bottom: 20px; font-size: 14px;}*/
-    /*.btn-saiba-mais {font-size: 12px;}*/
-    /*.btn-cad {padding: 30px 0px;}*/
-/*}*/
-
-/*@media screen and (max-width: 768px) {*/
-    /*.titulo-slide{font-size: 26px;}*/
-    /*.descricao-slide{padding-bottom: 20px; font-size: 14px;}*/
-    /*.btn-saiba-mais {font-size: 12px;}*/
-    /*.btn-cad {padding: 30px 0px;}*/
-/*}*/
-
-/*@media screen and (min-width: 992px) {*/
-    /*.titulo-slide{font-size: 68px;}*/
-    /*.btn-cad {padding: 30px 0px;}*/
-/*}*/
-
-/*@media screen and (min-width: 1200px) {*/
-    /*.titulo-slide{*/
-        /*font-size: 78px;*/
-    /*}*/
-/*}*/
 
 @media  screen and (max-width: 480px) {
     .titulo-slide{font-size: 20px;}
@@ -456,3 +453,92 @@ ul.list li{
     .descricao-slide{padding-bottom: 20px; font-size: 32px;}
     .slide {min-height: 100%;}
 }
+
+
+
+#portfolio {
+    margin: 1rem 0;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+    -webkit-column-width: 33.33333333333333%;
+    -moz-column-width: 33.33333333333333%;
+    column-width: 33.33333333333333%;
+}
+.tile {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+
+}
+.tile:hover {
+
+}
+
+.scale-anm {
+    transform: scale(1);
+}
+
+
+/*p{*/
+    /*padding:10px;*/
+    /*border-bottom: 1px #ccc dotted;*/
+    /*text-decoration: none;*/
+    /*font-family: lato;*/
+    /*text-transform:uppercase;*/
+    /*font-size: 12px;*/
+    /*color: #333;*/
+    /*display:block;*/
+    /*float:left;*/
+/*}*/
+
+/*p:hover {*/
+    /*cursor:pointer;*/
+    /*background: #333;*/
+    /*color:#eee; }*/
+
+.tile img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+
+}
+
+.btnx {
+    font-family: Lato;
+    font-size: 2rem;
+    font-weight: normal;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    padding: .5rem 1rem;
+    margin: 5px;
+    height: auto;
+    border: 1px solid;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    color: #555;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: none;
+    border-color: var(--darken-2);
+    box-shadow: 0 0 0 3px var(--darken-3);
+}
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+

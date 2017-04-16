@@ -13,38 +13,43 @@
             </div>
         @endif
         @if( isset($data))
-            <form class="form-group" method="post" action="/admin/pacote/editar/{{$data->id}}">
+            <form class="form-group" method="post" action="/admin/premios/editar/{{$data->id}}">
         @else
-            <form class="form-group" method="post" action="/admin/pacote/cadastrar">
+            <form class="form-group" method="post" action="/admin/premios/cadastrar">
         @endif
                 {{ csrf_field() }}
                 <div class="form-group">
                     <input type="text" class="form-control" id="InputName" name="nome"
-                           placeholder="NOME DA PREMIa
-                           ÇÃO" value="{{$data->nome or old('nome')}}">
+                           placeholder="NOME DA PREMIAÇÃO" value="{{$data->nome or old('nome')}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="InputName" name="ordem"
+                    <input type="text" class="form-control" id="InputName" name="qtde_insc"
                            placeholder="Qtde. Inscritos" value="{{$data->qtde_insc or old('qtde_insc')}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="InputName" name="ordem"
+                    <input type="text" class="form-control" id="InputName" name="qtde_bolsas_integrais"
                            placeholder="Qtde. Bolsas Integrais" value="{{$data->qtde_bolsas_integrais or old('qtde_bolsas_integrais')}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="InputName" name="ordem"
+                    <input type="text" class="form-control" id="InputName" name="qtde_bolsas_parciais"
                            placeholder="Qtde. Bolsas Parciais" value="{{$data->qtde_bolsas_parciais or old('qtde_bolsas_parciais')}}">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" id="InputName" name="ordem"
+                    <input type="text" class="form-control" id="InputName" name="qtde_smartwatch"
                            placeholder="Qtde. Smartwatch" value="{{$data->qtde_smartwatch or old('qtde_smartwatch')}}">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" id="InputName" name="ordem"
+                    <input type="text" class="form-control" id="InputName" name="qtde_tablets"
+                           placeholder="Qtde. Tablets" value="{{$data->qtde_tablets or old('qtde_tablets')}}">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="InputName" name="qtde_smartphone"
                            placeholder="Qtde. Smartphones" value="{{$data->qtde_smartphone or old('qtde_smartphone')}}">
                 </div>
+
 
                 <div class="prelaoder" style="display: none">Enviando os dados, por favor aguarde...</div>
 

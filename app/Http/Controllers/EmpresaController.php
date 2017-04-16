@@ -105,7 +105,9 @@ class EmpresaController extends StandardController
 
     public function empresas(){
 
-        return view('empresas.empresas-parceiras');
+        $data = $this->model->all();
+
+        return view('empresas.empresas-parceiras', compact('data'));
 
     }
 }
