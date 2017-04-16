@@ -35,6 +35,8 @@ Route::get('/sms/{idAluno}', 'AlunoController@sms');
 Route::get('/cursos-disponiveis', 'CursoController@pacote_cursos');
 
 Route::get('/premios', 'PremioController@premios');
+Route::get('/premios-pesquisa', 'PremioController@pesquisa2');
+Route::post('/premios-pesquisa', 'PremioController@pesquisa2');
 
 Route::get('/empresas', 'EmpresaController@empresas');
 

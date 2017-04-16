@@ -38,50 +38,110 @@
         <div class="container">
 
             <div class="col md-12">
-                <h1>QUANTIDADE PRÊMIOS DEPENDENDO DA QUANTIDADE DE PESSOAS CADASTRADAS</h1>
+                <h4>A QUANTIDADE DE PRÊMIOS DEPENDE DA QUANTIDADE DE PESSOAS CADASTRADAS EM SUA CIDADE.
+                    AVISE SEUS AMIGOS, COMPARTILHE ESSA OPORTUNIDADE!
+                    (COMPARTILHAR NO FACEBOOK MARQUE SEUS AMIGOS)</h4>
             </div>
-
+            <div class="container">
+                <div class="col-md-10 col-lg-offset-1 ter-block">
+                    <form id="form-premios" method="POST" action="/premios-pesquisa">
+                        {{ csrf_field() }}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="cep-cidade" name="cep"
+                                       placeholder="Digite o seu CEP" onblur="pesquisacep(this.value);">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group ">
+                                <input type="text" class="form-control" id="telefone-premio" name="telefone"
+                                       placeholder="Digite seu Celular" onblur="tirarmascara();">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                                <button type="submit" class="btn btn-success">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
+        <div class="container">
 
-        <div class="container padding-30">
-            <div class="col-md-12">
-                <table class="table table-hover">
-                    <tr>
-                        <th>Qtde. Inscrintos</th>
-                        <th>Bolsas Integrais</th>
-                        <th>Bolsas Parciais</th>
-                        <th>Smartwatchs</th>
-                        <th>Tablets</th>
-                        <th>Smartphons</th>
-                    </tr>
-                    @forelse( $data as $premio)
-                        <tr>
-                            <td>{{$premio->qtde_insc}}</td>
-                            <td>{{$premio->qtde_bolsas_integrais}}</td>
-                            <td>{{$premio->qtde_bolsas_parciais}}</td>
-                            <td>{{$premio->qtde_smartwatch}}</td>
-                            <td>{{$premio->qtde_tablets}}</td>
-                            <td>{{$premio->qtde_smartphone}}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="500">Nenhum registro cadastrado!</td>
-                        </tr>
-                    @endforelse
+            @if(isset($alunos))
 
-                </table>
+                @forelse($alunos as $aluno)
+                    <div class="msg alert alert-info text-center">
+                        <h4>Olá, <strong>{{$aluno->nome}}</strong>, com mais inscritos suas chances aumentam.</h4>
+                        <br>
+                        @if( isset($total_inscritos))
+                            <h4>Até momento temos <strong>{{$total_inscritos}}</strong> inscrito(s) em sua cidade</h4>
+                            @endif
+                    </div>
+                 @empty
+                    <h2>Você ainda não é cadastrado!</h2>
+                @endforelse
+            @endif
+
+
+            <div class="container padding-30">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-condensed">
+                            <tr>
+                                <th>Qtde. Inscritos</th>
+                                <th>Bolsas Integrais</th>
+                                <th>Bolsas Parciais</th>
+                                <th>Smartwatchs</th>
+                                <th>Tablets</th>
+                                <th>Smartphones</th>
+                            </tr>
+                            @forelse( $data as $premio)
+                                <tr>
+                                    <td>{{$premio->qtde_insc}}</td>
+                                    <td>{{$premio->qtde_bolsas_integrais}}</td>
+                                    <td>{{$premio->qtde_bolsas_parciais}}</td>
+                                    <td>{{$premio->qtde_smartwatch}}</td>
+                                    <td>{{$premio->qtde_tablets}}</td>
+                                    <td>{{$premio->qtde_smartphone}}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="500">Nenhum registro cadastrado!</td>
+                                </tr>
+                            @endforelse
+
+                        </table>
+                    </div>
+                </div>
             </div>
-
-            <div>
-
-
-            </div>
-
 
     </section>
 
 
 
 
+@endsection
+
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            //limpa formulário
+            $("#form-premios").trigger("reset");
+
+            //aplica mascára nos inputs
+            $('#telefone-premio').mask('(00) 0 0000-0000');
+            $('#cep-cidade').mask('00000-000');
+        });
+
+        function tirarmascara() {
+            $("#telefone-premio").unmask();
+        };
+
+
+
+    </script>
 @endsection
