@@ -17,18 +17,16 @@
 
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right menu">
-                        <li><a onclick="$('#home').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Home</a>
+                        <li><a href="../#participar">Como Participar</a></li>
+                        <li><a href="../#cursos">Cursos</a>
                         </li>
-                        <li><a onclick="$('#participar').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Como
-                                Participar</a></li>
-                        <li>
-                            <a onclick="$('#cursos').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Cursos</a>
+                        <li><a href="../#certificado">Certificados</a>
                         </li>
-                        <li><a onclick="$('#certificado').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Certificados</a>
+                        <li><a href="/premios">Prêmios</a>
+                        </li>
+                        <li><a href="/empresas">Empresas Parceiras</a>
                         </li>
                         <li><a class="btn-menu add btn-enviar" href="" data-toggle="modal" data-target="#cadCandidato">CADASTRE-SE</a>
-                        </li>
-                        <li><a class="btn-menu" href="{{ url('/admin/login') }}">ENTRAR</a>
                         </li>
                     </ul>
                 </div>
