@@ -317,19 +317,19 @@
                                         <label>
                                             <input type="radio" name="escolaridade" id="escolaRadio1" value="1"
                                                    checked>
-                                            Fundamental cursando
+                                            Fundamental cursando.
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="escolaridade" id="escolaRadio2" value="2">
-                                            Fundamental completo
+                                            Fundamental completo.
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="escolaridade" id="escolaRadio3" value="3">
-                                            Médio cursando
+                                            Médio cursando.
                                         </label>
                                     </div>
                                 </div>
@@ -337,19 +337,19 @@
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="escolaridade" id="escolaRadio4" value="4">
-                                            Médio completo
+                                            Médio completo.
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="escolaridade" id="escolaRadio5" value="5">
-                                            Superior cursando
+                                            Superior cursando.
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="escolaridade" id="escolaRadio6" value="6">
-                                            Superior completo
+                                            Superior completo.
                                         </label>
                                     </div>
                                     <input type="hidden" name="in_teste" value="false">

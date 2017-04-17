@@ -40,7 +40,8 @@
             <div class="col md-12">
                 <h4>A QUANTIDADE DE PRÊMIOS DEPENDE DA QUANTIDADE DE PESSOAS CADASTRADAS EM SUA CIDADE.
                     AVISE SEUS AMIGOS, COMPARTILHE ESSA OPORTUNIDADE!
-                    (COMPARTILHAR NO FACEBOOK MARQUE SEUS AMIGOS)</h4>
+                    </h4>
+                {{--(COMPARTILHAR NO FACEBOOK MARQUE SEUS AMIGOS)--}}
             </div>
             <div class="container">
                 <div class="col-md-10 col-lg-offset-1 ter-block">
@@ -77,7 +78,7 @@
                         <h4>Olá, <strong>{{$aluno->nome}}</strong>, com mais inscritos suas chances aumentam.</h4>
                         <br>
                         @if( isset($total_inscritos))
-                            <h4>Até momento temos <strong>{{$total_inscritos}}</strong> inscrito(s) em sua cidade</h4>
+                            <h4>Até o momento temos <strong>{{$total_inscritos}}</strong> inscrito(s) em sua cidade</h4>
                             @endif
                     </div>
                  @empty

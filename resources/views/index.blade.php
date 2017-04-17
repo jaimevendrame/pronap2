@@ -38,7 +38,7 @@
 </header>
 <!-- Final Menu -->
 <div class="clear"></div>
-<section id="home" class="slide text-center color-red background-parallax-slide">
+<section id="home" class="slide text-center background-parallax-slide">
     <div class=" container col-md-12">
         <h1 class="titulo-slide">Cadastre-se e concorra a bolsas de estudo e diversos prêmios.</h1>
         <p class="descricao-slide">Faça seu cadastro para ter acesso ao teste seletivo e
