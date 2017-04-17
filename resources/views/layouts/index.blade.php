@@ -115,6 +115,7 @@
         document.getElementById('uf').value = ("");
 //        document.getElementById('ibge').value = ("");
         document.getElementById('cep-cidade').value = ("");
+        document.getElementById('cep').value = ("");
 
     }
 
@@ -132,6 +133,7 @@
         else {
             //CEP não Encontrado.
             limpa_formulário_cep();
+
             alert("CEP não encontrado.");
         }
     }

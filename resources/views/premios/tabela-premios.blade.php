@@ -82,7 +82,10 @@
                             @endif
                     </div>
                  @empty
-                    <h2>Você ainda não é cadastrado!</h2>
+                    <div class="alert alert-warning text-center">
+                        <h4>Você ainda não é cadastrado!</h4>
+                        <a class=""data-toggle="modal" data-target="#cadCandidato">CADASTRE-SE</a>
+                    </div>
                 @endforelse
             @endif
 
