@@ -20,9 +20,9 @@ class Curso extends Model
 
     public $rules = [
         'nome' => 'required|min:3|max:100',
-        'descricao' => 'required|min:3|max:255',
+        'descricao' => 'required|min:3',
         'id_pacote' => 'required',
-        'objetivo' => 'required|min:3|max:255',
+        'objetivo' => 'required|min:3',
         'carga' => 'required|min:1|max:30',
         'ordem' => 'required',
         'imagem' => 'required|image|max:5000|mimes:jpg,png,jpeg'
@@ -30,9 +30,9 @@ class Curso extends Model
 
     public $rulesEdit = [
         'nome' => 'required|min:3|max:100',
-        'descricao' => 'required|min:3|max:255',
+        'descricao' => 'required|min:3',
         'id_pacote' => 'required',
-        'objetivo' => 'required|min:3|max:255',
+        'objetivo' => 'required|min:3',
         'carga' => 'required|min:1|max:30',
         'ordem' => 'required',
         'imagem' => 'image|max:5000|mimes:jpg,png,jpeg'
