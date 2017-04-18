@@ -57,10 +57,14 @@
             jQuery.ajax({
                 url: 'add-aluno',
                 data: dadosForm,
-                method: 'POST'
+                method: 'POST',
+                beforeSend: iniciaPreloader()
+
 
 
             }).done(function (data) {
+
+                finalizaPreloader();
 
                 if (data == '1') {
                     jQuery(".errors-msg").hide();
@@ -70,7 +74,7 @@
                     jQuery(".success-msg").html(
                         "<h1>Seu Cadastro foi realizado com sucesso!</h1><br>" +
                         "<h4>Você receberá seu teste por SMS</h4>" +
-                        "<button type='button' class='btn btn-default btn-lg' data-dismiss='modal'>Fechar</button>"
+                        "<button type='button' class='btn btn-default btn-lg' data-dismiss='modal' onclick='location.reload()'>Fechar</button>"
                     );
                     jQuery(".success-msg").show();
 
@@ -81,6 +85,7 @@
                     jQuery(".errors-msg").show();
                 }
             }).fail(function () {
+                finalizaPreloader();
                 alert('Falha ao enviar dados!!');
             });
 
@@ -90,6 +95,13 @@
 
     });
 
+
+    function iniciaPreloader() {
+        jQuery(".prelaoder").show();
+    }
+    function finalizaPreloader() {
+        jQuery(".prelaoder").hide();
+    }
 
     jQuery(".btn-enviar").click(function () {
 
@@ -105,85 +117,169 @@
 
 @yield('scripts')
 
-<script type="text/javascript">
+<!-- nova api cep -->
 
-    function limpa_formulário_cep() {
-        //Limpa valores do formulário de cep.
-//        document.getElementById('rua').value = ("");
-        document.getElementById('bairro').value = ("");
-        document.getElementById('cidade').value = ("");
-        document.getElementById('uf').value = ("");
-//        document.getElementById('ibge').value = ("");
-        document.getElementById('cep-cidade').value = ("");
-        document.getElementById('cep').value = ("");
+<script type="text/javascript" >
 
-    }
+    $(document).ready(function() {
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            jQuery(".cep-msg ").show();
-            //Atualiza os campos com os valores.
-//            document.getElementById('rua').value = (conteudo.logradouro);
-            document.getElementById('bairro').value = (conteudo.bairro);
-            document.getElementById('cidade').value = (conteudo.localidade);
-            document.getElementById('uf').value = (conteudo.uf);
-//            document.getElementById('ibge').value = (conteudo.ibge);
-            document.getElementById('cep-cidade').value = (conteudo.localidade);
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-
-            alert("CEP não encontrado.");
+        function limpa_formulário_cep() {
+            // Limpa valores do formulário de cep.
+            $("#rua").val("");
+            $("#bairro").val("");
+            $("#cidade").val("");
+            $("#uf").val("");
+            $("#ibge").val("");
+            $("#cep-cidade").val("");
         }
-    }
 
-    function pesquisacep(valor) {
-        $("#cep-cidade").unmask();
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
+        //Quando o campo cep perde o foco.
+        $("#cep, #cep-cidade").blur(function() {
 
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
+            //Nova variável "cep" somente com dígitos.
+            var cep = $(this).val().replace(/\D/g, '');
 
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
 
-            //Valida o formato do CEP.
-            if (validacep.test(cep)) {
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-//                document.getElementById('rua').value = "...";
-                document.getElementById('bairro').value = "...";
-                document.getElementById('cidade').value = "...";
-                document.getElementById('uf').value = "...";
-//                document.getElementById('ibge').value = "...";
-                document.getElementById('cep-cidade').value = "...";
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    $("#rua").val("...");
+                    $("#bairro").val("...");
+                    $("#cidade").val("...");
+                    $("#uf").val("...");
+                    $("#ibge").val("...");
+                    $("#cep-cidade").val("...");
+                    $(':input[type="submit"]').prop('disabled', true);
 
 
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
+                    //Consulta o webservice viacep.com.br/
+                    $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
 
-                //Sincroniza com o callback.
-                script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
+                        if (!("erro" in dados)) {
+                            //Atualiza os campos com os valores da consulta.
+                            $("#rua").val(dados.logradouro);
+                            $("#bairro").val(dados.bairro);
+                            $("#cidade").val(dados.localidade);
+                            $("#uf").val(dados.uf);
+                            $("#ibge").val(dados.ibge);
+                            $("#cep-cidade").val(dados.localidade);
+                            $(':input[type="submit"]').prop('disabled', false);
+                        } //end if.
+                        else {
+                            //CEP pesquisado não foi encontrado.
+                            limpa_formulário_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
             } //end if.
             else {
-                //cep é inválido.
+                //cep sem valor, limpa formulário.
                 limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
             }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-        }
-    };
+        });
+    });
 
 </script>
+
+<!-- fim api-->
+
+
+
+
+
+{{--<script type="text/javascript">--}}
+
+    {{--function limpa_formulário_cep() {--}}
+        {{--//Limpa valores do formulário de cep.--}}
+{{--//        document.getElementById('rua').value = ("");--}}
+        {{--document.getElementById('bairro').value = ("");--}}
+        {{--document.getElementById('cidade').value = ("");--}}
+        {{--document.getElementById('uf').value = ("");--}}
+{{--//        document.getElementById('ibge').value = ("");--}}
+        {{--document.getElementById('cep-cidade').value = ("");--}}
+        {{--document.getElementById('cep').value = ("");--}}
+
+    {{--}--}}
+
+    {{--function meu_callback(conteudo) {--}}
+        {{--if (!("erro" in conteudo)) {--}}
+            {{--jQuery(".cep-msg ").show();--}}
+            {{--//Atualiza os campos com os valores.--}}
+{{--//            document.getElementById('rua').value = (conteudo.logradouro);--}}
+            {{--document.getElementById('bairro').value = (conteudo.bairro);--}}
+            {{--document.getElementById('cidade').value = (conteudo.localidade);--}}
+            {{--document.getElementById('uf').value = (conteudo.uf);--}}
+{{--//            document.getElementById('ibge').value = (conteudo.ibge);--}}
+            {{--document.getElementById('cep-cidade').value = (conteudo.localidade);--}}
+        {{--} //end if.--}}
+        {{--else {--}}
+            {{--//CEP não Encontrado.--}}
+            {{--limpa_formulário_cep();--}}
+
+            {{--alert("CEP não encontrado.");--}}
+        {{--}--}}
+    {{--}--}}
+
+    {{--function pesquisacep(valor) {--}}
+        {{--alert("teste");--}}
+        {{--$("#cep-cidade").unmask();--}}
+        {{--//Nova variável "cep" somente com dígitos.--}}
+        {{--var cep = valor.replace(/\D/g, '');--}}
+
+        {{--//Verifica se campo cep possui valor informado.--}}
+        {{--if (cep != "") {--}}
+
+            {{--//Expressão regular para validar o CEP.--}}
+            {{--var validacep = /^[0-9]{8}$/;--}}
+
+            {{--//Valida o formato do CEP.--}}
+            {{--if (validacep.test(cep)) {--}}
+
+                {{--//Preenche os campos com "..." enquanto consulta webservice.--}}
+{{--//                document.getElementById('rua').value = "...";--}}
+                {{--document.getElementById('bairro').value = "...";--}}
+                {{--document.getElementById('cidade').value = "...";--}}
+                {{--document.getElementById('uf').value = "...";--}}
+{{--//                document.getElementById('ibge').value = "...";--}}
+                {{--document.getElementById('cep-cidade').value = "...";--}}
+
+
+                {{--//Cria um elemento javascript.--}}
+                {{--var script = document.createElement('script');--}}
+
+                {{--//Sincroniza com o callback.--}}
+                {{--script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';--}}
+
+                {{--//Insere script no documento e carrega o conteúdo.--}}
+                {{--document.body.appendChild(script);--}}
+
+            {{--} //end if.--}}
+            {{--else {--}}
+                {{--//cep é inválido.--}}
+                {{--limpa_formulário_cep();--}}
+                {{--alert("Formato de CEP inválido.");--}}
+            {{--}--}}
+        {{--} //end if.--}}
+        {{--else {--}}
+            {{--//cep sem valor, limpa formulário.--}}
+            {{--limpa_formulário_cep();--}}
+        {{--}--}}
+    {{--};--}}
+
+
+{{--</script>--}}
 
 <!-- Modal -->
 <div class="modal fade" id="cadCandidato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -214,7 +310,7 @@
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control cep" id="cep" name="cep" placeholder="CEP"
-                                   onblur="pesquisacep(this.value);">
+                                   >
                         </div>
                         <div class="form-group col-md-4">
                             <input class="form-control" name="bairro" type="text" id="bairro" placeholder="Bairro"
@@ -363,10 +459,10 @@
                             <div class="modal-footer">
 
                                 <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
-
+                                <div class="prelaoder" id="prelaoder" style="display: none">Enviando dados...</div>
                                 <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar
                                 </button>
-                                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                <input type="submit" class="btn btn-primary btn-lg">
                             </div>
 
                         </div>

@@ -40,6 +40,8 @@ Route::post('/premios-pesquisa', 'PremioController@pesquisa2');
 
 Route::get('/empresas', 'EmpresaController@empresas');
 
+Route::get('defaultsend', 'EmailController@defaultSend');
+
 
 Route::get('/home', function (){
     return redirect()->route('admin.home');

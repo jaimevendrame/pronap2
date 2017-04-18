@@ -110,4 +110,12 @@ class EmpresaController extends StandardController
         return view('empresas.empresas-parceiras', compact('data'));
 
     }
+
+    public function mail(){
+
+        $data = $this->model->all();
+
+        return view('empresas.empresas-parceiras', compact('data'));
+
+    }
 }

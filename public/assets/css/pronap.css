@@ -49,6 +49,8 @@ h1 {
     font-size: 400%;
     color: #fff;
     text-shadow: 0 2px 2px #ccc;
+    color:#FFFFFF; text-shadow:#000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px
+
 }
 
 
@@ -65,7 +67,9 @@ background-size: cover; align-content: flex-end;}
 
 /*Cores*/
 .color-white{color: #FFF;}
-.color-blue{color: #1f648b;}
+.color-blue{
+    color:#FFFFFF; text-shadow:#000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px
+}
 .color-red{color: darkred;}
 .color-web{
     color: #357CB8;

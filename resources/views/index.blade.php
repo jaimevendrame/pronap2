@@ -42,8 +42,8 @@
     <div class="clear"></div>
     <section id="home" class="slide text-center background-parallax-slide">
         <div class=" container col-md-12">
-            <h1 class="titulo-slide">Cadastre-se e concorra a bolsas de estudo e diversos prêmios.</h1>
-            <p class="descricao-slide">Faça seu cadastro para ter acesso ao teste seletivo e
+            <h1 class="titulo-slide color-blue">Cadastre-se e concorra a bolsas de estudo e diversos prêmios.</h1>
+            <p class="descricao-slide color-blue">Faça seu cadastro para ter acesso ao teste seletivo e
                 concorra a Bolsas de Estudo INTEGRAIS e PARCIAIS,
                 SMARTPHONES, TABLETS, SMARTWATCHS (<a href="/premios">consulte a premiação</a>)</p>
             <div class="col-md-6 col-sm-12">
@@ -150,7 +150,7 @@
         </div>
 
         <div class="contato-form">
-            <form class="especializati-form">
+            <form class="especializati-form" method="post" action="/mail">
                 <input type="text" name="nome" placeholder="Seu Nome">
                 <input type="email" name="email" placeholder="Seu E-mail">
                 <textarea name="descricao" placeholder="Sua mensagem"></textarea>

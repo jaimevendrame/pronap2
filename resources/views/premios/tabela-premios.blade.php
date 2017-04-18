@@ -42,6 +42,7 @@
                     AVISE SEUS AMIGOS, COMPARTILHE ESSA OPORTUNIDADE!
                     </h4>
                 {{--(COMPARTILHAR NO FACEBOOK MARQUE SEUS AMIGOS)--}}
+                <div class="form-group fb-like" data-href="http://pronap.info" data-width="550" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
             </div>
             <div class="container">
                 <div class="col-md-10 col-lg-offset-1 ter-block">
@@ -50,7 +51,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="cep-cidade" name="cep"
-                                       placeholder="Digite o seu CEP" onblur="pesquisacep(this.value);">
+                                       placeholder="Digite o seu CEP" >
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -148,4 +149,12 @@
 
 
     </script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=316115088513380";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 @endsection

@@ -4,6 +4,7 @@ namespace pronap\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
 use pronap\Http\Requests;
 use pronap\Aluno;
 
@@ -197,6 +198,18 @@ Favor usar um celular diferente para cada participante.'];
 
     public function cursos(){
         return view('aluno.cursos');
+    }
+
+    public function email(){
+
+
+
+//        Mail::send('aluno.index', ['teste' => '123'], function ($mail){
+//            $mail->to('jaime.vendrame@gmail.com','Jaime')->subject('Email teste');
+//        });
+
+
+return 'testo';
     }
 }
 
