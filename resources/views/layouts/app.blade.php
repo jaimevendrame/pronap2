@@ -67,6 +67,8 @@
                     <li><a href="/admin/pacote">Pacotes</a></li>
                     <li><a href="/admin/premios">Premios</a></li>
                     <li><a href="/admin/empresas">Empresas Parceiras</a></li>
+                    <li><a href="/admin/contatos">Contatos</a></li>
+                    <li><a href="/admin/controles">Controle</a></li>
                 </ul>
             @endif
                 <!-- Right Side Of Navbar -->

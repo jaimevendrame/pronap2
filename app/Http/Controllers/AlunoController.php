@@ -27,7 +27,7 @@ class AlunoController extends Controller
 
     public function addAluno()
     {
-        $dadosForm = $this->request->all();
+        $dadosForm = $this->aluno->all();
         dd($dadosForm);
     }
 

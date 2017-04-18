@@ -150,10 +150,14 @@
         </div>
 
         <div class="contato-form">
-            <form class="especializati-form" method="post" action="/mail">
+            <div class="container contato-errors-msg alert alert-danger text-center" style="display:none;"></div>
+            <div class="container contato-success-msg alert alert-success text-center" style="display:none;"></div>
+
+            <form class="especializati-form" id="especializati-form" method="post" action="/add-contato">
+                {{csrf_field()}}
                 <input type="text" name="nome" placeholder="Seu Nome">
                 <input type="email" name="email" placeholder="Seu E-mail">
-                <textarea name="descricao" placeholder="Sua mensagem"></textarea>
+                <textarea name="mensagem" placeholder="Sua mensagem"></textarea>
 
                 <input type="submit" name="enviar" value="Enviar">
             </form>

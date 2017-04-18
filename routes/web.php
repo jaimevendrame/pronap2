@@ -22,6 +22,9 @@ Route::get('/aluno', 'AlunoController@aluno');
 Route::get('/add-aluno', 'AlunoController@addAluno');
 Route::post('/add-aluno', 'AlunoController@addAlunoGo');
 
+Route::get('/add-contato', 'ContatoController@addContato');
+Route::post('/add-contato', 'ContatoController@addContatoGo');
+
 
 Route::get('/tst/{cell}', 'AlunoController@pesquisar');
 Route::get('/editar-aluno/', 'AlunoController@editar');
@@ -99,6 +102,26 @@ Route::group([
         Route::post('/cursos/editar/{id}', 'CursoController@editGo')->name('cursos-edit');
         Route::get('/cursos/delete/{id}', 'CursoController@delete')->name('cursos-delete');
         Route::post('/cursos/pesquisar', 'CursoController@pesquisar')->name('cursos-pesquisa');
+
+
+        //Gestão de Contatos
+        Route::get('/contatos', 'ContatoController@index')->name('contatos');
+        Route::get('/contatos/cadastrar', 'ContatoController@cadastrar')->name('contatos-cad');
+        Route::post('/contatos/cadastrar', 'ContatoController@cadastroGo')->name('contatos-cad');
+        Route::get('/contatos/editar/{id}', 'ContatoController@edit')->name('contatos-edit');
+        Route::post('/contatos/editar/{id}', 'ContatoController@editGo')->name('contatos-edit');
+        Route::get('/contatos/delete/{id}', 'ContatoController@delete')->name('contatos-delete');
+        Route::post('/contatos/pesquisar', 'ContatoController@pesquisar')->name('contatos-pesquisa');
+
+        //Gestão de Controle de Alunos
+        Route::get('/controles', 'ControleController@index')->name('controles');
+        Route::get('/controles/cadastrar', 'ControleController@cadastrar')->name('controles-cad');
+        Route::post('/controles/cadastrar', 'ControleController@cadastroGo')->name('controles-cad');
+        Route::get('/controles/editar/{id}', 'ControleController@edit')->name('controles-edit');
+        Route::post('/controles/editar/{id}', 'ControleController@editGo')->name('controles-edit');
+        Route::get('/controles/delete/{id}', 'ControleController@delete')->name('controles-delete');
+        Route::post('/controles/pesquisar', 'ControleController@pesquisar')->name('controles-pesquisa');
+
 
     });
 
