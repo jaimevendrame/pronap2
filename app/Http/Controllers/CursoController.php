@@ -137,14 +137,47 @@ class CursoController extends StandardController
                 ->withInput();
     }
 
+
+
     public function pacote_cursos()
     {
 
 
-        $data = $this->model->all();
+        $data = $this->model
+            ->join('pacotes','pacotes.id', '=', 'cursos.id_pacote')
+            ->select('cursos.*', 'pacotes.nome as pacotenome')
+            ->paginate($this->totalPorPagina);
 
         $pacotes = Pacote::get();
 
         return view('aluno.cursos',compact('data','pacotes'));
+    }
+
+    public function pacote_cursos2()
+    {
+
+
+        $data = $this->model
+            ->join('pacotes','pacotes.id', '=', 'cursos.id_pacote')
+            ->select('cursos.*', 'pacotes.nome as pacotenome')
+            ->paginate($this->totalPorPagina);
+
+        $pacotes = Pacote::get();
+
+        return view('cursos.cursos',compact('data','pacotes'));
+    }
+
+
+    public function detalhes($id)
+    {
+        $pacotes = Pacote::get();
+        $data = $this->model
+            ->join('pacotes','pacotes.id', '=', 'cursos.id_pacote')
+            ->select('cursos.*', 'pacotes.nome as pacotenome')
+
+            ->find($id);
+
+        return view("cursos.detalhes",compact('data', 'pacotes'));
+
     }
 }

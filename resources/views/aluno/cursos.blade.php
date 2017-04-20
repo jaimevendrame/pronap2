@@ -53,6 +53,11 @@
                 @forelse($data as $curso)
                     <div class="tile scale-anm all {{$curso->id_pacote}}">
                         <img class="img-responsive" src="{{url('assets/uploads/img-cursos/')}}/{{$curso->imagem}}" alt="{{$curso->imagem}}">
+                        <div class="detalhe-sobre-projeto">
+                            <h4 class="titulo-detalhe-projeto">{{$curso->nome}}</h4>
+
+                            <p class="descricao-projeto">{{$curso->pacotenome}}</p>
+                        </div>
                     </div>
                 @empty
                     <tr>
@@ -64,7 +69,30 @@
     </section>
     <div style="clear:both;"></div>
 
+    <ul id="filters" class="clearfix">
+        <li><span class="filter active" data-filter=".app, .card, .icon, .logo, .web">All</span></li>
+        <li><span class="filter" data-filter=".app">App</span></li>
+        <li><span class="filter" data-filter=".card">Card</span></li>
+        <li><span class="filter" data-filter=".icon">Icon</span></li>
+        <li><span class="filter" data-filter=".logo">Logo</span></li>
+        <li><span class="filter" data-filter=".web">Web</span></li>
+    </ul>
 
+    <div id="portfoliolist">
+        <div class="portfolio logo" data-cat="logo">
+            <div class="portfolio-wrapper">
+                <img src="img/portfolios/logo/5.jpg" alt="" />
+                <div class="label">
+                    <div class="label-text">
+                        <a class="text-title">Bird Document</a>
+                        <span class="text-category">Logo</span>
+                    </div>
+                    <div class="label-bg"> </div>
+                </div>
+            </div>
+        </div>
+        .........
+    </div>
 
 
 @endsection

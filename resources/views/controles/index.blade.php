@@ -26,9 +26,10 @@
 
                         <table class="table table-striped  table-hover">
                             <tr>
-                                <th>Pacote</th>
-                                <th>Curso</th>
-                                <th>Carga horária</th>
+                                <th>Nome</th>
+                                <th>Celular</th>
+                                <th>CEP</th>
+                                <th>Cidade/UF</th>
                                 <th colspan="2">Ações</th>
                             </tr>
                             @forelse( $data as $controles)

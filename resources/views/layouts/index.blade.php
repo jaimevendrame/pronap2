@@ -18,6 +18,8 @@
     <script src="{{url('assets/js/animatescroll/animatescroll.js')}}"></script>
 
 
+    @yield('head_script_cursos')
+
 </head>
 
 
