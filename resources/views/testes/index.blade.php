@@ -17,7 +17,7 @@
                         @if($aluno->escolaridade < 3)
 
                             @include('testes.teste1')
-                        @else
+                        @elseif($aluno->escolaridade < 0)
                             @include('testes.teste2')
                         @endif
 
