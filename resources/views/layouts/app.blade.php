@@ -122,6 +122,7 @@
 
         //aplica mascára nos inputs
         $('#telefone').mask('(00)0000-0000');
+        $('#celular').mask('(00)0 0000-0000');
         $('#cep').mask('00000-000');
         $('#cnpj').mask('00.000.000/0000-00');
     });

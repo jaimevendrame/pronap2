@@ -14,6 +14,7 @@
                     </button>
                     <a class="navbar-brand logo"
                        onclick="$('#home').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});"><strong>pronap.info</strong></a>
+                    {{--onclick="$('#home').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});"><strong>pronap.info</strong></a>--}}
                     {{--<a href="#" class="navbar-brand logo"><strong>pronap.info</strong></a>--}}
                 </div>
 

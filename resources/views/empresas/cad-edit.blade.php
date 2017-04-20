@@ -47,7 +47,7 @@
                            placeholder="TELEFONE" value="{{$data->telefone or old('telefone')}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="telefone" name="celular"
+                    <input type="text" class="form-control" id="celular" name="celular"
                            placeholder="Whatsapp" value="{{$data->celular or old('celular')}}">
                 </div>
                 <div class="form-group">

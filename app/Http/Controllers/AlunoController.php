@@ -118,7 +118,7 @@ Favor usar um celular diferente para cada participante.'];
 
         $alunos = $this->aluno->find($id);
 
-        if ($alunos->in_teste != 'false') {
+        if ($alunos->in_teste != '-1') {
             return view('testes.logico1', compact('alunos'));
         } else {
             return view('testes.feito', compact('alunos'));
