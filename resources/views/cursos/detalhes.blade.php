@@ -100,7 +100,7 @@
                                 <li><h2><strong>Sobre o {{$data->nome}}:</strong></h2></li>
                                 <li><h3>{{$data->descricao}}</h3></li>
                                 <li><h2>Objetivo do curso:</h2></li>
-                                <li><h3>Telefone: {{$data->objetivo}}</h3></li>
+                                <li><h3>{{$data->objetivo}}</h3></li>
                             </ul>
                     </div>
                 </div>
