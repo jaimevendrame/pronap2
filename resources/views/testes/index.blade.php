@@ -32,7 +32,7 @@
 
                         <input class="input-hidden" type="text" id="input_resultado" name="in_teste" value="0"  readOnly="readOnly" >
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                            <button type="submit" class="btn btn-primary btn-lg" onClick = "document.form-edit-aluno.submit()">Enviar</button>
                         </div>
 
                     </form>
