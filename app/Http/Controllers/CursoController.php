@@ -160,7 +160,7 @@ class CursoController extends StandardController
         $data = $this->model
             ->join('pacotes','pacotes.id', '=', 'cursos.id_pacote')
             ->select('cursos.*', 'pacotes.nome as pacotenome')
-            ->paginate($this->totalPorPagina);
+            ->get();
 
         $pacotes = Pacote::get();
 
