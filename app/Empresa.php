@@ -14,6 +14,7 @@ class Empresa extends Model
         'cidade',
         'uf',
         'telefone',
+        'celular',
         'logo_img'
     ];
 
