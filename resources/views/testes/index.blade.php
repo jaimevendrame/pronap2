@@ -3,7 +3,7 @@
 
 
             @forelse($alunos as $aluno)
-                @if($aluno->in_teste != 'false')
+                @if($aluno->in_teste != '-1')
                     <div class="errors-msg alert alert-info">
                         <h2>Parabéns, <strong>{{$aluno->nome}}</strong>, você já fez o teste!.</h2>
                     </div>
@@ -17,7 +17,7 @@
                         @if($aluno->escolaridade < 3)
 
                             @include('testes.teste1')
-                        @elseif($aluno->escolaridade < 0)
+                        @else
                             @include('testes.teste2')
                         @endif
 
