@@ -42,7 +42,10 @@ class AlunoController extends Controller
 //        dd($dadosForm);
 
         $mensagens = ['celular.unique' => 'Você ou outra pessoa já se cadastrou usando este celular.
-Favor usar um celular diferente para cada participante.'];
+Favor usar um celular diferente para cada participante.',
+            'curso_info.required' => 'Já fez curso de Informática? Você deve escolher uma resposta.',
+            'curso_ingl.required' => 'Já fez curso de Inglês? Você deve escolher uma resposta.',
+            'escolaridade.required' => 'Qual sua escolaridade? Você deve escolher uma resposta.',];
 
         $validator = validator($dadosForm, $this->aluno->rules, $mensagens);
 

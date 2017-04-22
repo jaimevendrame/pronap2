@@ -34,14 +34,14 @@
 <script type="text/javascript" src="{{url('assets/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{url('assets/js/jquery.mask.js')}}"></script>
 <script>
-    $(function() {
+    $(function () {
         var selectedClass = "";
-        $(".fil-cat").click(function(){
+        $(".fil-cat").click(function () {
             selectedClass = $(this).attr("data-rel");
             $("#portfolio").fadeTo(100, 0.1);
-            $("#portfolio div").not("."+selectedClass).fadeOut().removeClass('scale-anm');
-            setTimeout(function() {
-                $("."+selectedClass).fadeIn().addClass('scale-anm');
+            $("#portfolio div").not("." + selectedClass).fadeOut().removeClass('scale-anm');
+            setTimeout(function () {
+                $("." + selectedClass).fadeIn().addClass('scale-anm');
                 $("#portfolio").fadeTo(300, 1);
             }, 300);
 
@@ -61,7 +61,6 @@
                 data: dadosForm,
                 method: 'POST',
                 beforeSend: iniciaPreloader()
-
 
 
             }).done(function (data) {
@@ -109,7 +108,7 @@
 
         //limpa formulário
         $("#form-add-aluno").trigger("reset");
-        jQuery(".cep-msg ").hide();
+        jQuery(".errors-msg").hide();
 
         //aplica mascára nos inputs
         $('.telefone').mask('(00) 0 0000-0000');
@@ -129,7 +128,6 @@
                 data: dadosForm,
                 method: 'POST',
                 beforeSend: iniciaPreloader()
-
 
 
             }).done(function (data) {
@@ -171,9 +169,9 @@
 
 <!-- nova api cep -->
 
-<script type="text/javascript" >
+<script type="text/javascript">
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         function limpa_formulário_cep() {
             // Limpa valores do formulário de cep.
@@ -186,7 +184,7 @@
         }
 
         //Quando o campo cep perde o foco.
-        $("#cep, #cep-cidade").blur(function() {
+        $("#cep, #cep-cidade").blur(function () {
 
             //Nova variável "cep" somente com dígitos.
             var cep = $(this).val().replace(/\D/g, '');
@@ -198,7 +196,7 @@
                 var validacep = /^[0-9]{8}$/;
 
                 //Valida o formato do CEP.
-                if(validacep.test(cep)) {
+                if (validacep.test(cep)) {
 
                     //Preenche os campos com "..." enquanto consulta webservice.
                     $("#rua").val("...");
@@ -211,7 +209,7 @@
 
 
                     //Consulta o webservice viacep.com.br/
-                    $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                    $.getJSON("//viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                         if (!("erro" in dados)) {
                             //Atualiza os campos com os valores da consulta.
@@ -274,7 +272,7 @@
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control cep" id="cep" name="cep" placeholder="CEP"
-                                   >
+                            >
                         </div>
                         <div class="form-group col-md-4">
                             <input class="form-control" name="bairro" type="text" id="bairro" placeholder="Bairro"
@@ -288,19 +286,6 @@
                             <input class="form-control" name="uf" type="text" id="uf" placeholder="Estado"
                                    readOnly="readOnly"/>
                         </div>
-                        {{--<div class=" form-group col-md-4">--}}
-                        {{--<input class="form-control" name="ibge" type="text" id="ibge" placeholder="IBGE"--}}
-                        {{--readOnly="readOnly"/>--}}
-                        {{--</div>--}}
-
-                        {{--<div class="cep-msg alert alert-info col-md-12" style="display:none;">--}}
-
-                        {{--<div class="form-group col-md-8">--}}
-                        {{--<input class="form-control" name="rua" type="text" id="rua" placeholder="rua"--}}
-                        {{--readOnly="readOnly"/>--}}
-                        {{--</div>--}}
-
-                        {{--</div>--}}
                         <div class=" row">
                             <div class="col-md-12">
 
@@ -310,7 +295,7 @@
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="curso_info" id="infoRadio1" value="1" checked>
+                                            <input type="radio" name="curso_info" id="infoRadio1" value="1">
                                             Não.
                                         </label>
                                     </div>
@@ -339,8 +324,7 @@
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="curso_ingl" id="englishRadio1" value="1"
-                                                   checked>
+                                            <input type="radio" name="curso_ingl" id="englishRadio1" value="1">
                                             Não.
                                         </label>
                                     </div>
@@ -368,17 +352,11 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div>
-
-
-                                </div>
-
                                 <div class="col-md-6">
                                     <strong> Qual sua escolaridade? </strong>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="escolaridade" id="escolaRadio1" value="1"
-                                                   checked>
+                                            <input type="radio" name="escolaridade" id="escolaRadio1" value="1">
                                             Fundamental cursando.
                                         </label>
                                     </div>
@@ -418,19 +396,14 @@
 
                                 </div>
                             </div>
-                            <div class="preloader" style="display:none;">Enviando dados</div>
-
-                            <div class="modal-footer">
-
-                                <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
-                                <div class="prelaoder" id="prelaoder" style="display: none">Enviando dados...</div>
-                                <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar
-                                </button>
-                                <input type="submit" class="btn btn-primary btn-lg">
-                            </div>
-
                         </div>
-
+                        <div class="modal-footer">
+                            <div class="prelaoder" id="prelaoder" style="display: none">Enviando dados...</div>
+                            <div class="errors-msg alert alert-danger text-center" style="display:none;"></div>
+                            <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar
+                            </button>
+                            <button type="submit" disabled="disabled" class="btn btn-primary btn-lg">Enviar</button>
+                        </div>
                     </form>
                 </div><!-- end div screen -->
             </div>

@@ -23,6 +23,9 @@ class Aluno extends Model
         'nome'  => 'required|min:3|max:150',
         'celular'  => 'required|min:11|unique:alunos',
         'cep'   => 'required',
+        'curso_info' => 'required',
+        'curso_ingl' => 'required',
+        'escolaridade' => 'required',
     ];
 
     public function getNomeAttribute($nome){
