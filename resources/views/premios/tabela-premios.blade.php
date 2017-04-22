@@ -12,7 +12,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="../" class="navbar-brand logo"><strong>pronap.info</strong></a>
+                    <a href="../" class="navbar-brand logo"><img class="coisas" src="{{url('assets/img/logo2.png')}}" alt="pronap.info"></a>
                 </div>
 
                 <div id="navbarCollapse" class="collapse navbar-collapse">
