@@ -97,8 +97,7 @@
                         <table class="table table-hover table-condensed">
                             <tr>
                                 <th>Qtde. Inscritos</th>
-                                <th>Bolsas Integrais</th>
-                                <th>Bolsas Parciais</th>
+                                <th>Bolsas Integrais/Parciais</th>
                                 <th>Smartwatchs</th>
                                 <th>Tablets</th>
                                 <th>Smartphones</th>
@@ -107,7 +106,6 @@
                                 <tr>
                                     <td>{{$premio->qtde_insc}}</td>
                                     <td>{{$premio->qtde_bolsas_integrais}}</td>
-                                    <td>{{$premio->qtde_bolsas_parciais}}</td>
                                     <td>{{$premio->qtde_smartwatch}}</td>
                                     <td>{{$premio->qtde_tablets}}</td>
                                     <td>{{$premio->qtde_smartphone}}</td>
