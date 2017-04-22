@@ -201,7 +201,8 @@ a:hover{text-decoration: none !important;}
     padding: 15px;
 }
 .logo{
-    margin-top: 12px;
+    margin-top: 0px;
+    position: relative;
 }
 ul.menu{
     list-style: none;
@@ -214,7 +215,7 @@ ul.menu li{
     display: inline;
 }
 ul.menu li a{
-    margin: 8px 26px;
+    margin: 14px 12px;
     color: #FFFFFF !important;
     /* font-weight: bold; */
     font-size: 14px;
@@ -425,6 +426,7 @@ ul.list li{
     left: 0;
     margin-top: 10px;
 }
+.coisas {max-width: 100%;}
 
 @media  screen and (max-width: 480px) {
     .titulo-slide{font-size: 20px;}
@@ -432,6 +434,7 @@ ul.list li{
     .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
     .btn-cad {padding: 30px 0px;}
     .slide {min-height: 60%;}
+    .coisas {max-width: 50%;}
 }
 @media  screen and (max-width: 600px) {
     .titulo-slide{font-size: 32px;}
@@ -439,6 +442,13 @@ ul.list li{
     .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
     .btn-cad {padding: 30px 0px;}
     .slide {min-height: 60%;}
+    .coisas {max-width: 60%;}
+
+    .logo{
+        margin-top: 0px;
+        padding: 4px!important;
+        position: relative;
+    }
 }
 @media  screen and (min-width: 768px) {
     .titulo-slide{font-size: 36px;}

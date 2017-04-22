@@ -13,9 +13,12 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand logo"
-                       onclick="$('#home').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});"><strong>pronap.info</strong></a>
-                    {{--onclick="$('#home').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});"><strong>pronap.info</strong></a>--}}
-                    {{--<a href="#" class="navbar-brand logo"><strong>pronap.info</strong></a>--}}
+                       onclick="$('#home').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">
+                        {{--<strong>pronap.info</strong>--}}
+                        <img class="coisas" src="{{url('assets/img/logo2.png')}}" alt="pronap.info">
+
+                    </a>
+
                 </div>
 
                 <div id="navbarCollapse" class="collapse navbar-collapse">
