@@ -437,8 +437,8 @@ ul.list li{
     .coisas {max-width: 50%;}
 }
 @media  screen and (max-width: 600px) {
-    .titulo-slide{font-size: 32px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 20px;}
+    .titulo-slide{font-size: 28px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 18px;}
     .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
     .btn-cad {padding: 30px 0px;}
     .slide {min-height: 80%;}
@@ -451,21 +451,21 @@ ul.list li{
     }
 }
 @media  screen and (min-width: 768px) {
-    .titulo-slide{font-size: 36px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 22px;}
+    .titulo-slide{font-size: 32px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 20px;}
     .btn-saiba-mais {font-size: 22px; margin: 0px; padding: 9px 9px;}
     .btn-cad {padding: 0px 0px;}
     .slide {min-height: 40%;}
 }
 @media  screen and (min-width: 992px) {
-    .titulo-slide{font-size: 44px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 24px;}
+    .titulo-slide{font-size: 40px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 22px;}
     .slide {min-height: 90%;}
 
 }
 @media  screen and (min-width: 1382px) {
-    .titulo-slide{font-size: 68px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 32px;}
+    .titulo-slide{font-size: 62px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 28px;}
     .slide {min-height: 100%;}
 }
 
