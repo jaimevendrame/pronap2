@@ -50,15 +50,17 @@
             <p class="descricao-slide color-blue">Faça seu cadastro para ter acesso ao teste seletivo e
                 concorra a Bolsas de Estudo INTEGRAIS e PARCIAIS,
                 SMARTPHONES, TABLETS, SMARTWATCHS </p>
+
+            <div class="col-md-6 col-sm-12 btn-cad">
+                <a class="btn-saiba-mais add btn-enviar" data-toggle="modal" data-target="#cadCandidato"
+                   href="">CADASTRE-SE</a>
+            </div>
             <div class="col-md-6 col-sm-12">
                 <a class="btn-saiba-mais large"
                    onclick="$('#pronap').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">SAIBA MAIS SOBRE O
                     PRONAP</a>
             </div>
-            <div class="col-md-6 col-sm-12 btn-cad">
-                <a class="btn-saiba-mais add btn-enviar" data-toggle="modal" data-target="#cadCandidato"
-                   href="">CADASTRE-SE</a>
-            </div>
+
 
         </div>
     </section>

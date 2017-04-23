@@ -160,7 +160,7 @@ a:hover{text-decoration: none !important;}
 }
 .slide {
     position: relative;
-    padding: 5% 5%;
+    padding: 5% 10%;
     min-height: 100%;
     width: 100%;
     box-sizing: border-box;
