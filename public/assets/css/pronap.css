@@ -460,6 +460,8 @@ ul.list li{
 @media  screen and (min-width: 992px) {
     .titulo-slide{font-size: 40px;}
     .descricao-slide{padding-bottom: 0px; font-size: 22px;}
+    .btn-cad {padding: 0px 0px;}
+
     .slide {min-height: 90%;}
 
 }
