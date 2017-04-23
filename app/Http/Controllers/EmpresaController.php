@@ -21,6 +21,8 @@ class EmpresaController extends StandardController
         $this->request = $request;
     }
 
+
+
     public function cadastroGo()
     {
         $dadosForm = $this->request->all();
@@ -107,7 +109,7 @@ class EmpresaController extends StandardController
 
     public function empresas(){
 
-        $data = $this->model->all();
+        $data = $this->model->orderby('created_at', 'DESC')->get();
 
         return view('empresas.empresas-parceiras', compact('data'));
 
