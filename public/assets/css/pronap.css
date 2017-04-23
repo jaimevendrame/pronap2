@@ -430,20 +430,23 @@ ul.list li{
 
 @media  screen and (max-width: 480px) {
     .titulo-slide{font-size: 20px;}
-    .descricao-slide{padding-bottom: 8px; font-size: 14px;}
+    .descricao-slide{padding-bottom: 0px; font-size: 14px;}
     .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
-    .btn-cad {padding: 30px 0px;}
+    .btn-cad {padding: 20px 0px;}
     .slide {min-height: 60%;}
     .coisas {max-width: 50%;}
 }
 @media  screen and (max-width: 600px) {
     .titulo-slide{font-size: 28px;}
-    .descricao-slide{padding-bottom: 8px; font-size: 18px;}
+    .descricao-slide{padding-bottom: 0px; font-size: 18px;}
     .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
-    .btn-cad {padding: 30px 0px;}
+    .btn-cad {padding: 20px 0px;}
     .slide {min-height: 80%;}
     .coisas {max-width: 60%;}
 
+    .p {
+        margin: 0 0 0px!important;
+    }
     .logo{
         margin-top: 0px;
         padding: 4px!important;
@@ -459,13 +462,13 @@ ul.list li{
 }
 @media  screen and (min-width: 992px) {
     .titulo-slide{font-size: 40px;}
-    .descricao-slide{padding-bottom: 8px; font-size: 22px;}
+    .descricao-slide{padding-bottom: 0px; font-size: 22px;}
     .slide {min-height: 90%;}
 
 }
 @media  screen and (min-width: 1382px) {
     .titulo-slide{font-size: 62px;}
-    .descricao-slide{padding-bottom: 8px; font-size: 28px;}
+    .descricao-slide{padding-bottom: 20px; font-size: 28px;}
     .slide {min-height: 100%;}
 }
 
