@@ -102,7 +102,7 @@ a:hover{text-decoration: none !important;}
 .btn-saiba-mais {
     color: #FFF;
     background-color: #c53430;
-    padding: 12px 24px;
+    padding: 12px 20px;
     border-radius: 5px;
     text-transform: uppercase;
     margin: 10px;
@@ -160,7 +160,7 @@ a:hover{text-decoration: none !important;}
 }
 .slide {
     position: relative;
-    padding: 10% 10%;
+    padding: 5% 5%;
     min-height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -430,7 +430,7 @@ ul.list li{
 
 @media  screen and (max-width: 480px) {
     .titulo-slide{font-size: 20px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 14px;}
+    .descricao-slide{padding-bottom: 8px; font-size: 14px;}
     .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
     .btn-cad {padding: 30px 0px;}
     .slide {min-height: 60%;}
@@ -438,7 +438,7 @@ ul.list li{
 }
 @media  screen and (max-width: 600px) {
     .titulo-slide{font-size: 28px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 18px;}
+    .descricao-slide{padding-bottom: 8px; font-size: 18px;}
     .btn-saiba-mais {font-size: 10px; margin: 0px; padding: 9px 9px;}
     .btn-cad {padding: 30px 0px;}
     .slide {min-height: 80%;}
@@ -452,20 +452,20 @@ ul.list li{
 }
 @media  screen and (min-width: 768px) {
     .titulo-slide{font-size: 32px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 20px;}
+    .descricao-slide{padding-bottom: 8px; font-size: 20px;}
     .btn-saiba-mais {font-size: 22px; margin: 0px; padding: 9px 9px;}
     .btn-cad {padding: 0px 0px;}
     .slide {min-height: 40%;}
 }
 @media  screen and (min-width: 992px) {
     .titulo-slide{font-size: 40px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 22px;}
+    .descricao-slide{padding-bottom: 8px; font-size: 22px;}
     .slide {min-height: 90%;}
 
 }
 @media  screen and (min-width: 1382px) {
     .titulo-slide{font-size: 62px;}
-    .descricao-slide{padding-bottom: 20px; font-size: 28px;}
+    .descricao-slide{padding-bottom: 8px; font-size: 28px;}
     .slide {min-height: 100%;}
 }
 
