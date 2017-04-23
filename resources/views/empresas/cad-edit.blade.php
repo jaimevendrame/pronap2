@@ -43,6 +43,10 @@
                            placeholder="ESTADO" value="{{$data->uf or old('uf')}}">
                 </div>
                 <div class="form-group">
+                    <input type="text" class="form-control" id="complemento" name="complemento"
+                           placeholder="COMPLEMENTO" value="{{$data->complemento or old('complemento')}}">
+                </div>
+                <div class="form-group">
                     <input type="text" class="form-control" id="telefone" name="telefone"
                            placeholder="TELEFONE" value="{{$data->telefone or old('telefone')}}">
                 </div>

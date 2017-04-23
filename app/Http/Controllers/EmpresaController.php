@@ -84,13 +84,15 @@ class EmpresaController extends StandardController
 
             $upload = $imagem->move($path, $nameFile);
 
+            $dadosForm['logo_img'] = $nameFile;
+
             if (!$upload)
                 return redirect($this->redirectCad)
                     ->withErrors (['errors' => 'Falha ao fazer upload']);
 
         }
 
-        $dadosForm['logo_img'] = $nameFile;
+
         $update = $item->update($dadosForm);
 
         if ($update)

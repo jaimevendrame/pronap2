@@ -13,6 +13,7 @@ class Empresa extends Model
         'rua',
         'cidade',
         'uf',
+        'complemento',
         'telefone',
         'celular',
         'logo_img'
