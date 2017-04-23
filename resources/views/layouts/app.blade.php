@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
     <!-- Styles -->
 {{--<link href="/css/app.css" rel="stylesheet">--}}
