@@ -106,6 +106,7 @@ Favor usar um celular diferente para cada participante.',
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
         curl_setopt($curl, CURLOPT_URL, $url);
         $return = curl_exec($curl);
+//        dd($return);
         if ($return != FALSE) {
             return '1';
         } else {
@@ -207,12 +208,12 @@ Favor usar um celular diferente para cada participante.',
 
 
 
-//        Mail::send('aluno.index', ['teste' => '123'], function ($mail){
-//            $mail->to('jaime.vendrame@gmail.com','Jaime')->subject('Email teste');
-//        });
+        Mail::send('aluno.index', ['teste' => '123'], function ($mail){
+            $mail->from('cotec.cmcm@gmail.com', 'cotec');
+            $mail->to('jaime.vendrame@gmail.com','Jaime');
+            $mail->subject('Email teste');
+        });
 
-
-return 'testo';
     }
 }
 

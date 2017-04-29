@@ -57,6 +57,8 @@
             $("#cep").unmask();
             var dadosForm = jQuery(this).serialize();
 
+            alert(dadosForm);
+
             jQuery.ajax({
                 url: 'add-aluno',
                 data: dadosForm,

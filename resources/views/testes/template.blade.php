@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>PRONAP</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
     <!--CSS Personalizado-->
     <link rel="stylesheet" type="text/css" href="{{url('assets/css/pronap.css')}}">
     <!-- Latest compiled and minified CSS -->
