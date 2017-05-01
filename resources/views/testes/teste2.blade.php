@@ -45,7 +45,7 @@
         tinhas Luizinho inicialmente? </strong>
     <div class="radio">
         <label>
-            <input type="radio" name="questao3" id="3" class="soma" value="0">
+            <input type="radio" name="questao3" id="3" class="soma" value="1">
             16
         </label>
     </div>
@@ -57,7 +57,7 @@
     </div>
     <div class="radio">
         <label>
-            <input type="radio" name="questao3" id="3" class="soma" value="1">
+            <input type="radio" name="questao3" id="3" class="soma" value="0">
             20
         </label>
     </div>

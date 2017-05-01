@@ -53,10 +53,17 @@
 <script>
     $(function () {
         jQuery("#form-add-aluno").submit(function () {
-            $("#telefone").unmask();
-            $("#cep").unmask();
+
+            // ReadOnly em todos os inputs
+            $("input", this).attr("readonly", true);
+            // Desabilita os submits
+            $("input[type='submit'],input[type='image']", this).attr("disabled", true);
+
+
+
             var dadosForm = jQuery(this).serialize();
 
+//            alert(dadosForm);
 
             jQuery.ajax({
                 url: 'add-aluno',
@@ -111,6 +118,8 @@
         //limpa formulário
         $("#form-add-aluno").trigger("reset");
         jQuery(".errors-msg").hide();
+
+        $("#telefone").prop('disabled', false);
 
         //aplica mascára nos inputs
         $('.telefone').mask('(00) 0 0000-0000');

@@ -39,6 +39,11 @@ class AlunoController extends Controller
     {
         $dadosForm = $this->request->all();
 
+        $var = array("(", ")", " ", "-");
+
+        $dadosForm['celular'] = str_replace($var, "" , $dadosForm['celular']);
+        $dadosForm['cep'] = str_replace("-", "" , $dadosForm['cep']);
+
 //        dd($dadosForm);
 
         $mensagens = ['celular.unique' => 'Você ou outra pessoa já se cadastrou usando este celular.
@@ -74,19 +79,19 @@ Favor usar um celular diferente para cada participante.',
 
 //            dd($this->enviarSMS($insert->id));
 
-            return $this->enviarSMS($insert->id);
+//            return $this->enviarSMS($insert->id);
 
-        else
+        return $this->sendSMS($insert->id);
+
+
+    else
             return 'Falha ao Cadastrar, erro inesperado!';
     }
 
 
     public function enviarSMS($id)
     {
-
-
         $alunos = $this->aluno->find($id);
-
 
         //capturar primeiro nome
         $string = $alunos['nome'];
@@ -98,9 +103,8 @@ Favor usar um celular diferente para cada participante.',
 
         $mensagem = 'Ola+' . $nome . ',+clique+no+link+http://pronap.info/tst/' . $celular . '+para+acessar+seu+teste+e+concorrer+a+BOLSA+DE+ESTUDO+e+diversos+outros+premios';
 
-
-//        $url = 'http://www.painelsms.com.br/sms.php?i=4551&s=ozqpxz&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
-        $url = 'http://172.246.132.10/app/modulo/api/index.php?action=sendsms&lgn=4499962520&pwd=mpkgpc2308&msg=' . $mensagem . '&numbers=' . $celular . '';
+        $url = 'http://www.painelsms.com.br/sms.php?i=4551&s=ozqpxz&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
+//        $url = 'http://172.246.132.10/app/modulo/api/index.php?action=sendsms&lgn=4499962520&pwd=mpkgpc2308&msg=' . $mensagem . '&numbers=' . $celular . '';
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
@@ -159,24 +163,7 @@ Favor usar um celular diferente para cada participante.',
         return view('testes.index', compact('alunos', 'pesquisa'));
     }
 
-    public function smsGo($urlgo)
-    {
 
-        $url = $urlgo;
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
-        curl_setopt($curl, CURLOPT_URL, $url);
-        $return = curl_exec($curl);
-        $valor1 = ['ret' => '3'];
-        $valor2 = ['ret' => '2'];
-        if ($return != FALSE) {
-            return $valor1;
-        } else {
-            return $valor2;
-        }
-        curl_close($curl);
-
-    }
 
     public function show($id)
     {
@@ -203,6 +190,54 @@ Favor usar um celular diferente para cada participante.',
     public function cursos(){
         return view('aluno.cursos');
     }
+
+
+    public function smsGo($urlgo)
+    {
+
+        $url = $urlgo;
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $return = curl_exec($curl);
+//        dd($return);
+        if ($return != FALSE) {
+            return '1';
+        } else {
+            return '2';
+        }
+        curl_close($curl);
+
+    }
+
+    public function sendSMS($id)
+    {
+        $alunos = $this->aluno->find($id);
+
+        //capturar primeiro nome
+        $string = $alunos['nome'];
+        $string = explode(" ", $string);
+        $nome = $string[0];
+
+        //capturar numero de celular
+        $celular = $alunos['celular'];
+
+        $mensagem = 'Ola+' . $nome . ',+clique+no+link+http://pronap.info/tst/' . $celular . '+para+acessar+seu+teste+e+concorrer+a+BOLSA+DE+ESTUDO+e+diversos+outros+premios';
+
+        $url = 'http://www.painelsms.com.br/sms.php?i=4551&s=ozqpxz&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
+        $url2 = 'http://172.246.132.10/app/modulo/api/index.php?action=sendsms&lgn=4499962520&pwd=mpkgpc2308&msg=' . $mensagem . '&numbers=' . $celular . '';
+
+//        return $this->smsGo($url);
+
+        if ($this->smsGo($url) == '1') {
+         return '1';
+        } elseif  ($this->smsGo($url2) == '1') {
+            return '1';
+        } else {
+            return '2';
+        }
+    }
+
 
     public function email(){
 
