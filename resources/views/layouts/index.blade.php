@@ -99,7 +99,6 @@
                     $("#telefone").removeAttr("readonly");
                     $("#cep").removeAttr("readonly");
                     // Desabilita os submits
-                    alert('teste');
                     $("input[type='submit'],input[type='image']", this).prop("disabled", false);
                 }
             }).fail(function () {

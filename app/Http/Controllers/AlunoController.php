@@ -64,9 +64,9 @@ class AlunoController extends Controller
 
         $data_atual = date ("d/m/Y");
 
-        if ( $data_atual >= $empresa['dataTerminoCampanha'] ){
+        if ( strtotime($empresa['dataTerminoCampanha']) <= strtotime($data_atual) ){
 
-            return 'Acabou a campanha!!!!';
+            return 'Nossa campanha em sua cidade Acabou, até a próxima.';
         }
 
 
