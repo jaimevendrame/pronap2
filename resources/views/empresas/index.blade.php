@@ -33,6 +33,7 @@
                                 <th>CEP</th>
                                 <th>Rua</th>
                                 <th>Cidade/UF</th>
+                                <th>Data Fim Campanha</th>
                                 <th colspan="2">Ações</th>
                             </tr>
                             @forelse( $data as $empresa)
@@ -61,6 +62,9 @@
                                     </td>
                                     <td>
                                         {{$empresa->cidade}}/{{$empresa->uf}}
+                                    </td>
+                                    <td>
+                                        {{$empresa->dataTerminoCampanha}}
                                     </td>
 
                                     <td>

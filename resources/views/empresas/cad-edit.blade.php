@@ -55,6 +55,10 @@
                            placeholder="Whatsapp" value="{{$data->celular or old('celular')}}">
                 </div>
                 <div class="form-group">
+                    <input type="text" class="form-control" id="dataTerminoCampanha" name="dataTerminoCampanha"
+                           placeholder="Término da Campanha" value="{{$data->dataTerminoCampanha or old('dataTerminoCampanha')}}">
+                </div>
+                <div class="form-group">
                     <input type="file" class="file" id="logo_img" name="logo_img">
                 </div>
 

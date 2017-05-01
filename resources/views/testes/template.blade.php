@@ -99,7 +99,8 @@
                     jQuery(".success-msg").html(
                         "<h1>PARABÉNS! Seu Teste Lógico foi enviado com sucesso!</h1><br>" +
                         "<h4>O resultado sai em poucos dias e é enviado para você por SMS.</h4>"+
-                    "<a class='btn btn-success' href='../'>Voltar</a>"
+                        "<h4>O resultado do teste seletivo seré enviado por sms no dia {{$data_fim}}.</h4>"+
+                        "<a class='btn btn-success' href='../'>Voltar</a>"
                     );
                     jQuery(".success-msg").show();
 

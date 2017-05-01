@@ -61,6 +61,8 @@
                                     <li><h3>Complemento: {{$empresa->complemento}}</h3></li>
                                     <li><h3>Telefone: {{$empresa->telefone}}</h3></li>
                                     <li><h3>Whatsapp: {{$empresa->celular}}</h3></li>
+                                    <li><h3>Fim da Camanha: {{$empresa->dataTerminoCampanha}}</h3></li>
+
                                 </ul>
                             </div>
 

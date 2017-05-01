@@ -57,7 +57,7 @@
             // ReadOnly em todos os inputs
             $("input", this).attr("readonly", true);
             // Desabilita os submits
-            $("input[type='submit'],input[type='image']", this).attr("disabled", true);
+            $("input[type='submit'],input[type='image']", this).prop("disabled", true);
 
 
 
@@ -93,10 +93,20 @@
                 } else {
                     jQuery(".errors-msg").html(data);
                     jQuery(".errors-msg").show();
+
+                    // ReadOnly em todos os inputs
+                    $("#nome").removeAttr("readonly");
+                    $("#telefone").removeAttr("readonly");
+                    $("#cep").removeAttr("readonly");
+                    // Desabilita os submits
+                    alert('teste');
+                    $("input[type='submit'],input[type='image']", this).prop("disabled", false);
                 }
             }).fail(function () {
                 finalizaPreloader();
                 alert('Falha ao enviar dados!!');
+
+
             });
 
 
@@ -226,7 +236,7 @@
                             //Atualiza os campos com os valores da consulta.
                             $("#rua").val(dados.logradouro);
                             $("#bairro").val(dados.bairro);
-                            $("#cidade").val(dados.localidade);
+                            $("#cidade").val((dados.localidade).toUpperCase());
                             $("#uf").val(dados.uf);
                             $("#ibge").val(dados.ibge);
                             $("#cep-cidade").val(dados.localidade);
@@ -275,7 +285,7 @@
                     <form method="post" action="/add-aluno" id="form-add-aluno" autocomplete="off">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <input type="text" class="form-control" id="InputName" name="nome" placeholder="NOME">
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="NOME">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control telefone" id="telefone" name="celular"

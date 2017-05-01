@@ -16,7 +16,8 @@ class Empresa extends Model
         'complemento',
         'telefone',
         'celular',
-        'logo_img'
+        'logo_img',
+        'dataTerminoCampanha'
     ];
 
     public $rules = [
@@ -51,6 +52,11 @@ class Empresa extends Model
 
     public function getCidadeAttribute($cidade){
         return strtoupper($cidade);
+    }
+
+    public function getDataTerminoCampanhaAttribute($dataTerminoCampanha) {
+        return \Carbon\Carbon::parse($dataTerminoCampanha)->format('d/m/Y');
+
     }
 
 }

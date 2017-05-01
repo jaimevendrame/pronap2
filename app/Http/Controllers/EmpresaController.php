@@ -49,6 +49,7 @@ class EmpresaController extends StandardController
             return redirect($this->redirectCad)
                 ->withErrors (['errors' => 'Falha ao fazer upload']);
 
+        $dadosForm['dataTerminoCampanha'] = \Carbon\Carbon::createFromFormat('d/m/Y', $dadosForm['dataTerminoCampanha'])->toDateString();
 
         $insert = $this->model->create($dadosForm);
 
@@ -93,6 +94,8 @@ class EmpresaController extends StandardController
                     ->withErrors (['errors' => 'Falha ao fazer upload']);
 
         }
+
+        $dadosForm['dataTerminoCampanha'] = \Carbon\Carbon::createFromFormat('d/m/Y', $dadosForm['dataTerminoCampanha'])->toDateString();
 
 
         $update = $item->update($dadosForm);

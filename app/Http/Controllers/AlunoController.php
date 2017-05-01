@@ -5,6 +5,7 @@ namespace pronap\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
+use pronap\Empresa;
 use pronap\Http\Requests;
 use pronap\Aluno;
 
@@ -12,10 +13,11 @@ class AlunoController extends Controller
 {
     private $aluno, $request;
 
-    public function __construct(Aluno $aluno, Request $request)
+    public function __construct(Aluno $aluno, Empresa $empresa, Request $request)
     {
         $this->aluno = $aluno;
         $this->request = $request;
+        $this->empresa = $empresa;
     }
 
     public function aluno()
@@ -39,6 +41,37 @@ class AlunoController extends Controller
     {
         $dadosForm = $this->request->all();
 
+        $pesquisa = ($dadosForm['cidade']);
+
+
+        $empresa = $this->empresa
+
+            ->where('cidade', 'LIKE', "%{$pesquisa}%")
+            ->first();
+
+        $cidade_empresa = $empresa['cidade'];
+
+        if ($cidade_empresa != $pesquisa){
+
+            $resultado = 'Não Chegamos ainda na sua cidade!';
+
+            return $resultado;
+        }
+
+//        dd($empresa['dataTerminoCampanha']);
+
+//        dd(date ("d/m/Y") , $empresa['dataTerminoCampanha']);
+
+        $data_atual = date ("d/m/Y");
+
+        if ( $data_atual >= $empresa['dataTerminoCampanha'] ){
+
+            return 'Acabou a campanha!!!!';
+        }
+
+
+
+
         $var = array("(", ")", " ", "-");
 
         $dadosForm['celular'] = str_replace($var, "" , $dadosForm['celular']);
@@ -47,7 +80,7 @@ class AlunoController extends Controller
 //        dd($dadosForm);
 
         $mensagens = ['celular.unique' => 'Você ou outra pessoa já se cadastrou usando este celular.
-Favor usar um celular diferente para cada participante.',
+            Favor usar um celular diferente para cada participante.',
             'curso_info.required' => 'Já fez curso de Informática? Você deve escolher uma resposta.',
             'curso_ingl.required' => 'Já fez curso de Inglês? Você deve escolher uma resposta.',
             'escolaridade.required' => 'Qual sua escolaridade? Você deve escolher uma resposta.',];
@@ -158,9 +191,19 @@ Favor usar um celular diferente para cada participante.',
 
         $alunos = $this->aluno
             ->where('celular', 'LIKE', "%{$pesquisa}%")
-            ->get();
+            ->first();
 
-        return view('testes.index', compact('alunos', 'pesquisa'));
+        $cidade = ($alunos['cidade']);
+
+//        dd($alunos['cidade']);
+
+        $empresa = $this->empresa
+            ->where('cidade', 'LIKE', "%{$cidade}%")
+            ->first();
+
+        $data_fim = $empresa['dataTerminoCampanha'];
+
+        return view('testes.index', compact('alunos', 'pesquisa', 'data_fim'));
     }
 
 
