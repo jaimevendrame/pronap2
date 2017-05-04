@@ -147,28 +147,28 @@
         </div>
 
     </section>
-    <section class="contato-form">
-        <div class="container text-center ">
-            <h1 class="titulo color-white">Contato</h1>
-            <div class="divider"></div>
-            <p class="descricao-slide color-white">Entre em contato e tenha todas as suas dúvidas respondidas<br>
-                Responderemos o mais rápido possível</p>
-        </div>
+    {{--<section class="contato-form">--}}
+        {{--<div class="container text-center ">--}}
+            {{--<h1 class="titulo color-white">Contato</h1>--}}
+            {{--<div class="divider"></div>--}}
+            {{--<p class="descricao-slide color-white">Entre em contato e tenha todas as suas dúvidas respondidas<br>--}}
+                {{--Responderemos o mais rápido possível</p>--}}
+        {{--</div>--}}
 
-        <div class="contato-form">
-            <div class="container contato-errors-msg alert alert-danger text-center" style="display:none;"></div>
-            <div class="container contato-success-msg alert alert-success text-center" style="display:none;"></div>
+        {{--<div class="contato-form">--}}
+            {{--<div class="container contato-errors-msg alert alert-danger text-center" style="display:none;"></div>--}}
+            {{--<div class="container contato-success-msg alert alert-success text-center" style="display:none;"></div>--}}
 
-            <form class="especializati-form" id="especializati-form" method="post" action="/add-contato">
-                {{csrf_field()}}
-                <input type="text" name="nome" placeholder="Seu Nome">
-                <input type="email" name="email" placeholder="Seu E-mail">
-                <textarea name="mensagem" placeholder="Sua mensagem"></textarea>
+            {{--<form class="especializati-form" id="especializati-form" method="post" action="/add-contato">--}}
+                {{--{{csrf_field()}}--}}
+                {{--<input type="text" name="nome" placeholder="Seu Nome">--}}
+                {{--<input type="email" name="email" placeholder="Seu E-mail">--}}
+                {{--<textarea name="mensagem" placeholder="Sua mensagem"></textarea>--}}
 
-                <input type="submit" name="enviar" value="Enviar">
-            </form>
-        </div>
-    </section>
+                {{--<input type="submit" name="enviar" value="Enviar">--}}
+            {{--</form>--}}
+        {{--</div>--}}
+    {{--</section>--}}
     <!--Contato-->
 
 
