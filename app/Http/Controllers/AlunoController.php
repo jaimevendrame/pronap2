@@ -51,16 +51,20 @@ class AlunoController extends Controller
 
         $cidade_empresa = $empresa['cidade'];
 
+        $link = '<b><a href="/empresas">Empresas Parceiras</a></b>';
+
         if ($cidade_empresa != $pesquisa){
 
-            $resultado = 'Não Chegamos ainda na sua cidade!';
+
+
+            $resultado =
+                'Lamento, o '."<b>".'pronap.info'."</b>". ' ainda não atende a sua cidade.
+                Verifique se tem alguma cidade próxima de você no link '.$link.
+                ' e se tiver entre com o CEP daquela cidade';
 
             return $resultado;
         }
 
-//        dd($empresa['dataTerminoCampanha']);
-
-//        dd(date ("d/m/Y") , $empresa['dataTerminoCampanha']);
 
         $data_atual = date ("d/m/Y");
 
@@ -68,7 +72,7 @@ class AlunoController extends Controller
 
         if ($empresa['dataTerminoCampanha'] < ($data_atual) ){
 
-            return 'Nossa campanha em sua cidade Acabou, até a próxima.';
+            return 'Lamento, a campanha em sua cidade encerrou em '."<b>".$empresa['dataTerminoCampanha']."</b>".'. Aguarde  novas campanhas';
         }
 
 
