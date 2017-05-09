@@ -57,11 +57,11 @@
                                 <ul class="list-unstyled">
                                     <li><h2><strong>{{$empresa->nome}}</strong></h2></li>
                                     <li><h3>{{$empresa->cidade}} - {{$empresa->uf}}</h3></li>
-                                    <li><h3>Endereço: {{$empresa->rua}}</h3></li>
-                                    <li><h3>Complemento: {{$empresa->complemento}}</h3></li>
+                                    <li><h3>{{$empresa->rua}}</h3></li>
+                                    <li><h3>{{$empresa->complemento}}</h3></li>
                                     <li><h3>Telefone: {{$empresa->telefone}}</h3></li>
                                     <li><h3>Whatsapp: {{$empresa->celular}}</h3></li>
-                                    <li><h3>Fim da Camanha: {{$empresa->dataTerminoCampanha}}</h3></li>
+                                    <li><h3>Fim da Campanha: {{$empresa->dataTerminoCampanha}}</h3></li>
 
                                 </ul>
                             </div>
