@@ -6,7 +6,7 @@
 
                 @if($alunos->in_teste != '-1')
                     <div class="errors-msg alert alert-info">
-                        <h2>Parabéns, <strong>{{$aluno->nome}}</strong>, você já fez o teste!.</h2>
+                        <h2>Parabéns, <strong>{{$alunos->nome}}</strong>, você já fez o teste!.</h2>
                     </div>
 
                 @else
