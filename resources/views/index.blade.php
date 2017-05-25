@@ -27,7 +27,7 @@
                         <li><a onclick="$('#participar').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Como
                                 Participar</a></li>
                         <li>
-                            <a onclick="$('#cursos').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Cursos</a>
+                            <a href="/cursos">Cursos</a>
                         </li>
                         <li><a onclick="$('#certificado').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Certificados</a>
                         </li>
@@ -97,34 +97,34 @@
         </div>
     </section>
     <!--Final da section como ganhar-->
-    <section id="cursos" class="slide background-color-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <img class="img-responsive" src="{{url('assets/img/cursos.jpg')}}" alt="">
-                    </div>
-                    <div class="col-md-6">
-                        <h1 class="titulo">Cursos disponíveis.</h1>
-                        <div class="divider"></div>
-                        <p class="descricao-slide">Temos mais de 50 cursos para atender as mais diversas demandas do
-                            mercado,
-                            para atender ao aluno que deseja iniciar na área de informática, como também o profissional
-                            que deseja se especializar.
-                            Cursos na área de informática, administrativos e inglês.</p>
-                        <div class="text-center">
-                            <a type="button" class="btn btn-danger btn-lg" href="/cursos-disponiveis">
-                                <i class="fa fa-laptop" aria-hidden="true"></i>
-                                Conheça nossos cursos
-                            </a>
-                        </div>
+    {{--<section id="cursos" class="slide background-color-white">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-12">--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--<img class="img-responsive" src="{{url('assets/img/cursos.jpg')}}" alt="">--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-6">--}}
+                        {{--<h1 class="titulo">Cursos disponíveis.</h1>--}}
+                        {{--<div class="divider"></div>--}}
+                        {{--<p class="descricao-slide">Temos mais de 50 cursos para atender as mais diversas demandas do--}}
+                            {{--mercado,--}}
+                            {{--para atender ao aluno que deseja iniciar na área de informática, como também o profissional--}}
+                            {{--que deseja se especializar.--}}
+                            {{--Cursos na área de informática, administrativos e inglês.</p>--}}
+                        {{--<div class="text-center">--}}
+                            {{--<a type="button" class="btn btn-danger btn-lg" href="/cursos-disponiveis">--}}
+                                {{--<i class="fa fa-laptop" aria-hidden="true"></i>--}}
+                                {{--Conheça nossos cursos--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
 
-                    </div>
-                </div>
-            </div>
-        </div>
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-    </section>
+    {{--</section>--}}
 
 
     <section id="certificado" class="slide background-color-white">

@@ -37,6 +37,8 @@ Route::get('/pesquisar/{cell}', 'AlunoController@pesquisar');
 Route::get('/sms/{idAluno}', 'AlunoController@sms');
 
 Route::get('/cursos-disponiveis', 'CursoController@pacote_cursos2');
+Route::get('/cursos', 'CursoController@pacote_cursos2');
+
 Route::get('/cursos-disponiveis2', 'CursoController@pacote_cursos2');
 Route::get('/cursos-disponiveis/detalhes/{id}', 'CursoController@detalhes');
 

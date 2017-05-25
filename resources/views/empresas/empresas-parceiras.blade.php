@@ -18,7 +18,7 @@
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right menu">
                         <li><a href="../#participar">Como Participar</a></li>
-                        <li><a href="../#cursos">Cursos</a>
+                        <li><a href="/cursos">Cursos</a>
                         </li>
                         <li><a href="../#certificado">Certificados</a>
                         </li>
