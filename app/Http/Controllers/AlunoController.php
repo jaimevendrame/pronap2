@@ -66,11 +66,19 @@ class AlunoController extends Controller
         }
 
 
-        $data_atual = date ("d/m/Y");
+        $data_atual = date ("Y/m/d");
+
+        $data_termino = $empresa['dataTerminoCampanha'];
+
+        $data_termino = date('Y/d/m',strtotime($data_termino));
 
 
 
-        if ($empresa['dataTerminoCampanha'] < ($data_atual) ){
+
+//        dd(strtotime($data_termino));
+//        dd(strtotime($data_atual));
+
+        if (  (strtotime($data_atual)) > strtotime($data_termino)){
 
             return 'Lamento, a campanha em sua cidade encerrou em '."<b>".$empresa['dataTerminoCampanha']."</b>".'. Aguarde  novas campanhas';
         }
