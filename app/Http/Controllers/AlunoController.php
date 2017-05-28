@@ -4,6 +4,7 @@ namespace pronap\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use pronap\Empresa;
 use pronap\Http\Requests;
@@ -66,17 +67,18 @@ class AlunoController extends Controller
         }
 
 
-        $data_atual = date ("Y/m/d");
-
-        $data_termino = $empresa['dataTerminoCampanha'];
-
-        $data_termino = date('Y/d/m',strtotime($data_termino));
-
-
+        //pegar data direto do banco formato y/m/d
+        $dados = DB::table('empresas')
+            ->select('dataTerminoCampanha')
+            ->where('cidade','=', $pesquisa)
+            ->first();
 
 
-//        dd(strtotime($data_termino));
-//        dd(strtotime($data_atual));
+        $data_atual = date ("Y-m-d");
+
+        
+        $data_termino = $dados->dataTerminoCampanha;
+
 
         if (  (strtotime($data_atual)) > strtotime($data_termino)){
 
