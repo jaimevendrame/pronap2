@@ -76,7 +76,7 @@ class AlunoController extends Controller
 
         $data_atual = date ("Y-m-d");
 
-        
+
         $data_termino = $dados->dataTerminoCampanha;
 
 

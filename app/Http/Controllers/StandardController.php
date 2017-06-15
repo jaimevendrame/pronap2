@@ -110,4 +110,6 @@ class StandardController extends BaseController
         return view("{$this->nameView}.index", compact('data'));
     }
 
+
+
 }

@@ -22,6 +22,8 @@ class PremioController extends  StandardController
         $this->request = $request;
 
         $this->aluno = $aluno;
+
+
     }
 
     public function premios(){
