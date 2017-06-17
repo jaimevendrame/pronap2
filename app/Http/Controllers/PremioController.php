@@ -44,8 +44,10 @@ class PremioController extends  StandardController
 
         $cidade = $this->request->get('cep');
 
-        $total_inscritos = $this->aluno->where(['cidade', 'LIKE', "%$cidade%"],
-            ['in_teste', '>=', 0])->get();
+        $total_inscritos = $this->aluno->where([
+            ['cidade', 'LIKE', "%$cidade%"],
+            ['in_teste', '>=', 0],
+        ])->get();
         $total_inscritos = ($total_inscritos->count() + 0);
 
         $data = $this->model->all();
