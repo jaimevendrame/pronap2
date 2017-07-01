@@ -26,6 +26,7 @@ class AlunoController extends Controller
         $this->smsGo();
 
 //        return view('aluno.add');
+        //comntário
     }
 
     public function addAluno()
