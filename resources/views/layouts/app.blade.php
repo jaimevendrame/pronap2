@@ -1,252 +1,268 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-
-    <!-- Styles -->
-{{--<link href="/css/app.css" rel="stylesheet">--}}
-
-<!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="{{url('assets/font-awesome/css/font-awesome.min.css')}}">
-<!-- Optional theme -->
-    <link rel="stylesheet" href="{{url('assets/css/bootstrap-theme.min.css')}}">
-    <!-- Chamadas JS -->
-    <!--jQuery-->
-    <script src="{{url('assets/js/jquery-3.2.0.min.js')}}"></script>
-
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-    <style type="text/css">
-        .img-list {
-            max-height: 50px;
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/admin.css') }}"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        header, main, footer {
+            padding-left: 300px;
+        }
+        @media only screen and (max-width : 992px) {
+            header, main, footer {
+                padding-left: 0;
+            }
+        }
+        main {
+            margin: 0px 10px 0px 10px;
         }
     </style>
+
 </head>
+
 <body>
 <div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="col-md-12">
-            <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Perfil</a></li>
+        <li><a href="#!">Configurações</a></li>
+        <li class="divider"></li>
+        @if (!Auth::guest())
+            <li><a href="#!">{{ Auth::user()->email }}</a></li>
+        @endif
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+    </ul>
+    <header>
+        <nav class="light-blue accent-3">
+            <div class="nav-wrapper">
+                <div class="row">
+                    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <div class="col s10 m11 l11">
+                        <a href="/home" class="breadcrumb"><i class=" tiny material-icons">home</i> Home</a>
+                        @if(!empty($brand))
+                            @for ($i = 0; $i < count($brand); $i++)
+                                <a href="#!" class="breadcrumb">{{ $brand[$i] }}</a>
+                            @endfor
+
+
+                        @endif
+                    </div>
+                    <div class="col s2 m1 l1">
+                        <a href="{{ env('URL_ADMIN_LOGOUT') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ env('URL_ADMIN_LOGOUT') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
+
+
+
+                </div>
+
             </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                @if (Auth::guest())
-                @else
-                <ul class="nav navbar-nav">
-                    <li><a href="/admin/home">Alunos</a></li>
-                    <li><a href="/admin/cursos">Cursos</a></li>
-                    <li><a href="/admin/pacote">Pacotes</a></li>
-                    <li><a href="/admin/premios">Premios</a></li>
-                    <li><a href="/admin/empresas">Empresas Parceiras</a></li>
-                    <li><a href="/admin/contatos">Contatos</a></li>
-                    <li><a href="/admin/controles">Controle</a></li>
-                </ul>
-            @endif
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+        </nav>
+        <ul id="slide-out" class="side-nav fixed  blue darken-3 z-depth-5">
+            <nav class="blue darken-4">
+                <div class="container">
+                    <!-- Branding Image -->
+                    <a class="brand-logo" href="{{ url('/home') }}"><i class="large material-icons">whatshot</i>
+                        {{--{{ config('app.name', 'O Sistema') }}--}} PRONAC
+                    </a>
+                </div>
+            </nav>
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img src="{{ asset('admin/images/office.jpg') }}">
+                    </div>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ env('URL_ADMIN_LOGIN') }}">Login</a></li>
-                        {{--<li><a href="{{ url('/register') }}">Cadastra-se</a></li>--}}
+                        <a href="#!name"><span class="white-text name">Anonimo</span></a><li>
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                        <div class="row">
+                            <div class="col  s4 m4 l4">
+                                <img class="circle avatar" src="{{ asset('admin/images/user_default.jpg') }}">
+                            </div>
+                            <div class="col col s8 m8 l8">
+                                <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                                    <span class="white-text name">{{ Auth::user()->name }}
+                                        <i class="material-icons right">arrow_drop_down</i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ env('URL_ADMIN_LOGOUT') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ env('URL_ADMIN_LOGOUT') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
                     @endif
-                </ul>
-            </div>
+
+                </div>
+            </li>
+            {{--<li>--}}
+            {{--<form>--}}
+            {{--<div class="input-field">--}}
+            {{--<input id="myInput" name="myInput" type="search" required>--}}
+            {{--<label class="label-icon" for="search"><i class="material-icons">search</i></label>--}}
+            {{--<i class="material-icons">close</i>--}}
+            {{--</div>--}}
+            {{--</form>--}}
+            {{--</li>--}}
+
+            <ul class="collapsible white-text" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">dashboard</i>Dashboard</div>
+                    <div class="collapsible-body blue"><span></span></div>
+                </li>
+                <li><a class="white-text" href="/admin/campanhas">Campanhas</a></li>
+                <li>
+                    <div class="collapsible-header active"><i class="material-icons">person</i>Usuário</div>
+                    <div class="collapsible-body blue">
+                            <span>
+                                <ul>
+                                    <li><a class="white-text" href="/admin/role">Funções</a></li>
+                                    <li><a class="white-text" href="/admin/permission">Permissões</a></li>
+                                    <li><a class="white-text" href="/admin/permissionrole">Permissões Funções</a></li>
+                                    <li><a class="white-text" href="/user">Usuário</a></li>
+                                    <li><a class="white-text" href="/admin/userrole">Usuário Funções</a></li>
+                                </ul>
+                            </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">people</i>Alunos</div>
+                    <div class="collapsible-body blue"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">play_for_work</i>Matriculas</div>
+                    <div class="collapsible-body blue"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+            </ul>
+
+        </ul>
+    </header>
+
+
+    <main>
+
+
+        <div>
+            @yield('content')
         </div>
-    </nav>
 
-    @yield('content')
 
+
+    </main>
 </div>
 
-
 <!-- Scripts -->
-{{--<script src="/js/app.js"></script>--}}
-<script type="text/javascript" src="{{url('assets/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{url('assets/js/jquery.mask.js')}}"></script>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/date.format.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.mask.js') }}"></script>
+
 
 <script>
-    $(document).ready(function() {
-        //limpa formulário
-        $("#form-cad-edit").trigger("reset");
-
-        //aplica mascára nos inputs
-        $('#telefone').mask('(00)0000-0000');
-        $('#celular').mask('(00)0 0000-0000');
+    $(document).ready(function(){
+        $(".button-collapse").sideNav();
+        $('.collapsible').collapsible('open', 0);
         $('#cep').mask('00000-000');
-        $('#cnpj').mask('00.000.000/0000-00');
-        $('#dataTerminoCampanha').mask('00/00/0000');
+
     });
 
-</script>
-<script type="text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+    });
 
-    function limpa_formulário_cep() {
-        //Limpa valores do formulário de cep.
-        document.getElementById('rua').value = ("");
-//        document.getElementById('bairro').value = ("");
-        document.getElementById('cidade').value = ("");
-        document.getElementById('uf').value = ("");
-//        document.getElementById('ibge').value = ("");
-    }
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year
+        format: ''
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            jQuery(".cep-msg ").show();
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value = (conteudo.logradouro);
-//            document.getElementById('bairro').value = (conteudo.bairro);
-            document.getElementById('cidade').value = (conteudo.localidade);
-            document.getElementById('uf').value = (conteudo.uf);
-//            document.getElementById('ibge').value = (conteudo.ibge);
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
+    });
+
+    $(document).ready(function () {
+
+
+        function limpa_formulário_cep() {
+            // Limpa valores do formulário de cep.
+            $("#rua").val("");
+            $("#bairro").val("");
+            $("#cidade").val("");
+            $("#uf").val("");
+            $("#ibge").val("");
+            $("#cep-cidade").val("");
         }
-    }
 
-    function pesquisacep(valor) {
+        //Quando o campo cep perde o foco.
+        $("#cep, #cep-cidade").blur(function () {
 
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
+            //Nova variável "cep" somente com dígitos.
+            var cep = $(this).val().replace(/\D/g, '');
 
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
 
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
 
-            //Valida o formato do CEP.
-            if (validacep.test(cep)) {
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value = "...";
-//                document.getElementById('bairro').value = "...";
-                document.getElementById('cidade').value = "...";
-                document.getElementById('uf').value = "...";
-//                document.getElementById('ibge').value = "...";
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    $("#rua").val("...");
+                    $("#bairro").val("...");
+                    $("#cidade").val("...");
+                    $("#uf").val("...");
+                    $("#ibge").val("...");
+                    $("#cep-cidade").val("...");
+                    $(':input[type="submit"]').prop('disabled', true);
 
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
 
-                //Sincroniza com o callback.
-                script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+                    //Consulta o webservice viacep.com.br/
+                    $.getJSON("//viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
+                        if (!("erro" in dados)) {
+                            //Atualiza os campos com os valores da consulta.
+                            $("#rua").val(dados.logradouro);
+                            $("#bairro").val(dados.bairro);
+                            $("#cidade").val((dados.localidade).toUpperCase());
+                            $("#uf").val(dados.uf);
+                            $("#ibge").val(dados.ibge);
+                            $("#cep-cidade").val(dados.localidade);
+                            $(':input[type="submit"]').prop('disabled', false);
+                        } //end if.
+                        else {
+                            //CEP pesquisado não foi encontrado.
+                            limpa_formulário_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
             } //end if.
             else {
-                //cep é inválido.
+                //cep sem valor, limpa formulário.
                 limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
             }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-        }
-    };
-
-</script>
-
-<script>
-
-        function show(url) {
-
-            jQuery.getJSON(url, function (data) {
-
-                jQuery.each(data, function (key, val) {
-                    jQuery("input[name='" + key + "']").val(val);
-                });
-            });
-
-            jQuery("#myModal").modal();
-
-            return false;
-        };
-
-</script>
-
-<script>
-
-    function sms(id) {
-
-        jQuery.getJSON(id, function (data) {
-
-
-
-            jQuery.each(data, function (key, val) {
-
-                if (val == 1){
-                    alert("Seu SMS foi enviado com Sucesso!")
-                } else {
-                    alert("Falha inesperada ocorreu, tente mais tarde!")
-                }
-            });
         });
-
-        return false;
-
-    }
+    });
 </script>
-
-@yield('content2')
-
-
-
 </body>
 </html>

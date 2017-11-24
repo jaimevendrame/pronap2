@@ -1,10 +1,10 @@
 <?php
 
-namespace pronap\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use pronap\Http\Requests;
+use App\Http\Requests;
 
 
 class EmailController extends Controller

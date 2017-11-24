@@ -1,12 +1,12 @@
 <?php
 
-namespace pronap\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use pronap\Aluno;
-use pronap\Http\Requests;
-use pronap\Premio;
+use App\Aluno;
+use App\Http\Requests;
+use App\Premio;
 
 class PremioController extends  StandardController
 {

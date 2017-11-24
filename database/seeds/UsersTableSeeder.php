@@ -11,20 +11,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\pronap\User::class,1)
+        factory(\App\User::class,1)
             ->states('admin')
             ->create([
                 'name' => 'Jaime Filho',
                 'email' => 'admin@user.com',
             ]);
-        factory(\pronap\User::class,1)
+        factory(\App\User::class,1)
             ->states('admin')
             ->create([
-                'name' => 'Marcio Piske',
-                'email' => 'marciopiske@gmail.com',
+                'name' => 'Vandre Santana',
+                'email' => 'vandresantana@gmail.com',
             ]);
 
-        factory(\pronap\User::class,1)
+        factory(\App\User::class,1)
             ->create([
                 'name' => 'Client Filho',
                 'email' => 'client@user.com',

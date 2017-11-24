@@ -10,13 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use pronap\Mail\KryptoniteFound;
-
 
 Route::get('/', function () {
-//    \Illuminate\Support\Facades\Auth::LoginUsingId(2);
-    return view('index');
+    return view('Home.index');
 });
+
+Route::get('/cursos', function () {
+    return view('Home.cursos.index');
+});
+Route::get('/cidades', function () {
+    return view('Home.cidades.index');
+});
+Route::get('/certificados', function () {
+    return view('Home.certificados.index');
+});
+Route::get('/sobre', function () {
+    return view('Home.sobre.index');
+});
+
+
+//use pronap\Mail\KryptoniteFound;
+//
+//
+//Route::get('/', function () {
+////    \Illuminate\Support\Facades\Auth::LoginUsingId(2);
+//    return view('index');
+//});
 
 Route::get('/aluno', 'AlunoController@aluno');
 
@@ -37,7 +56,7 @@ Route::get('/pesquisar/{cell}', 'AlunoController@pesquisar');
 Route::get('/sms/{idAluno}', 'AlunoController@sms');
 
 Route::get('/cursos-disponiveis', 'CursoController@pacote_cursos2');
-Route::get('/cursos', 'CursoController@pacote_cursos2');
+//Route::get('/cursos', 'CursoController@pacote_cursos2');
 
 Route::get('/cursos-disponiveis2', 'CursoController@pacote_cursos2');
 Route::get('/cursos-disponiveis/detalhes/{id}', 'CursoController@detalhes');
@@ -73,6 +92,56 @@ Route::group([
     Auth::routes();
 
     Route::group(['middleware' => 'can:access-admin'], function (){
+
+        //Roles Route
+        Route::get('/role', 'Painel\RoleController@index');
+        Route::get('/role/cadastrar', 'Painel\RoleController@cadastrar');
+        Route::post('/role/cadastrar', 'Painel\RoleController@cadastrarGo');
+        Route::get('/role/editar/{id}', 'Painel\RoleController@edit');
+        Route::post('/role/editar/{id}', 'Painel\RoleController@editGo');
+        Route::get('/role/delete/{id}', 'Painel\RoleController@delete');
+
+
+
+//Permission Route
+        Route::get('/permission', 'Painel\PermissionController@index');
+        Route::get('/permission/cadastrar', 'Painel\PermissionController@cadastrar');
+        Route::post('/permission/cadastrar', 'Painel\PermissionController@cadastrarGo');
+        Route::get('/permission/editar/{id}', 'Painel\PermissionController@edit');
+        Route::post('/permission/editar/{id}', 'Painel\PermissionController@editGo');
+        Route::get('/permission/delete/{id}', 'Painel\PermissionController@delete');
+
+
+//Permissions X RolesRoute
+        Route::get('/permissionrole', 'Painel\PermissionRoleController@index');
+        Route::get('/permissionrole/cadastrar', 'Painel\PermissionRoleController@cadastrar');
+        Route::post('/permissionrole/cadastrar', 'Painel\PermissionRoleController@cadastrarGo');
+        Route::get('/permissionrole/editar/{id}', 'Painel\PermissionRoleController@edit');
+        Route::post('/permissionrole/editar/{id}', 'Painel\PermissionRoleController@editGo');
+        Route::get('/permissionrole/delete/{id}', 'Painel\PermissionRoleController@delete');
+
+//User Roles Route
+        Route::get('/userrole', 'Painel\UserRoleController@index');
+        Route::get('/userrole/cadastrar', 'Painel\UserRoleController@cadastrar');
+        Route::post('/userrole/cadastrar', 'Painel\UserRoleController@cadastrarGo');
+        Route::get('/userrole/editar/{id}', 'Painel\UserRoleController@edit');
+        Route::post('/userrole/editar/{id}', 'Painel\UserRoleController@editGo');
+        Route::get('/userrole/delete/{id}', 'Painel\UserRoleController@delete');
+
+
+
+        //User Campanha Route
+        Route::get('/campanhas', 'Painel\CampanhaController@index');
+        Route::get('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrar');
+        Route::post('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrarGo');
+        Route::get('/campanhas/editar/{id}', 'Painel\CampanhaController@edit');
+        Route::post('/campanhas/editar/{id}', 'Painel\CampanhaController@editGo');
+        Route::get('/campanhas/delete/{id}', 'Painel\CampanhaController@delete');
+
+
+
+
+
 
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/delete/{idAluno}', 'HomeController@delete')->name('delete');

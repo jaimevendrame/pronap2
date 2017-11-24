@@ -1,6 +1,6 @@
 <?php
 
-namespace pronap;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 

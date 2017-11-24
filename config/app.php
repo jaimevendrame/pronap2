@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        pronap\Providers\AppServiceProvider::class,
-        pronap\Providers\AuthServiceProvider::class,
-        // pronap\Providers\BroadcastServiceProvider::class,
-        pronap\Providers\EventServiceProvider::class,
-        pronap\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 

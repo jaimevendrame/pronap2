@@ -1,11 +1,11 @@
 <?php
 
-namespace pronap\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use pronap\Curso;
-use pronap\Pacote;
-use pronap\Http\Requests;
+use App\Curso;
+use App\Pacote;
+use App\Http\Requests;
 
 class CursoController extends StandardController
 {

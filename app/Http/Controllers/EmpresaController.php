@@ -1,11 +1,11 @@
 <?php
 
-namespace pronap\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use pronap\Empresa;
-use pronap\Http\Requests;
+use App\Empresa;
+use App\Http\Requests;
 
 class EmpresaController extends StandardController
 {

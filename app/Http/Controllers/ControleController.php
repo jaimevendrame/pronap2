@@ -1,11 +1,11 @@
 <?php
 
-namespace pronap\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use pronap\Aluno;
-use pronap\Http\Requests;
+use App\Aluno;
+use App\Http\Requests;
 
 class ControleController extends StandardController
 {

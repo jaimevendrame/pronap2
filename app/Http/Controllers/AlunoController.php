@@ -1,14 +1,14 @@
 <?php
 
-namespace pronap\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use pronap\Empresa;
-use pronap\Http\Requests;
-use pronap\Aluno;
+use App\Empresa;
+use App\Http\Requests;
+use App\Aluno;
 
 class AlunoController extends Controller
 {

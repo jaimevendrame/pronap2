@@ -1,11 +1,11 @@
 <?php
 
-namespace pronap\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use pronap\Contato;
-use pronap\Http\Requests;
+use App\Contato;
+use App\Http\Requests;
 
 class ContatoController extends StandardController
 {
