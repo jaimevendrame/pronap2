@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class PermissionRoleController extends StandardController
 {
     protected $model;
-    protected $nameView = 'painel.permissionrole';
+    protected $nameView = 'Painel.permissionrole';
     protected $redirectCad = '/admin/permissionrole/cadastrar';
     protected $redirectEdit = '/admin/permissionrole/editar';
     protected $route = '/admin/permissionrole';

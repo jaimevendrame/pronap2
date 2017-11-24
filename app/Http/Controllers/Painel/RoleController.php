@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class RoleController extends StandardController
 {
     protected $model;
-    protected $nameView = 'painel.role';
+    protected $nameView = 'Painel.role';
     protected $redirectCad = '/admin/role/cadastrar';
     protected $redirectEdit = '/admin/role/editar';
     protected $route = '/admin/role';

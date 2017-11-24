@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PermissionController extends StandardController
 {
     protected $model;
-    protected $nameView = 'painel.permission';
+    protected $nameView = 'Painel.permission';
     protected $redirectCad = '/admin/permission/cadastrar';
     protected $redirectEdit = '/admin/permission/editar';
     protected $route = '/admin/permission';

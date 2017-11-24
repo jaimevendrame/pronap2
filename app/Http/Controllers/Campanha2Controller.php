@@ -6,11 +6,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Painel\Campanha;
 use Illuminate\Http\Request;
+use App\Pacote;
 
-class CampanhaController extends StandardController
+class Campanha2Controller extends StandardController
 {
     protected $model;
-    protected $nameView = 'Painel.campanhas.index';
+    protected $nameView = 'painel.campanhas';
     protected $redirectCad = '/admin/campanhas/cadastrar';
     protected $redirectEdit = '/admin/campanhas/editar';
     protected $route = '/admin/pacote';

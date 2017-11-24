@@ -94,51 +94,52 @@ Route::group([
     Route::group(['middleware' => 'can:access-admin'], function (){
 
         //Roles Route
-        Route::get('/role', 'painel\RoleController@index');
-        Route::get('/role/cadastrar', 'painel\RoleController@cadastrar');
-        Route::post('/role/cadastrar', 'painel\RoleController@cadastrarGo');
-        Route::get('/role/editar/{id}', 'painel\RoleController@edit');
-        Route::post('/role/editar/{id}', 'painel\RoleController@editGo');
-        Route::get('/role/delete/{id}', 'painel\RoleController@delete');
+        Route::get('/role', 'Painel\RoleController@index');
+        Route::get('/role/cadastrar', 'Painel\RoleController@cadastrar');
+        Route::post('/role/cadastrar', 'Painel\RoleController@cadastrarGo');
+        Route::get('/role/editar/{id}', 'Painel\RoleController@edit');
+        Route::post('/role/editar/{id}', 'Painel\RoleController@editGo');
+        Route::get('/role/delete/{id}', 'Painel\RoleController@delete');
 
 
 
 //Permission Route
-        Route::get('/permission', 'painel\PermissionController@index');
-        Route::get('/permission/cadastrar', 'painel\PermissionController@cadastrar');
-        Route::post('/permission/cadastrar', 'painel\PermissionController@cadastrarGo');
-        Route::get('/permission/editar/{id}', 'painel\PermissionController@edit');
-        Route::post('/permission/editar/{id}', 'painel\PermissionController@editGo');
-        Route::get('/permission/delete/{id}', 'painel\PermissionController@delete');
+        Route::get('/permission', 'Painel\PermissionController@index');
+        Route::get('/permission/cadastrar', 'Painel\PermissionController@cadastrar');
+        Route::post('/permission/cadastrar', 'Painel\PermissionController@cadastrarGo');
+        Route::get('/permission/editar/{id}', 'Painel\PermissionController@edit');
+        Route::post('/permission/editar/{id}', 'Painel\PermissionController@editGo');
+        Route::get('/permission/delete/{id}', 'Painel\PermissionController@delete');
 
 
 //Permissions X RolesRoute
-        Route::get('/permissionrole', 'painel\PermissionRoleController@index');
-        Route::get('/permissionrole/cadastrar', 'painel\PermissionRoleController@cadastrar');
-        Route::post('/permissionrole/cadastrar', 'painel\PermissionRoleController@cadastrarGo');
-        Route::get('/permissionrole/editar/{id}', 'painel\PermissionRoleController@edit');
-        Route::post('/permissionrole/editar/{id}', 'painel\PermissionRoleController@editGo');
-        Route::get('/permissionrole/delete/{id}', 'painel\PermissionRoleController@delete');
+        Route::get('/permissionrole', 'Painel\PermissionRoleController@index');
+        Route::get('/permissionrole/cadastrar', 'Painel\PermissionRoleController@cadastrar');
+        Route::post('/permissionrole/cadastrar', 'Painel\PermissionRoleController@cadastrarGo');
+        Route::get('/permissionrole/editar/{id}', 'Painel\PermissionRoleController@edit');
+        Route::post('/permissionrole/editar/{id}', 'Painel\PermissionRoleController@editGo');
+        Route::get('/permissionrole/delete/{id}', 'Painel\PermissionRoleController@delete');
 
 //User Roles Route
-        Route::get('/userrole', 'painel\UserRoleController@index');
-        Route::get('/userrole/cadastrar', 'painel\UserRoleController@cadastrar');
-        Route::post('/userrole/cadastrar', 'painel\UserRoleController@cadastrarGo');
-        Route::get('/userrole/editar/{id}', 'painel\UserRoleController@edit');
-        Route::post('/userrole/editar/{id}', 'painel\UserRoleController@editGo');
-        Route::get('/userrole/delete/{id}', 'painel\UserRoleController@delete');
+        Route::get('/userrole', 'Painel\UserRoleController@index');
+        Route::get('/userrole/cadastrar', 'Painel\UserRoleController@cadastrar');
+        Route::post('/userrole/cadastrar', 'Painel\UserRoleController@cadastrarGo');
+        Route::get('/userrole/editar/{id}', 'Painel\UserRoleController@edit');
+        Route::post('/userrole/editar/{id}', 'Painel\UserRoleController@editGo');
+        Route::get('/userrole/delete/{id}', 'Painel\UserRoleController@delete');
 
 
 
         //User Campanha Route
-        Route::get('campanhas', 'painel\CampanhaController@index');
-        Route::get('/campanhas/cadastrar', 'painel\CampanhaController@cadastrar');
-        Route::post('/campanhas/cadastrar', 'painel\CampanhaController@cadastrarGo');
-        Route::get('/campanhas/editar/{id}', 'painel\CampanhaController@edit');
-        Route::post('/campanhas/editar/{id}', 'painel\CampanhaController@editGo');
-        Route::get('/campanhas/delete/{id}', 'painel\CampanhaController@delete');
+//        Route::get('campanhas', 'Campanha2Controller@index');
+        Route::get('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrar');
+        Route::post('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrarGo');
+        Route::get('/campanhas/editar/{id}', 'Painel\CampanhaController@edit');
+        Route::post('/campanhas/editar/{id}', 'Painel\CampanhaController@editGo');
+        Route::get('/campanhas/delete/{id}', 'Painel\CampanhaController@delete');
 
 
+        Route::get('/campanhas2', 'Campanha2Controller@index')->name('camapanha');
 
 
 
