@@ -11,10 +11,10 @@ use App\Pacote;
 class Campanha2Controller extends StandardController
 {
     protected $model;
-    protected $nameView = 'painel.campanhas';
+    protected $nameView = 'campanhas';
     protected $redirectCad = '/admin/campanhas/cadastrar';
     protected $redirectEdit = '/admin/campanhas/editar';
-    protected $route = '/admin/pacote';
+    protected $route = '/admin/campanhas';
 
 
 
