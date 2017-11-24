@@ -131,7 +131,7 @@ Route::group([
 
 
         //User Campanha Route
-        Route::get('/campanhas', 'Painel\CampanhaController@index');
+        Route::get('campanhas', 'Painel\CampanhaController@index');
         Route::get('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrar');
         Route::post('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrarGo');
         Route::get('/campanhas/editar/{id}', 'Painel\CampanhaController@edit');
