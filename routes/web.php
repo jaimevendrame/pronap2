@@ -131,15 +131,15 @@ Route::group([
 
 
         //User Campanha Route
-//        Route::get('campanhas', 'Campanha2Controller@index');
-        Route::get('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrar');
-        Route::post('/campanhas/cadastrar', 'Painel\CampanhaController@cadastrarGo');
-        Route::get('/campanhas/editar/{id}', 'Painel\CampanhaController@edit');
-        Route::post('/campanhas/editar/{id}', 'Painel\CampanhaController@editGo');
-        Route::get('/campanhas/delete/{id}', 'Painel\CampanhaController@delete');
+        Route::get('/campanhas', 'Campanha2Controller@index')->name('camapanha');
+        Route::get('/campanhas/cadastrar', 'Campanha2Controller@cadastrar');
+        Route::post('/campanhas/cadastrar', 'Campanha2Controller@cadastrarGo');
+        Route::get('/campanhas/editar/{id}', 'Campanha2Controller@edit');
+        Route::post('/campanhas/editar/{id}', 'Campanha2Controller@editGo');
+        Route::get('/campanhas/delete/{id}', 'Campanha2Controller@delete');
+        Route::post('/campanhas/pesquisar', 'Campanha2Controller@pesquisar');
 
 
-        Route::get('/campanhas2', 'Campanha2Controller@index')->name('camapanha');
 
 
 

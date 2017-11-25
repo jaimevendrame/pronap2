@@ -25,16 +25,19 @@ class StandardController extends BaseController
     public function index()
     {
         $data = $this->model->paginate($this->totalPorPagina);
+        $brand = $this->brand;
 
-        return view("{$this->nameView}.index",compact('data'));
+        return view("{$this->nameView}.index",compact('data','brand'));
     }
 
     public function  cadastrar()
     {
-        return view("{$this->nameView}.cad-edit");
+        $brand = $this->brand;
+
+        return view("{$this->nameView}.add-edit",compact('brand'));
     }
 
-    public function cadastroGo()
+    public function cadastrarGo()
     {
         $dadosForm = $this->request->all();
 
@@ -45,6 +48,15 @@ class StandardController extends BaseController
                             ->withErrors($validator)
                             ->withInput();
             }
+
+
+//        if (!empty($dadosForm['dataInicioCampanha'])){
+//            $dadosForm['dataInicioCampanha'] = \Carbon\Carbon::createFromFormat('d/m/Y', $dadosForm['dataInicioCampanha'])->toDateString();
+//            $dadosForm['dataTerminoCampanha'] = \Carbon\Carbon::createFromFormat('d/m/Y', $dadosForm['dataTerminoCampanha'])->toDateString();
+//
+//        }
+
+
 
         $insert = $this->model->create($dadosForm);
 
@@ -61,8 +73,9 @@ class StandardController extends BaseController
     public function edit($id)
     {
         $data = $this->model->find($id);
+        $brand = $this->brand;
 
-        return view("{$this->nameView}.cad-edit",compact('data'));
+        return view("{$this->nameView}.add-edit",compact('data','brand'));
 
     }
 
@@ -104,10 +117,11 @@ class StandardController extends BaseController
     public function pesquisar()
     {
         $palavraPesquisa = $this->request->get('pesquisar');
+        $brand = $this->brand;
 
         $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")->paginate(10);
 
-        return view("{$this->nameView}.index", compact('data'));
+        return view("{$this->nameView}.index", compact('data','brand'));
     }
 
 

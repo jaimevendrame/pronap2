@@ -16,9 +16,9 @@
                         @endif
                         <div class="row">
                             @if( isset($data))
-                                <form class="col s12 m12 l12" method="post" action="/admin/campanha/editar/{{$data->id}}" enctype="multipart/form-data">
+                                <form class="col s12 m12 l12" method="post" action="/admin/campanhas/editar/{{$data->id}}" enctype="multipart/form-data">
                             @else
-                               <form class="col s12 m12 l12" method="post" action="/admin/campanha/cadastrar" enctype="multipart/form-data">
+                               <form class="col s12 m12 l12" method="post" action="/admin/campanhas/cadastrar" enctype="multipart/form-data">
                             @endif
                                    {{ csrf_field() }}
                                    <div class="row">
@@ -43,11 +43,11 @@
                                            placeholder="Cóg.IBGE">
                                        </div>
                                        <div class="input-field col s12 m6 l6">
-                                           <input id="dataInicioCampanha" type="date" class="datepicker"  name="dataInicioCampanha" value="{{$data->dataInicioCampanha or old('dataInicioCampanha')}}"
+                                           <input id="dataInicioCampanha" type="date"  name="dataInicioCampanha" value="{{$data->dataInicioCampanha or old('dataInicioCampanha')}}"
                                            placeholder="Data Início">
                                        </div>
                                        <div class="input-field col s12 m6 l6">
-                                           <input id="dataTerminoCampanha" type="date" class="datepicker"  name="dataTerminoCampanha" value="{{$data->dataTerminoCampanha or old('dataTerminoCampanha')}}"
+                                           <input id="dataTerminoCampanha" type="date"  name="dataTerminoCampanha" value="{{$data->dataTerminoCampanha or old('dataTerminoCampanha')}}"
                                            placeholder="Data Fim">
                                        </div>
                                     <div class="input-field col s12 m2 l2 right">

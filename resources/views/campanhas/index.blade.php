@@ -7,7 +7,26 @@
                 <div class="card">
                     <div class="card-content ">
                         <span class="card-title">Listagem de Campanhas</span>
-                        <a href="/admin/campanhas/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Função">Adicionar</a>
+                        <form class="form-inline" method="POST" action="/admin/campanhas/pesquisar">
+                            {{ csrf_field() }}
+                            <div class="input-field col s12 m2 l2">
+                                <a href="/admin/campanhas/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
+                                   data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Campanha"><i class="material-icons">add</i>Adicionar</a>
+                            </div>
+
+                            <div class="input-field col s12 m8 l8">
+                                <input class="validate" type="text" name="pesquisar" placeholder="Pesquisar">
+                            </div>
+                            <div class="input-field col s12 m2 l2">
+                                <button type="submit" class="btn blue darken-1 waves-effect waves-light"><i class="material-icons">search</i></button>
+
+                            </div>
+                        </form>
+
+                        @if( isset($palavraPesquisa) )
+                            <p>Resultados para a pesquisa <b>{{$palavraPesquisa}}</b></p>
+                        @endif
+                        <br>
                         <div class="row">
                             <table>
                                 <thead>

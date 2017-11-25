@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class CampanhaController extends StandardController
 {
     protected $model;
-    protected $nameView = 'Painel.campanhas.index';
+    protected $nameView = 'campanhas';
     protected $redirectCad = '/admin/campanhas/cadastrar';
     protected $redirectEdit = '/admin/campanhas/editar';
     protected $route = '/admin/pacote';
