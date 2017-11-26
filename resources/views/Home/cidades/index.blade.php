@@ -8,7 +8,7 @@
             <div class="row">
 
                 <h2>CIDADES PARTICIPANTES</h2>
-                <p>O <strong>PRONAC</strong> atual em todo o Brasil, sendo que em algumas localidades a matrícula é presencial.</p>
+                <p>O <strong>PRONAC</strong> atua em todo o Brasil, sendo que em algumas localidades a matrícula é presencial.</p>
 
             </div>
             <div class="row padding-40">
