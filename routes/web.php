@@ -28,6 +28,7 @@ Route::get('/sobre', function () {
     return view('Home.sobre.index');
 });
 
+Route::post('/leads/cadastrar', 'LeadController@cadastrarHomeGo');
 
 //use pronap\Mail\KryptoniteFound;
 //
@@ -140,6 +141,15 @@ Route::group([
         Route::post('/campanhas/editar/{id}', 'Campanha2Controller@editGo');
         Route::get('/campanhas/delete/{id}', 'Campanha2Controller@delete');
         Route::post('/campanhas/pesquisar', 'Campanha2Controller@pesquisar');
+
+        //User Leads Route
+        Route::get('/leads', 'LeadController@index')->name('camapanha');
+        Route::get('/leads/cadastrar', 'LeadController@cadastrar');
+        Route::post('/leads/cadastrar', 'LeadController@cadastrarGo');
+        Route::get('/leads/editar/{id}', 'LeadController@edit');
+        Route::post('/leads/editar/{id}', 'LeadController@editGo');
+        Route::get('/leads/delete/{id}', 'LeadController@delete');
+        Route::post('/leads/pesquisar', 'LeadController@pesquisar');
 
 
 

@@ -19,4 +19,12 @@ class Campanha extends Model
         'uf' => 'required|min:2|max:10',
         'ibge' => 'required|min:3|max:10',
     ];
+
+    public $rulesEdit = [
+        'title' => 'required|min:3|max:200',
+        'cep' => 'required|min:3|max:15',
+        'cidade' => 'required|min:3|max:100',
+        'uf' => 'required|min:2|max:10',
+        'ibge' => 'required|min:3|max:10',
+    ];
 }

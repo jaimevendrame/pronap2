@@ -50,13 +50,6 @@ class StandardController extends BaseController
             }
 
 
-//        if (!empty($dadosForm['dataInicioCampanha'])){
-//            $dadosForm['dataInicioCampanha'] = \Carbon\Carbon::createFromFormat('d/m/Y', $dadosForm['dataInicioCampanha'])->toDateString();
-//            $dadosForm['dataTerminoCampanha'] = \Carbon\Carbon::createFromFormat('d/m/Y', $dadosForm['dataTerminoCampanha'])->toDateString();
-//
-//        }
-
-
 
         $insert = $this->model->create($dadosForm);
 
@@ -83,7 +76,7 @@ class StandardController extends BaseController
     {
         $dadosForm = $this->request->all();
 
-        $validator = validator($dadosForm, $this->model->rules);
+        $validator = validator($dadosForm, $this->model->rulesEdit);
 
         if ($validator->fails()) {
             return redirect("{$this->redirectEdit}/$id")

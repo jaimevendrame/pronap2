@@ -126,6 +126,7 @@
                     <div class="collapsible-body blue"><span></span></div>
                 </li>
                 <li><a class="white-text" href="/admin/campanhas">Campanhas</a></li>
+                <li><a class="white-text" href="/admin/leads">Leads</a></li>
                 <li>
                     <div class="collapsible-header active"><i class="material-icons">person</i>Usuário</div>
                     <div class="collapsible-body blue">
@@ -179,6 +180,7 @@
         $(".button-collapse").sideNav();
         $('.collapsible').collapsible('open', 0);
         $('#cep').mask('00000-000');
+        $('#celular').mask('(00)00000-0000');
 
     });
 

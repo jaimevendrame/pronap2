@@ -6,7 +6,7 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content ">
-                        <span class="card-title">Cadastro de Campanhas</span>
+                        <span class="card-title">Cadastro de Leads</span>
                         @if( isset($errors) && count ($errors) > 0)
                             <div class="card-panel deep-orange darken-1">
                                 @foreach( $errors->all() as $errors )
@@ -16,15 +16,23 @@
                         @endif
                         <div class="row">
                             @if( isset($data))
-                                <form class="col s12 m12 l12" method="post" action="/admin/campanhas/editar/{{$data->id}}" enctype="multipart/form-data">
+                                <form class="col s12 m12 l12" method="post" action="/admin/leads/editar/{{$data->id}}" enctype="multipart/form-data">
                             @else
-                               <form class="col s12 m12 l12" method="post" action="/admin/campanhas/cadastrar" enctype="multipart/form-data">
+                               <form class="col s12 m12 l12" method="post" action="/admin/leads/cadastrar" enctype="multipart/form-data">
                             @endif
                                    {{ csrf_field() }}
                                    <div class="row">
                                     <div class="input-field col s12 m6 l6">
-                                        <input id="title" type="text" class="validate"  name="title" value="{{$data->title or old('title')}}"
-                                        placeholder="Título">
+                                        <input id="nome" type="text" class="validate"  name="nome" value="{{$data->nome or old('nome')}}"
+                                        placeholder="Nome">
+                                    </div>
+                                    <div class="input-field col s12 m6 l6">
+                                        <input id="celular" type="tel" class="validate"  name="celular" value="{{$data->celular or old('celular')}}"
+                                        placeholder="Celular">
+                                    </div>
+                                    <div class="input-field col s12 m6 l6">
+                                        <input id="email" type="text" class="validate"  name="email" value="{{$data->email or old('email')}}"
+                                        placeholder="Email">
                                     </div>
                                     <div class="input-field col s12 m6 l6">
                                         <input id="cep" type="tel" class="validate"  name="cep" value="{{$data->cep or old('cep')}}"
@@ -43,21 +51,22 @@
                                            placeholder="Cóg.IBGE">
                                        </div>
                                        <div class="input-field col s12 m6 l6">
-                                           <input id="dataInicioCampanha" type="date"  name="dataInicioCampanha" value="{{$data->dataInicioCampanha or old('dataInicioCampanha')}}"
-                                           placeholder="Data Início">
-                                       </div>
-                                       <div class="input-field col s12 m6 l6">
-                                           <input id="dataTerminoCampanha" type="date"  name="dataTerminoCampanha" value="{{$data->dataTerminoCampanha or old('dataTerminoCampanha')}}"
-                                           placeholder="Data Fim">
-                                       </div>
-                                       <div class="input-field col s12 m6 l6">
-                                           <select name="in_ativo">
+                                           <select name="matriculado">
                                                <option value="" disabled selected>Selecione</option>
-                                               <option value="SIM" @if(isset($data->in_ativo) && $data->in_ativo == 'SIM') selected @endif>SIM</option>
-                                               <option value="NAO" @if(isset($data->in_ativo) && $data->in_ativo == 'NAO') selected @endif>NÃO</option>
+                                               <option value="SIM" @if(isset($data->matriculado) && $data->matriculado == 'SIM') selected @endif>SIM</option>
+                                               <option value="NAO" @if(isset($data->matriculado) && $data->matriculado == 'NAO') selected @endif>NÃO</option>
                                            </select>
-                                           <label>Ativo?</label>
+                                           <label>Matriculado?</label>
                                        </div>
+                                       <div class="input-field col s12 m6 l6">
+                                           <select name="sms">
+                                               <option value="" disabled selected>Selecione</option>
+                                               <option value="SIM" @if(isset($data->sms) && $data->sms == 'SIM') selected @endif>SIM</option>
+                                               <option value="NAO" @if(isset($data->sms) && $data->sms == 'NAO') selected @endif>NÃO</option>
+                                           </select>
+                                           <label>SMS Enviado?</label>
+                                       </div>
+
                                     <div class="input-field col s12 m2 l2 right">
                                         <button class="btn waves-effect waves-light blue right" type="submit" name="action">Enviar
                                         </button>
