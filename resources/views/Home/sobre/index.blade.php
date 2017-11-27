@@ -24,8 +24,7 @@
                 <p><strong>A metodologia:</strong></p>
                 <p>Contamos com uma metodologia de ensino eficiente baseada em dinamismo e praticidade. Os cursos contam com material didático online, que ficará liberado para download e impressão, possibilitando assim acesso rápido e fácil.</p>
                 <p>Após iniciar o curso, o aluno pode acessá-lo no seu tempo disponível, por um período de 365 dias, sem compromisso com dias ou horários fixos, por meio de seu computador, tablete ou celular. Cada aluno faz no seu próprio ritmo e conclui no tempo que desejar.</p>
-                <p>Cada curso possui uma avaliação final online e para ser aprovado o aluno deverá alcançar uma nota igual ou superior a 60% de acertos, sendo aprovado o aluno terá a opção de emitir seu certificado digital de conclusão do curso, para isso basta efetuar o pagamento da TAXA DE EMISSÃO DE CERTIFICADO*. Em caso de reprovação, o aluno terá o direito de realizar a avaliação quantas vezes forem necessárias até ser aprovado.</p>
-                <p><b>*A emissão do certificado digital é opcional.</b></p>
+                <p>Cada curso possui uma avaliação final online e para ser aprovado o aluno deverá alcançar uma nota igual ou superior a 60% de acertos.</p>
                 <hr>
                 <p><strong>Missão:</strong></p>
                 <p>Oferecer educação inovadora e de qualidade através da educação a distância, possibilitando a todos o acesso fácil por meio da tecnologia e o desenvolvimento de uma sociedade sustentável.</p>

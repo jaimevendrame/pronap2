@@ -51,9 +51,9 @@
 
                 <p><strong>Leia com bastante atenção:</strong></p>
 
-                <p>Todos os cursos oferecidos pelo Instituto possuem Certificado Digital, sua emissão é opcional e fica condicionada ao pagamento da Taxa de Emissão de Certificado no valor de R$ 38,90 (trinta e oito reais e noventa centavos).</p>
+                <p>Todos os cursos oferecidos pelo Instituto possuem Certificado Digital.</p>
 
-                <p><b>Atenção: </b>O aluno pode se inscrever em quantos cursos desejar, estudar à vontade, mesmo não tendo interesse em solicitar o certificado de todos ou de nenhum curso matriculado. Não haverá o bloqueio ou restrição de acesso aos alunos que não solicitarem o certificado.</p>
+                <p><b>Atenção: </b>O aluno pode se inscrever em até 5 (cinco) cursos que desejar estudar. Não haverá o bloqueio ou restrição de acesso aos alunos.</p>
 
                 <p><b>O Certificado Digital não é enviado para sua residência, este ficará disponível em seu ambiente virtual para download e impressão </b></p>
 
