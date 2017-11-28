@@ -6,7 +6,7 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content ">
-                        <span class="card-title">Listagem de Leads</span>
+                        <span class="card-title">Listagem de Leads <span class="new badge blue">{{$data->count()}}</span></span>
                         <form class="form-inline" method="POST" action="/admin/leads/pesquisar">
                             {{ csrf_field() }}
                             <div class="input-field col s12 m2 l2">
