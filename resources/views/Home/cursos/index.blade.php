@@ -20,7 +20,7 @@
         <div class="container">
 
                 @forelse($cursos as $curso)
-                <div class="col-md-6 padding-10">
+                <div class="col-md-6 padding-40">
                     <div class="media">
                         <div class="media-left media-middle">
                             <a href="#">
