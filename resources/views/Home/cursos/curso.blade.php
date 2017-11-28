@@ -38,8 +38,9 @@
                             <ul class="list-unstyled">
                                 <li><h3><strong>Sobre o {{$data->nome}}:</strong></h3></li>
                                 <li><p>{{$data->descricao}}</p></li>
-                                <li><h3>Objetivo do curso:</h3></li>
+                                <li><h3><strong>Objetivo do curso:</strong></h3></li>
                                 <li><p>{{$data->objetivo}}</p></li>
+                                <li><p><b>Carga horária:</b> {{$data->objetivo}} horas</p></li>
                             </ul>
                         </div>
                     </div>
