@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/cursos', 'HomeController@cursos');
+Route::get('/cursos/detalhes/{id}', 'HomeController@detalhes');
 
 Route::get('/cidades', function () {
     return view('Home.cidades.index');

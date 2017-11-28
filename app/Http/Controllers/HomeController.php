@@ -31,6 +31,14 @@ class HomeController extends Controller
         return view('Home.cursos.index',compact('cursos'));
     }
 
+    public function detalhes($id)
+    {
+        $data = Curso::find($id);
+
+        return view("Home.cursos.curso",compact('data'));
+
+    }
+
     public function delete($idAluno){
 
         $alunos = Aluno::find($idAluno);

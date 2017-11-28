@@ -23,7 +23,7 @@
                 <div class="col-md-6 padding-40">
                     <div class="media">
                         <div class="media-left media-middle">
-                            <a href="#">
+                            <a href="/cursos/detalhes/{{$curso->id}}">
                                 <img class="media-object" src="{{url('assets/uploads/img-cursos/')}}/{{$curso->imagem}}" alt="{{$curso->nome}}">
                             </a>
                         </div>
