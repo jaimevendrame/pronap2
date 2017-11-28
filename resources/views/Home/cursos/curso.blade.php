@@ -37,9 +37,9 @@
                         <div class="col-md-8 text-left">
                             <ul class="list-unstyled">
                                 <li><h3><strong>Sobre o {{$data->nome}}:</strong></h3></li>
-                                <li><h4>{{$data->descricao}}</h4></li>
+                                <li><p>{{$data->descricao}}</p></li>
                                 <li><h3>Objetivo do curso:</h3></li>
-                                <li><h4>{{$data->objetivo}}</h4></li>
+                                <li><p>{{$data->objetivo}}</p></li>
                             </ul>
                         </div>
                     </div>
