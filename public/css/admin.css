@@ -10,3 +10,8 @@
 .pagination li.active {
     background-color: blue !important;
 }
+
+
+.img-list {
+    max-height: 50px;
+}

@@ -14,6 +14,7 @@ class PacoteController extends StandardController
     protected $redirectCad = '/admin/pacote/cadastrar';
     protected $redirectEdit = '/admin/pacote/editar';
     protected $route = '/admin/pacote';
+    protected $brand = ['Pacotes'];
 
 
 

@@ -15,6 +15,8 @@ class CursoController extends StandardController
     protected $redirectCad = '/admin/cursos/cadastrar';
     protected $redirectEdit = '/admin/cursos/editar';
     protected $route = '/admin/cursos';
+    protected $brand = ['Cursos'];
+
 
     public function __construct(Curso $curso,  Request $request)
     {
@@ -26,6 +28,7 @@ class CursoController extends StandardController
     public function index()
     {
 //        $data = $this->model->paginate($this->totalPorPagina);
+        $brand = $this->brand;
 
         $data = $this->model
                         ->join('pacotes','pacotes.id', '=', 'cursos.id_pacote')
@@ -33,18 +36,21 @@ class CursoController extends StandardController
                         ->paginate($this->totalPorPagina);
 
 
-        return view("{$this->nameView}.index",compact('data'));
+        return view("{$this->nameView}.index",compact('data','brand'));
     }
 
     public function  cadastrar()
     {
+        $brand = $this->brand;
+
         $pacotes = Pacote::get();
 
-        return view("{$this->nameView}.cad-edit", compact('pacotes'));
+        return view("{$this->nameView}.cad-edit", compact('pacotes','brand'));
     }
 
     public function cadastroGo()
     {
+
         $dadosForm = $this->request->all();
 
         $validator = validator($dadosForm, $this->model->rules);

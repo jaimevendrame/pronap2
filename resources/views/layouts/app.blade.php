@@ -127,20 +127,22 @@
                 </li>
                 <li><a class="white-text" href="/admin/campanhas">Campanhas</a></li>
                 <li><a class="white-text" href="/admin/leads">Leads</a></li>
-                <li>
-                    <div class="collapsible-header active"><i class="material-icons">person</i>Usuário</div>
-                    <div class="collapsible-body blue">
-                            <span>
-                                <ul>
-                                    <li><a class="white-text" href="/admin/role">Funções</a></li>
-                                    <li><a class="white-text" href="/admin/permission">Permissões</a></li>
-                                    <li><a class="white-text" href="/admin/permissionrole">Permissões Funções</a></li>
-                                    <li><a class="white-text" href="/user">Usuário</a></li>
-                                    <li><a class="white-text" href="/admin/userrole">Usuário Funções</a></li>
-                                </ul>
-                            </span>
-                    </div>
-                </li>
+                <li><a class="white-text" href="/admin/pacote">Pacotes</a></li>
+                <li><a class="white-text" href="/admin/cursos">Cursos</a></li>
+                {{--<li>--}}
+                    {{--<div class="collapsible-header active"><i class="material-icons">person</i>Usuário</div>--}}
+                    {{--<div class="collapsible-body blue">--}}
+                            {{--<span>--}}
+                                {{--<ul>--}}
+                                    {{--<li><a class="white-text" href="/admin/role">Funções</a></li>--}}
+                                    {{--<li><a class="white-text" href="/admin/permission">Permissões</a></li>--}}
+                                    {{--<li><a class="white-text" href="/admin/permissionrole">Permissões Funções</a></li>--}}
+                                    {{--<li><a class="white-text" href="/user">Usuário</a></li>--}}
+                                    {{--<li><a class="white-text" href="/admin/userrole">Usuário Funções</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</span>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
                 <li>
                     <div class="collapsible-header"><i class="material-icons">people</i>Alunos</div>
                     <div class="collapsible-body blue"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -181,6 +183,7 @@
         $('.collapsible').collapsible('open', 0);
         $('#cep').mask('00000-000');
         $('#celular').mask('(00)00000-0000');
+
 
     });
 

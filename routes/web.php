@@ -166,7 +166,7 @@ Route::group([
         //Gestão pacotes
         Route::get('/pacote', 'PacoteController@index')->name('pacote');
         Route::get('/pacote/cadastrar', 'PacoteController@cadastrar')->name('pacote-cad');
-        Route::post('/pacote/cadastrar', 'PacoteController@cadastroGo')->name('pacote-cad');
+        Route::post('/pacote/cadastrar', 'PacoteController@cadastrarGo')->name('pacote-cad');
         Route::get('/pacote/editar/{id}', 'PacoteController@edit')->name('pacote-edit');
         Route::post('/pacote/editar/{id}', 'PacoteController@editGo')->name('pacote-edit');
         Route::get('/pacote/delete/{id}', 'PacoteController@delete')->name('pacote-delete');

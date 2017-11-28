@@ -31,6 +31,10 @@ div.dataTables_wrapper {
     margin: 0 auto;
 }
 
+.img-list {
+    max-height: 50px;
+}
+
 .text-shadow{
     color:#FFFFFF; text-shadow:#000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px
 }
