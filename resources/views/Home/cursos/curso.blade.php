@@ -40,7 +40,7 @@
                                 <li><p>{{$data->descricao}}</p></li>
                                 <li><h3><strong>Objetivo do curso:</strong></h3></li>
                                 <li><p>{{$data->objetivo}}</p></li>
-                                <li><p><b>Carga horária:</b> {{$data->objetivo}} horas</p></li>
+                                <li><p><b>Carga horária:</b> {{$data->carga}} horas</p></li>
                             </ul>
                         </div>
                     </div>
