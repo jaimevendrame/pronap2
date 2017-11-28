@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('Home.index');
 });
 
-Route::get('/cursos', function () {
-    return view('Home.cursos.index');
-});
+
+Route::get('/cursos', 'HomeController@cursos');
+
 Route::get('/cidades', function () {
     return view('Home.cidades.index');
 });

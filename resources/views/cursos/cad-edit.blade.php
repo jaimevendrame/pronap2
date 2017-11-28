@@ -50,7 +50,7 @@
                                                 </div>
                                                 <div class="input-field col s12 m12 l12">
                                                     <textarea id="objetivo" class="materialize-textarea" name="objetivo">{{$data->objetivo or old('objetivo')}}</textarea>
-                                                    <label for="objetivo">DESCRIÇÃO</label>
+                                                    <label for="objetivo">OBJETIVO</label>
                                                 </div>
                                                 <div class="input-field col s12 m6 l6">
                                                     <input id="carga" type="text" class="validate"  name="carga" value="{{$data->carga or old('carga')}}"
