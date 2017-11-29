@@ -15,8 +15,6 @@
                         </div>
                     @endif
 
-                    You are logged in!
-
                         <div class="row">
                             <div class="col s12 m3">
                                 <div class="card blue darken-1">
@@ -48,6 +46,32 @@
                                 </div>
                             </div>
                         </div>
+
+                    <div class="row">
+                        @forelse($campanhas as $c)
+                            <div class="col s12 m3">
+                                <div class="card light-blue darken-1">
+                                    <div class="card-content white-text">
+                                        <span class="card-title">
+                                            <h3>
+                                                @php
+                                                $valor = 0;
+                                                foreach ($leads as $lead){
+                                                    if ($lead->ibge == $c->ibge){
+                                                    $valor = $valor +  1;
+                                                    }
+                                                }
+                                                echo $valor;
+                                                @endphp
+                                            </h3></span>
+                                        <p>{{$c->title}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            @empty
+                        @endforelse
+                    </div>
 
                 </div>
             </div>
