@@ -28,22 +28,22 @@ class LeadController extends StandardController
     }
 
 
-    public function pesquisar()
-    {
-        $palavraPesquisa = $this->request->get('pesquisar');
-        $brand = $this->brand;
-//        $total = $this->model->count();
-
-
-        $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('cidade', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('cep', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('celular', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('email', 'LIKE', "%$palavraPesquisa%")
-                            ->paginate(15);
-
-        return view("{$this->nameView}.index", compact('data','brand'));
-    }
+//    public function pesquisar()
+//    {
+//        $palavraPesquisa = $this->request->get('pesquisar');
+//        $brand = $this->brand;
+////        $total = $this->model->count();
+//
+//
+//        $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('cidade', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('cep', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('celular', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('email', 'LIKE', "%$palavraPesquisa%")
+//                            ->paginate(15);
+//
+//        return view("{$this->nameView}.index", compact('data','brand'));
+//    }
 
 
 
