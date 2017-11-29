@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Curso;
 use App\Models\Painel\Campanha;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -39,9 +40,10 @@ class StandardController extends BaseController
     {
         $brand = $this->brand;
         $campanhas = $this->campanhasAtivas();
+        $cursos = Curso::all();
 
 
-        return view("{$this->nameView}.add-edit",compact('brand', 'campanhas'));
+        return view("{$this->nameView}.add-edit",compact('brand', 'campanhas', 'cursos'));
     }
 
     public function cadastrarGo()
@@ -76,8 +78,10 @@ class StandardController extends BaseController
         $data = $this->model->find($id);
         $brand = $this->brand;
         $campanhas = $this->campanhasAtivas();
+        $cursos = Curso::all();
 
-        return view("{$this->nameView}.add-edit",compact('data','brand', 'campanhas'));
+
+        return view("{$this->nameView}.add-edit",compact('data','brand', 'campanhas', 'cursos'));
 
     }
 

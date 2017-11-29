@@ -151,6 +151,7 @@ Route::group([
         Route::post('/leads/editar/{id}', 'LeadController@editGo');
         Route::get('/leads/delete/{id}', 'LeadController@delete');
         Route::any('/leads/pesquisar', 'LeadController@pesquisar');
+        Route::any('/leads/sms', 'LeadController@sendSMSInd');
 
         Route::get('/leads/campanha/{ibge}', 'LeadController@indexCampanha')->name('camapanha');
         Route::get('/leads/foracampanha/', 'LeadController@indexForaCampanha')->name('camapanha');

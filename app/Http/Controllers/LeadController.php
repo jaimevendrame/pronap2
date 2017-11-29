@@ -188,6 +188,51 @@ class LeadController extends StandardController
 
         }
     }
+    public function sendSMSInd()
+    {
+        $dadosForm = $this->request->all();
+
+        $id = $dadosForm['id'];
+
+        //capturar numero de celular
+        $celular = $dadosForm['cell'];
+        $p = array('(',')', '-');
+        $celular = str_replace($p, '', $celular);
+
+        $msg = $dadosForm['mensagem'];
+
+        $mensagem  = str_replace(' ', '+', strtoupper($msg));
+
+
+        $url = 'http://www.painelsms.com.br/sms.php?i=5792&s=ihb64d&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
+
+
+
+        if ($this->smsGo($url) == '1') {
+
+            $item = $this->model->find($id);
+
+            $item->sms = 'SIM';
+
+            $item->save();
+
+            return redirect("{$this->redirectEdit}/$id")
+                ->withErrors(['falhas'=> 'MENSAGEM ENVIADA'])
+                ->withInput();
+
+        } else{
+            $item = $this->model->find($id);
+
+            $item->sms = 'NAO';
+
+            $item->save();
+
+            return redirect("{$this->redirectEdit}/$id")
+                ->withErrors(['falhas'=> 'FALHA NO ENVIO DA MENSAGEM'])
+                ->withInput();
+        }
+
+    }
 
     public function smsGo($urlgo)
     {

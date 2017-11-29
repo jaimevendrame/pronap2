@@ -26,6 +26,20 @@
             margin: 0px 10px 0px 10px;
         }
     </style>
+    <script>
+
+        function limitaTextarea(valor) {
+            quant = 155; /* Total de caracteres */
+            total = valor.length;
+
+            if(total <= quant) {
+                resto = quant - total;
+                document.getElementById('cont').innerHTML = resto;
+            } else {
+                document.getElementById('texto').value = valor.substr(0,quant);
+            }
+        }
+    </script>
 
 </head>
 
@@ -125,7 +139,19 @@
                     <div class="collapsible-header"><i class="material-icons">dashboard</i>Dashboard</div>
                     <div class="collapsible-body blue"><span></span></div>
                 </li>
-                <li><a class="white-text" href="/admin/campanhas">Campanhas</a></li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">settings_applications</i>Configurações</div>
+                    <div class="collapsible-body blue">
+                        <span>
+                            <ul>
+                                <li><a class="white-text" href="/admin/campanhas">Campanhas</a></li>
+                                <li><a class="white-text" href="/admin/pacote">Pacotes</a></li>
+                                <li><a class="white-text" href="/admin/cursos">Cursos</a></li>
+                            </ul>
+                        </span>
+                    </div>
+                </li>
+
                 <li>
                     <div class="collapsible-header"><i class="material-icons">people</i>Leads</div>
                     <div class="collapsible-body blue"><span>
@@ -141,8 +167,7 @@
                         </span></div>
                 </li>
                 {{--<li><a class="white-text" href="/admin/leads">Leads</a></li>--}}
-                <li><a class="white-text" href="/admin/pacote">Pacotes</a></li>
-                <li><a class="white-text" href="/admin/cursos">Cursos</a></li>
+
                 {{--<li>--}}
                     {{--<div class="collapsible-header active"><i class="material-icons">person</i>Usuário</div>--}}
                     {{--<div class="collapsible-body blue">--}}
@@ -189,12 +214,15 @@
 
 
 <script>
+
+
     $(document).ready(function(){
         $(".button-collapse").sideNav();
         $('.collapsible').collapsible('open', 0);
         $('#cep').mask('00000-000');
         $('#celular').mask('(00)00000-0000');
 
+        $('ul.tabs').tabs();
 
     });
 
