@@ -29,6 +29,7 @@ class CursoController extends StandardController
     {
 //        $data = $this->model->paginate($this->totalPorPagina);
         $brand = $this->brand;
+        $campanhas = $this->campanhasAtivas();
 
         $data = $this->model
                         ->join('pacotes','pacotes.id', '=', 'cursos.id_pacote')
@@ -36,7 +37,7 @@ class CursoController extends StandardController
                         ->paginate($this->totalPorPagina);
 
 
-        return view("{$this->nameView}.index",compact('data','brand'));
+        return view("{$this->nameView}.index",compact('data','brand', 'campanhas'));
     }
 
     public function  cadastrar()
@@ -45,7 +46,10 @@ class CursoController extends StandardController
 
         $pacotes = Pacote::get();
 
-        return view("{$this->nameView}.cad-edit", compact('pacotes','brand'));
+        $campanhas = $this->campanhasAtivas();
+
+
+        return view("{$this->nameView}.cad-edit", compact('pacotes','brand', 'campanhas'));
     }
 
     public function cadastroGo()
@@ -93,8 +97,10 @@ class CursoController extends StandardController
     {
         $pacotes = Pacote::get();
         $data = $this->model->find($id);
+        $campanhas = $this->campanhasAtivas();
 
-        return view("{$this->nameView}.cad-edit",compact('data', 'pacotes'));
+
+        return view("{$this->nameView}.cad-edit",compact('data', 'pacotes', 'campanhas'));
 
     }
 
@@ -154,9 +160,12 @@ class CursoController extends StandardController
             ->select('cursos.*', 'pacotes.nome as pacotenome')
             ->paginate($this->totalPorPagina);
 
+        $campanhas = $this->campanhasAtivas();
+
+
         $pacotes = Pacote::get();
 
-        return view('aluno.cursos',compact('data','pacotes'));
+        return view('aluno.cursos',compact('data','pacotes', 'campanhas'));
     }
 
     public function pacote_cursos2()
@@ -168,9 +177,11 @@ class CursoController extends StandardController
             ->select('cursos.*', 'pacotes.nome as pacotenome')
             ->get();
 
+        $campanhas = $this->campanhasAtivas();
+
         $pacotes = Pacote::get();
 
-        return view('cursos.cursos',compact('data','pacotes'));
+        return view('cursos.cursos',compact('data','pacotes', 'campanhas'));
     }
 
 
@@ -183,7 +194,10 @@ class CursoController extends StandardController
 
             ->find($id);
 
-        return view("cursos.detalhes",compact('data', 'pacotes'));
+        $campanhas = $this->campanhasAtivas();
+
+
+        return view("cursos.detalhes",compact('data', 'pacotes', 'campanhas'));
 
     }
 }

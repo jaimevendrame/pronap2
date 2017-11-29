@@ -126,7 +126,21 @@
                     <div class="collapsible-body blue"><span></span></div>
                 </li>
                 <li><a class="white-text" href="/admin/campanhas">Campanhas</a></li>
-                <li><a class="white-text" href="/admin/leads">Leads</a></li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">people</i>Leads</div>
+                    <div class="collapsible-body blue"><span>
+                            <ul>
+                                <li><a class="white-text" href="/admin/leads">Geral</a></li>
+                                <li><a class="white-text" href="/admin/leads/foracampanha/">Orfãos</a></li>
+                                @forelse($campanhas as $campanha)
+                                    <li><a class="white-text" href="/admin/leads/campanha/{{$campanha->ibge}}">{{$campanha->title}}</a></li>
+                                @empty
+                                @endforelse
+
+                            </ul>
+                        </span></div>
+                </li>
+                {{--<li><a class="white-text" href="/admin/leads">Leads</a></li>--}}
                 <li><a class="white-text" href="/admin/pacote">Pacotes</a></li>
                 <li><a class="white-text" href="/admin/cursos">Cursos</a></li>
                 {{--<li>--}}
@@ -143,20 +157,7 @@
                             {{--</span>--}}
                     {{--</div>--}}
                 {{--</li>--}}
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">people</i>Leads</div>
-                    <div class="collapsible-body blue"><span>
-                            <ul>
-                                <li><a class="white-text" href="/admin/leads">Geral</a></li>
-                                <li><a class="white-text" href="/admin/leads/foracampanha/">Orfãos</a></li>
-                                @forelse($campanhas as $campanha)
-                                <li><a class="white-text" href="/admin/leads/campanha/{{$campanha->ibge}}">{{$campanha->title}}</a></li>
-                                    @empty
-                                    @endforelse
 
-                            </ul>
-                        </span></div>
-                </li>
                 <li>
                     <div class="collapsible-header"><i class="material-icons">play_for_work</i>Matriculas</div>
                     <div class="collapsible-body blue"><span>Lorem ipsum dolor sit amet.</span></div>
