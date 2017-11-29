@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Curso;
+use App\Models\Painel\Campanha;
 use Illuminate\Http\Request;
 use App\Aluno;
 
@@ -19,8 +20,10 @@ class HomeController extends Controller
     {
 
         $alunos = \App\Aluno::get();
+        $campanhas = $this->campanhasAtivas();
 
-        return view('home',compact('alunos'));
+
+        return view('home',compact('alunos', 'campanhas'));
     }
 
     public function cursos()
@@ -46,6 +49,13 @@ class HomeController extends Controller
 
         return redirect('admin/home');
 
+    }
+
+    private function campanhasAtivas()
+    {
+        $data = Campanha::where('in_ativo','SIM')->get();
+
+        return $data;
     }
 
 
