@@ -6,7 +6,7 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content ">
-                        <span class="card-title">Listagem de Leads <span class="badge">{{$data->count()}}</span></span>
+                        <span class="card-title">Listagem de Leads <span class="badge">{{$data->count()}}/{{$total}}</span></span>
                         <form class="form-inline" method="POST" action="/admin/leads/pesquisar">
                             {{ csrf_field() }}
                             <div class="row">
