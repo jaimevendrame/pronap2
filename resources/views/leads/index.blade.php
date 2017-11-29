@@ -114,7 +114,7 @@
                                     @endforelse
                                     </tbody>
                                 </table>
-                                {{$data->Links()}}
+                                {{$data->appends(['ibge' => $campanha->ibge])->Links()}}
 
                             </div>
                                 @empty
