@@ -40,9 +40,9 @@ class LeadController extends StandardController
                             ->orWhere('cep', 'LIKE', "%$palavraPesquisa%")
                             ->orWhere('celular', 'LIKE', "%$palavraPesquisa%")
                             ->orWhere('email', 'LIKE', "%$palavraPesquisa%")
-                            ->paginate(10);
+                            ->paginate(15);
 
-        return view("{$this->nameView}.index", compact('data','brand', 'total'));
+        return view("{$this->nameView}.index", compact('data','brand'));
     }
 
 
