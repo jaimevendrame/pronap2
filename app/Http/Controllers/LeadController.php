@@ -50,7 +50,7 @@ class LeadController extends StandardController
 
 //        dd($ibges);
 
-        $data = $this->model->whereNotIn('ibge', $ibges)->get();
+        $data = $this->model->whereNotIn('ibge', $ibges)->paginate($this->totalPorPagina);
 
         dd($data);
         $total = $this->model->count();
