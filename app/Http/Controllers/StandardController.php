@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Painel\Campanha;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -27,10 +28,11 @@ class StandardController extends BaseController
         $data = $this->model->paginate($this->totalPorPagina);
         $total = $this->model->count();
 
+        $campanhas = $this->campanhasAtivas();
 
         $brand = $this->brand;
 
-        return view("{$this->nameView}.index",compact('data','brand','total'));
+        return view("{$this->nameView}.index",compact('data','brand','total', 'campanhas'));
     }
 
     public function  cadastrar()
@@ -122,6 +124,12 @@ class StandardController extends BaseController
         return view("{$this->nameView}.index", compact('data','brand', 'total'));
     }
 
+    public function campanhasAtivas(){
+
+        $data = Campanha::where('in_ativo','SIM')->get();
+
+        return $data;
+    }
 
 
 }

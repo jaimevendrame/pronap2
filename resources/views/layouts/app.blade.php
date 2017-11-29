@@ -143,10 +143,7 @@
                             {{--</span>--}}
                     {{--</div>--}}
                 {{--</li>--}}
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">people</i>Alunos</div>
-                    <div class="collapsible-body blue"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
+
                 <li>
                     <div class="collapsible-header"><i class="material-icons">play_for_work</i>Matriculas</div>
                     <div class="collapsible-body blue"><span>Lorem ipsum dolor sit amet.</span></div>

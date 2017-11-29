@@ -25,47 +25,104 @@
                             </div>
 
                         </form>
-
-                        @if( isset($palavraPesquisa) )
-                            <p>Resultados para a pesquisa <b>{{$palavraPesquisa}}</b></p>
-                        @endif
-                        <br>
                         <div class="row">
                         </div>
                         <div class="row">
-                            <table class="responsive-table">
-                                <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Celular</th>
-                                    <th>Email</th>
-                                    <th>Cidade/UF</th>
-                                    <th>Matriculado</th>
-                                    <th>Editar / Deletar</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @forelse( $data as $d )
-                                <tr>
-                                    <td>{{$d->nome}}</td>
-                                    <td>{{$d->celular}}</td>
-                                    <td>{{$d->email}}</td>
-                                    <td>{{$d->cidade}}-{{$d->uf}}</td>
-                                    <td>{{$d->matriculado}}</td>
-                                    <td>
-                                        <a href="/admin/leads/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>
-                                        <a href="/admin/leads/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
 
-                                    </td>
-                                </tr>
-                                @empty
+                            <div class="col s12">
+                                <ul class="tabs">
+                                    <li class="tab col s3"><a class="active"href="#test1">Geral</a></li>
+                                    @forelse($campanhas as $campanha)
+                                    <li class="tab col s3"><a  href="#{{$campanha->ibge}}">{{$campanha->title}}</a></li>
+                                    @empty
+                                        @endforelse
+
+                                </ul>
+                            </div>
+                            <div id="test1" class="col s12">
+
+
+                                <table class="responsive-table">
+                                    <thead>
                                     <tr>
-                                        <td colspan="90">Nenhum registro encontrado!</td>
+                                        <th>Nome</th>
+                                        <th>Celular</th>
+                                        <th>Email</th>
+                                        <th>Cidade/UF</th>
+                                        <th>Matriculado</th>
+                                        <th>Editar / Deletar</th>
                                     </tr>
-                                @endforelse
-                                </tbody>
-                            </table>
-                            {{$data->Links()}}
+                                    </thead>
+                                    <tbody>
+                                    @forelse( $data as $d )
+                                        <tr>
+                                            <td>{{$d->nome}}</td>
+                                            <td>{{$d->celular}}</td>
+                                            <td>{{$d->email}}</td>
+                                            <td>{{$d->cidade}}-{{$d->uf}}</td>
+                                            <td>{{$d->matriculado}}</td>
+                                            <td>
+                                                <a href="/admin/leads/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>
+                                                <a href="/admin/leads/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
+
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="90">Nenhum registro encontrado!</td>
+                                        </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                                {{$data->Links()}}
+
+                            </div>
+                            @forelse($campanhas as $campanha)
+                            <div id="{{$campanha->ibge}}" class="col s12">
+
+                                <table class="responsive-table">
+                                    <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Celular</th>
+                                        <th>Email</th>
+                                        <th>Cidade/UF</th>
+                                        <th>Matriculado</th>
+                                        <th>Editar / Deletar</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @forelse( $data as $d )
+                                        @if($d->ibge == $campanha->ibge)
+                                        <tr>
+                                            <td>{{$d->nome}}</td>
+                                            <td>{{$d->celular}}</td>
+                                            <td>{{$d->email}}</td>
+                                            <td>{{$d->cidade}}-{{$d->uf}}</td>
+                                            <td>{{$d->matriculado}}</td>
+                                            <td>
+                                                <a href="/admin/leads/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>
+                                                <a href="/admin/leads/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
+
+                                            </td>
+                                        </tr>
+                                        @endif
+                                    @empty
+                                        <tr>
+                                            <td colspan="90">Nenhum registro encontrado!</td>
+                                        </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                                {{$data->Links()}}
+
+                            </div>
+                                @empty
+                            @endforelse
+
+
+
+
                         </div>
                     </div>
 
