@@ -31,7 +31,9 @@ class HomeController extends Controller
 
         $leadsOrfao = Lead::select('*')->whereNotIn('ibge', $ibge)->get();
 
-        return view('home',compact('leads', 'campanhas', 'leadsOrfao'));
+        $saldoSms = $this->saldoSMS();
+
+        return view('home',compact('leads', 'campanhas', 'leadsOrfao', 'saldoSms'));
     }
 
     public function cursos()
@@ -64,6 +66,18 @@ class HomeController extends Controller
         $data = Campanha::where('in_ativo','SIM')->get();
 
         return $data;
+    }
+
+    public function saldoSMS()
+    {
+        $url = 'http://www.painelsms.com.br/sms.php?i=5792&s=ihb64d&funcao=saldo';
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $return = curl_exec($curl);
+        curl_close($curl);
+        return $return;
+
     }
 
 
