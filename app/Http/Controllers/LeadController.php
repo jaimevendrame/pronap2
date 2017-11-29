@@ -34,8 +34,6 @@ class LeadController extends StandardController
 
         $campanhas = $this->campanhasAtivas();
 
-        $title =
-
         $brand = $this->brand;
 
         return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
@@ -48,7 +46,7 @@ class LeadController extends StandardController
 
         $campanhas = $this->campanhasAtivas();
 
-        dd($data);
+//        dd($data);
         $brand = $this->brand;
 
         return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
