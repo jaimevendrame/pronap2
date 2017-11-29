@@ -32,7 +32,7 @@ class LeadController extends StandardController
     {
         $palavraPesquisa = $this->request->get('pesquisar');
         $brand = $this->brand;
-        $total = $this->model->count();
+//        $total = $this->model->count();
 
 
         $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")
