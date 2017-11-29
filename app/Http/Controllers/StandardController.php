@@ -25,9 +25,12 @@ class StandardController extends BaseController
     public function index()
     {
         $data = $this->model->paginate($this->totalPorPagina);
+        $total = $this->model->count();
+
+
         $brand = $this->brand;
 
-        return view("{$this->nameView}.index",compact('data','brand'));
+        return view("{$this->nameView}.index",compact('data','brand','total'));
     }
 
     public function  cadastrar()
