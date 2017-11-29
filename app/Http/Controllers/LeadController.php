@@ -26,7 +26,19 @@ class LeadController extends StandardController
         $this->model = $lead;
         $this->request = $request;
     }
+    public function indexCampanha($ibge)
+    {
+        $data = $this->model->where('ibge', $ibge)->paginate($this->totalPorPagina);
+        $total = $this->model->count();
 
+        $campanhas = $this->campanhasAtivas();
+
+        $title =
+
+        $brand = $this->brand;
+
+        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
+    }
 
     public function pesquisar()
     {

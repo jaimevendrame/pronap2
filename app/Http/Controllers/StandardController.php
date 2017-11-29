@@ -38,8 +38,10 @@ class StandardController extends BaseController
     public function  cadastrar()
     {
         $brand = $this->brand;
+        $campanhas = $this->campanhasAtivas();
 
-        return view("{$this->nameView}.add-edit",compact('brand'));
+
+        return view("{$this->nameView}.add-edit",compact('brand', 'campanhas'));
     }
 
     public function cadastrarGo()
@@ -47,6 +49,7 @@ class StandardController extends BaseController
         $dadosForm = $this->request->all();
 
         $validator = validator($dadosForm, $this->model->rules);
+        $campanhas = $this->campanhasAtivas();
 
         if ($validator->fails()) {
             return redirect($this->redirectCad)
@@ -72,8 +75,9 @@ class StandardController extends BaseController
     {
         $data = $this->model->find($id);
         $brand = $this->brand;
+        $campanhas = $this->campanhasAtivas();
 
-        return view("{$this->nameView}.add-edit",compact('data','brand'));
+        return view("{$this->nameView}.add-edit",compact('data','brand', 'campanhas'));
 
     }
 
@@ -82,6 +86,7 @@ class StandardController extends BaseController
         $dadosForm = $this->request->all();
 
         $validator = validator($dadosForm, $this->model->rulesEdit);
+
 
         if ($validator->fails()) {
             return redirect("{$this->redirectEdit}/$id")
@@ -117,11 +122,12 @@ class StandardController extends BaseController
         $palavraPesquisa = $this->request->get('pesquisar');
         $brand = $this->brand;
         $total = $this->model->count();
+        $campanhas = $this->campanhasAtivas();
 
 
         $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")->paginate(10);
 
-        return view("{$this->nameView}.index", compact('data','brand', 'total'));
+        return view("{$this->nameView}.index", compact('data','brand', 'total', 'campanhas'));
     }
 
     public function campanhasAtivas(){

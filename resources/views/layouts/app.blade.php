@@ -143,7 +143,19 @@
                             {{--</span>--}}
                     {{--</div>--}}
                 {{--</li>--}}
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">people</i>Leads</div>
+                    <div class="collapsible-body blue"><span>
+                            <ul>
+                                <li><a class="white-text" href="/admin/leads">Geral</a></li>
+                                @forelse($campanhas as $campanha)
+                                <li><a class="white-text" href="/admin/leads/campanha/{{$campanha->ibge}}">{{$campanha->title}}</a></li>
+                                    @empty
+                                    @endforelse
 
+                            </ul>
+                        </span></div>
+                </li>
                 <li>
                     <div class="collapsible-header"><i class="material-icons">play_for_work</i>Matriculas</div>
                     <div class="collapsible-body blue"><span>Lorem ipsum dolor sit amet.</span></div>

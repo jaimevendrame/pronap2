@@ -152,6 +152,10 @@ Route::group([
         Route::get('/leads/delete/{id}', 'LeadController@delete');
         Route::any('/leads/pesquisar', 'LeadController@pesquisar');
 
+        Route::get('/leads/campanha/{ibge}', 'LeadController@indexCampanha')->name('camapanha');
+        Route::any('/leads/pesquisar/campanha/{ibge}', 'LeadController@pesquisarCampanha');
+
+
 
 
 
