@@ -27,8 +27,9 @@
                             <p>Resultados para a pesquisa <b>{{$palavraPesquisa}}</b></p>
                         @endif
                         <br>
+                        <div class="row"></div>
                         <div class="row">
-                            <table>
+                            <table class="responsive-table">
                                 <thead>
                                 <tr>
                                     <th>Cód.</th>

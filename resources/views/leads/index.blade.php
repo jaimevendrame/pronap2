@@ -9,18 +9,21 @@
                         <span class="card-title">Listagem de Leads <span class="badge">{{$data->count()}}/{{$total}}</span></span>
                         <form class="form-inline" method="POST" action="/admin/leads/pesquisar">
                             {{ csrf_field() }}
-                            <div class="input-field col s12 m2 l2">
-                                <a href="/admin/leads/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
-                                   data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Campanha"><i class="material-icons">add</i>Adicionar</a>
+                            <div class="row">
+                                <div class="input-field col s12 m2 l2">
+                                    <a href="/admin/leads/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
+                                       data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Campanha"><i class="material-icons">add</i>Adicionar</a>
+                                </div>
+
+                                <div class="input-field col s12 m8 l8">
+                                    <input class="validate" type="text" name="pesquisar" placeholder="Pesquisar">
+                                </div>
+                                <div class="input-field col s12 m2 l2">
+                                    <button type="submit" class="btn blue darken-1 waves-effect waves-light"><i class="material-icons">search</i></button>
+
+                                </div>
                             </div>
 
-                            <div class="input-field col s12 m8 l8">
-                                <input class="validate" type="text" name="pesquisar" placeholder="Pesquisar">
-                            </div>
-                            <div class="input-field col s12 m2 l2">
-                                <button type="submit" class="btn blue darken-1 waves-effect waves-light"><i class="material-icons">search</i></button>
-
-                            </div>
                         </form>
 
                         @if( isset($palavraPesquisa) )

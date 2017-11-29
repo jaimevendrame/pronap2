@@ -32,6 +32,8 @@ class LeadController extends StandardController
     {
         $palavraPesquisa = $this->request->get('pesquisar');
         $brand = $this->brand;
+        $total = $this->model->count();
+
 
         $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")
                             ->orWhere('cidade', 'LIKE', "%$palavraPesquisa%")
@@ -40,7 +42,7 @@ class LeadController extends StandardController
                             ->orWhere('email', 'LIKE', "%$palavraPesquisa%")
                             ->paginate(10);
 
-        return view("{$this->nameView}.index", compact('data','brand'));
+        return view("{$this->nameView}.index", compact('data','brand', 'total'));
     }
 
 

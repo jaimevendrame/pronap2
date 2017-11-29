@@ -114,10 +114,12 @@ class StandardController extends BaseController
     {
         $palavraPesquisa = $this->request->get('pesquisar');
         $brand = $this->brand;
+        $total = $this->model->count();
+
 
         $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")->paginate(10);
 
-        return view("{$this->nameView}.index", compact('data','brand'));
+        return view("{$this->nameView}.index", compact('data','brand', 'total'));
     }
 
 

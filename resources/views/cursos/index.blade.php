@@ -9,18 +9,21 @@
                         <span class="card-title">Listagem de Cursos</span>
                         <form class="form-inline" method="POST" action="/admin/cursos/pesquisar">
                             {{ csrf_field() }}
-                            <div class="input-field col s12 m2 l2">
-                                <a href="/admin/cursos/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
-                                   data-position="bottom" data-delay="50" data-tooltip="Adicionar Cursos"><i class="material-icons">add</i>Adicionar</a>
+                            <div class="row">
+                                <div class="input-field col s12 m2 l2">
+                                    <a href="/admin/cursos/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
+                                       data-position="bottom" data-delay="50" data-tooltip="Adicionar Cursos"><i class="material-icons">add</i>Adicionar</a>
+                                </div>
+
+                                <div class="input-field col s12 m8 l8">
+                                    <input class="validate" type="text" name="pesquisar" placeholder="Pesquisar">
+                                </div>
+                                <div class="input-field col s12 m2 l2">
+                                    <button type="submit" class="btn blue darken-1 waves-effect waves-light"><i class="material-icons">search</i></button>
+
+                                </div>
                             </div>
 
-                            <div class="input-field col s12 m8 l8">
-                                <input class="validate" type="text" name="pesquisar" placeholder="Pesquisar">
-                            </div>
-                            <div class="input-field col s12 m2 l2">
-                                <button type="submit" class="btn blue darken-1 waves-effect waves-light"><i class="material-icons">search</i></button>
-
-                            </div>
                         </form>
 
                         @if( isset($palavraPesquisa) )
