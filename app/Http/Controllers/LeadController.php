@@ -52,7 +52,7 @@ class LeadController extends StandardController
 
         $data = $this->model->whereNotIn('ibge', $ibges)->get();
 
-//        dd($data);
+        dd($data);
         $total = $this->model->count();
 
         $campanhas = $this->campanhasAtivas();
