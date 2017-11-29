@@ -150,7 +150,7 @@ Route::group([
         Route::get('/leads/editar/{id}', 'LeadController@edit');
         Route::post('/leads/editar/{id}', 'LeadController@editGo');
         Route::get('/leads/delete/{id}', 'LeadController@delete');
-        Route::post('/leads/pesquisar', 'LeadController@pesquisar');
+        Route::any('/leads/pesquisar', 'LeadController@pesquisar');
 
 
 
