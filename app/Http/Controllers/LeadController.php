@@ -41,7 +41,18 @@ class LeadController extends StandardController
 
     public function indexForaCampanha()
     {
-        $data = DB::select("Select * from leads where ibge not in (select ibge from campanhas)");
+
+
+
+        $ibge_camp = Campanha::select('ibge')->get();
+
+        $ibges = $ibge_camp->toArray();
+
+//        dd($ibges);
+
+        $data = $this->model->whereNotIn('ibge', $ibges)->get();
+
+//        dd($data);
         $total = $this->model->count();
 
         $campanhas = $this->campanhasAtivas();
