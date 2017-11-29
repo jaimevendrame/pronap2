@@ -24,7 +24,14 @@ class HomeController extends Controller
         $leads = Lead::all();
 
 
-        return view('home',compact('leads', 'campanhas'));
+        $ibge_camp = Campanha::select('ibge')->get();
+
+        $ibge = $ibge_camp->toArray();
+
+
+        $leadsOrfao = Lead::select('*')->whereNotIn('ibge', $ibge)->get();
+
+        return view('home',compact('leads', 'campanhas', 'leadsOrfao'));
     }
 
     public function cursos()
