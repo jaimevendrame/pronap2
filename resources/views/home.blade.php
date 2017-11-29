@@ -17,17 +17,28 @@
 
                     You are logged in!
 
-                    {{--@forelse($posts as $post)--}}
-                        {{--@can('view-post',$post)--}}
-                            {{--<h1>{{$post->title}}</h1>--}}
-                            {{--<p>{{$post->description}}</p>--}}
-                            {{--<b>Autor: {{$post->user->name}}</b>--}}
-                            {{--<br>--}}
-                            {{--<a href="{{url("/post/$post->id/update")}}">Editar</a>--}}
-                        {{--@endcan--}}
-                    {{--@empty--}}
-                        {{--<p>NENHUM POST CADASTRADO!</p>--}}
-                    {{--@endforelse--}}
+                        <div class="row">
+                            <div class="col s12 m3">
+                                <div class="card blue darken-1">
+                                    <div class="card-content white-text">
+                                        <span class="card-title"><h3>{{$campanhas->count()}}</h3></span>
+                                        <p>Campanhas ativas</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col s12 m3">
+                                <div class="card blue lighten-1">
+                                    <div class="card-content white-text">
+                                        <span class="card-title"><h3>{{$leads->count()}}</h3></span>
+                                        <p>Total Leads</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
             </div>
         </div>

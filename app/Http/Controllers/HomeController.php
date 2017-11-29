@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Curso;
+use App\Lead;
 use App\Models\Painel\Campanha;
 use Illuminate\Http\Request;
 use App\Aluno;
@@ -19,11 +20,11 @@ class HomeController extends Controller
     public function index()
     {
 
-        $alunos = \App\Aluno::get();
         $campanhas = $this->campanhasAtivas();
+        $leads = Lead::all();
 
 
-        return view('home',compact('alunos', 'campanhas'));
+        return view('home',compact('leads', 'campanhas'));
     }
 
     public function cursos()
