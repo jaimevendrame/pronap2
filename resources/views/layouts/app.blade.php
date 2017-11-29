@@ -148,6 +148,7 @@
                     <div class="collapsible-body blue"><span>
                             <ul>
                                 <li><a class="white-text" href="/admin/leads">Geral</a></li>
+                                <li><a class="white-text" href="/admin/leads/foracampanha/">Orfãos</a></li>
                                 @forelse($campanhas as $campanha)
                                 <li><a class="white-text" href="/admin/leads/campanha/{{$campanha->ibge}}">{{$campanha->title}}</a></li>
                                     @empty

@@ -153,6 +153,7 @@ Route::group([
         Route::any('/leads/pesquisar', 'LeadController@pesquisar');
 
         Route::get('/leads/campanha/{ibge}', 'LeadController@indexCampanha')->name('camapanha');
+        Route::get('/leads/foracampanha/', 'LeadController@indexForaCampanha')->name('camapanha');
         Route::any('/leads/pesquisar/campanha/{ibge}', 'LeadController@pesquisarCampanha');
 
 

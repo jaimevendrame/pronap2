@@ -8,6 +8,7 @@ use App\Lead;
 use App\Models\Painel\Campanha;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LeadController extends StandardController
 {
@@ -35,6 +36,19 @@ class LeadController extends StandardController
 
         $title =
 
+        $brand = $this->brand;
+
+        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
+    }
+
+    public function indexForaCampanha()
+    {
+        $data = DB::select("Select * from leads where ibge not in (select ibge from campanhas)");
+        $total = $this->model->count();
+
+        $campanhas = $this->campanhasAtivas();
+
+        dd($data);
         $brand = $this->brand;
 
         return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
