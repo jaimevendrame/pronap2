@@ -27,8 +27,9 @@
                             <p>Resultados para a pesquisa <b>{{$palavraPesquisa}}</b></p>
                         @endif
                         <br>
+                        <div class="row"></div>
                         <div class="row">
-                            <table>
+                            <table class="responsive-table">
                                 <thead>
                                 <tr>
                                     <th></th>
@@ -72,18 +73,6 @@
                                 @endforelse
                                 </tbody>
                                 <!--Rodape-->
-                                <tfoot>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Celular</th>
-                                    <th>Email</th>
-                                    {{--<th>CEP</th>--}}
-                                    <th>Cidade/UF</th>
-                                    {{--<th>IBGE</th>--}}
-                                    <th>Matriculado</th>
-                                    <th>Editar / Deletar</th>
-                                </tr>
-                                <tfoot>
                             </table>
                             {{$data->Links()}}
 

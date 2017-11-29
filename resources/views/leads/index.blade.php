@@ -28,46 +28,41 @@
                         @endif
                         <br>
                         <div class="row">
+                        </div>
+                        <div class="row">
                             <table class="responsive-table">
                                 <thead>
                                 <tr>
                                     <th>Nome</th>
                                     <th>Celular</th>
                                     <th>Email</th>
-                                    {{--<th>CEP</th>--}}
                                     <th>Cidade/UF</th>
-                                    {{--<th>IBGE</th>--}}
                                     <th>Matriculado</th>
                                     <th>Editar / Deletar</th>
                                 </tr>
                                 </thead>
-                                <!--Corpo-->
                                 <tbody>
                                 @forelse( $data as $d )
-                                    <tr>
-                                        <td>{{$d->nome}}</td>
-                                        <td>{{$d->celular}}</td>
-                                        <td>{{$d->email}}</td>
-                                        {{--<td>{{$d->cep}}</td>--}}
-                                        <td>{{$d->cidade}}-{{$d->uf}}</td>
-                                        {{--<td>{{$d->ibge}}</td>--}}
-                                        <td>{{$d->matriculado}}</td>
-                                        <td>
-                                            <a href="/admin/leads/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>
-                                            <a href="/admin/leads/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
+                                <tr>
+                                    <td>{{$d->nome}}</td>
+                                    <td>{{$d->celular}}</td>
+                                    <td>{{$d->email}}</td>
+                                    <td>{{$d->cidade}}-{{$d->uf}}</td>
+                                    <td>{{$d->matriculado}}</td>
+                                    <td>
+                                        <a href="/admin/leads/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>
+                                        <a href="/admin/leads/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
 
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
                                 @empty
                                     <tr>
                                         <td colspan="90">Nenhum registro encontrado!</td>
                                     </tr>
                                 @endforelse
                                 </tbody>
-                                <!--Rodape-->
                             </table>
                             {{$data->Links()}}
-
                         </div>
                     </div>
 
