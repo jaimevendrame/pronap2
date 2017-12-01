@@ -166,7 +166,17 @@
                             </ul>
                         </span></div>
                 </li>
-                {{--<li><a class="white-text" href="/admin/leads">Leads</a></li>--}}
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">settings_cell</i>SMS</div>
+                    <div class="collapsible-body blue"><span>
+                            <ul>
+                                <li><a class="white-text" href="/admin/sms/cadastrar">Criar</a></li>
+                                <li><a class="white-text" href="/admin/sms/">Enviados</a></li>
+                               
+
+                            </ul>
+                        </span></div>
+                </li>
 
                 {{--<li>--}}
                     {{--<div class="collapsible-header active"><i class="material-icons">person</i>Usuário</div>--}}

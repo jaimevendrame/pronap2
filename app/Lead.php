@@ -32,7 +32,8 @@ class Lead extends Model
         'cep'   => 'required',
     ];
 
-    public function getNomeAttribute($nome){
-        return strtoupper($nome);
+    public function smsx()
+    {
+        return $this->hasOne(Smsenv::class);
     }
 }

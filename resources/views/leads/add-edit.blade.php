@@ -106,7 +106,7 @@
                                                                         </div>
                                                                         <div class="input-field col s12">
                                                                             <textarea id="texto" name="mensagem" onkeyup="limitaTextarea(this.value)" class="materialize-textarea">OLA {{$data->nome}}</textarea>
-                                                                            <label for="texto">Observações</label>
+                                                                            <label for="texto">Mensagem</label>
                                                                         </div>
                                                                         <div class="input-field col s12 m2 l2 right">
                                                                             <button class="btn waves-effect waves-light blue right hoverable" type="submit" name="action">ENVIAR SMS

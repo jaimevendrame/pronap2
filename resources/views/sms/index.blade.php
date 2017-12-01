@@ -6,12 +6,12 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content ">
-                        <span class="card-title">Listagem de Leads <span class="badge">{{$data->count()}}/{{$total}}</span></span>
-                        <form class="form-inline" method="POST" action="/admin/leads/pesquisar">
+                        <span class="card-title">SMS Enviados <span class="badge">{{$data->count()}}/{{$total}}</span></span>
+                        <form class="form-inline" method="POST" action="/admin/sms/pesquisar">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12 m2 l2">
-                                    <a href="/admin/leads/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
+                                    <a href="/admin/sms/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
                                        data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Campanha"><i class="material-icons">add</i>Adicionar</a>
                                 </div>
 
@@ -34,23 +34,24 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Celular</th>
-                                        <th>Email</th>
-                                        <th>Cidade/UF</th>
-                                        <th>Matriculado</th>
+                                        <th>Campanha</th>
+                                        {{--<th>Mensagem</th>--}}
+                                        <th>Data</th>
                                         <th>Editar / Deletar</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @forelse( $data as $d )
                                         <tr>
-                                            <td>{{$d->nome}}</td>
-                                            <td>{{$d->celular}}</td>
-                                            <td>{{$d->email}}</td>
-                                            <td>{{$d->cidade}}-{{$d->uf}}</td>
-                                            <td>{{$d->matriculado}}</td>
+                                            <td>{{$d->leads->nome}}</td>
+                                            <td>{{$d->leads->celular}}</td>
+                                            <td>{{$d->campanha}}</td>
+                                            {{--<td>{{$d->mensagem}}</td>--}}
+
+                                            <td>{{ Carbon\Carbon::parse($d->created_at)->format('d/m/Y H:i:s') }}</td>
                                             <td>
-                                                <a href="/admin/leads/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>
-                                                <a href="/admin/leads/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
+                                                {{--<a href="/admin/sms/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>--}}
+                                                <a href="/admin/sms/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
 
                                             </td>
                                         </tr>

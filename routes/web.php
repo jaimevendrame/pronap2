@@ -158,6 +158,13 @@ Route::group([
         Route::any('/leads/pesquisar/campanha/{ibge}', 'LeadController@pesquisarCampanha');
 
 
+    //SMS
+
+        Route::get('/sms/', 'SmsController@index');
+        Route::get('/sms/cadastrar', 'SmsController@cadastrar');
+        Route::post('/sms/cadastrar', 'SmsController@cadastrarGo');
+        Route::get('/sms/delete/{id}', 'SmsController@delete');
+        Route::get('/sms/editar/{id}', 'SmsController@edit');
 
 
 

@@ -6,81 +6,122 @@ namespace App\Http\Controllers;
 
 use App\Lead;
 use App\Models\Painel\Campanha;
+use App\Smsenv;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class LeadController extends StandardController
+class SmsController extends StandardController
 {
     protected $model;
-    protected $nameView = 'leads';
-    protected $redirectCad = '/admin/leads/cadastrar';
-    protected $redirectEdit = '/admin/leads/editar';
-    protected $route = '/admin/leads';
-    protected $brand = ['Leads'];
+    protected $nameView = 'sms';
+    protected $redirectCad = '/admin/sms/cadastrar';
+    protected $redirectEdit = '/admin/sms/editar';
+    protected $route = '/admin/sms';
+    protected $brand = ['SMS'];
 
 
 
 
-    public function __construct(Lead $lead, Request $request)
+    public function __construct(Smsenv $sms, Request $request)
     {
-        $this->model = $lead;
+        $this->model = $sms;
         $this->request = $request;
     }
-    public function indexCampanha($ibge)
+
+
+
+    public function cadastrarGo()
     {
-        $data = $this->model->where('ibge', $ibge)->paginate($this->totalPorPagina);
-        $total = $this->model->count();
+        $dadosForm = $this->request->all();
 
-        $campanhas = $this->campanhasAtivas();
+        $codCampanha = $this->request->get('campanha');
+        $mensagem = $this->request->get('mensagem');
 
-        $brand = $this->brand;
+        $campanha_id = Campanha::find($codCampanha)->first();
 
-        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
-    }
-
-    public function indexForaCampanha()
-    {
-
-
+        $campanha_nome = $campanha_id['title'];
 
         $ibge_camp = Campanha::select('ibge')->get();
 
         $ibges = $ibge_camp->toArray();
 
-//        dd($ibges);
+        $dados = array();
 
-        $data = $this->model->whereNotIn('ibge', $ibges)->paginate($this->totalPorPagina);
 
-//        dd($data);
-        $total = $this->model->count();
 
-        $campanhas = $this->campanhasAtivas();
 
-//        dd($data);
-        $brand = $this->brand;
+        if ( $campanha_id['id'] != 0 ){
 
-        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
+            $campanha_ibge = $campanha_id['ibge'];
+
+            $sms_leads = Lead::where('ibge', $campanha_ibge)->get();
+
+        } else {
+            $sms_leads = Lead::whereNotIn('ibge', $ibges)->get();
+            $campanha_nome = 'Órfãs';
+        }
+
+
+        $mensagem  = str_replace(' ', '+', strtoupper($mensagem));
+
+
+        foreach ($sms_leads as $sms ){
+
+            $p = array('(',')', '-');
+            $celular = str_replace($p, '', $sms->celular);
+//            dd($celular);
+
+
+            $url = 'http://www.painelsms.com.br/sms.php?i=5792&s=ihb64d&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
+
+            $this->smsGo($url) ;
+
+                $insert = Smsenv::create(
+                [
+                    "lead_id" => $sms->id,
+                    "campanha"=> $campanha_nome,
+                    "ibge"      => $sms->ibge,
+                    "mensagem"  => $mensagem,
+                    "created_at"  => date('Y-m-d'),
+                    "updated_at"  => date('Y-m-d'),
+                ]
+
+            );
+        }
+
+
+
+        if ($insert)
+
+            return redirect($this->route);
+
+        else
+            return redirect($this->redirectCad)
+                ->withErrors(['errors'=> 'Falha ao Cadastrar'])
+                ->withInput();
     }
 
-    public function pesquisar()
-    {
-        $palavraPesquisa = $this->request->get('pesquisar');
-        $brand = $this->brand;
-        $total = $this->model->count();
-
-        $campanhas = $this->campanhasAtivas();
 
 
-        $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('cidade', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('cep', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('celular', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('email', 'LIKE', "%$palavraPesquisa%")
-                            ->paginate(15);
-
-        return view("{$this->nameView}.index", compact('data','brand', 'total', 'campanhas'));
-    }
+//    public function pesquisar()
+//    {
+//        $palavraPesquisa = $this->request->get('pesquisar');
+//        $brand = $this->brand;
+//        $total = $this->model->count();
+//
+//        $campanhas = $this->campanhasAtivas();
+//
+//
+//        $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('cidade', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('cep', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('celular', 'LIKE', "%$palavraPesquisa%")
+//                            ->orWhere('email', 'LIKE', "%$palavraPesquisa%")
+//                            ->paginate(15);
+//
+//        return view("{$this->nameView}.index", compact('data','brand', 'total', 'campanhas'));
+//    }
 
 
 
@@ -188,6 +229,7 @@ class LeadController extends StandardController
 
         }
     }
+
     public function sendSMSInd()
     {
         $dadosForm = $this->request->all();
