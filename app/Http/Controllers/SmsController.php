@@ -40,6 +40,8 @@ class SmsController extends StandardController
 
         $campanha_id = Campanha::find($codCampanha)->first();
 
+        dd($campanha_id);
+
         $campanha_nome = $campanha_id['title'];
 
         $ibge_camp = Campanha::select('ibge')->get();
