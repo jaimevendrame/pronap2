@@ -75,8 +75,10 @@ class SmsController extends StandardController
 
             $url = 'http://www.painelsms.com.br/sms.php?i=5792&s=ihb64d&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
 
-            $this->smsGo($url) ;
+            $retorno = $this->smsGo($url) ;
 
+            echo $retorno;
+            
                 $insert = Smsenv::create(
                 [
                     "lead_id" => $sms->id,
