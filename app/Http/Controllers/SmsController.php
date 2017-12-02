@@ -46,9 +46,7 @@ class SmsController extends StandardController
         $ibge_camp = Campanha::select('ibge')->get();
 
         $ibges = $ibge_camp->toArray();
-
-        $dados = array();
-
+        
 
 
 
@@ -76,12 +74,9 @@ class SmsController extends StandardController
 
             $url = 'http://www.painelsms.com.br/sms.php?i=5792&s=ihb64d&funcao=enviar&mensagem=' . $mensagem . '&destinatario=' . $celular . '';
 
-            dd($url);
-            $retorno = $this->smsGo($url) ;
+            $this->smsGo($url) ;
 
-            var_dump($retorno);
-
-            dd($retorno);
+            sleep(15);
 
                 $insert = Smsenv::create(
                 [
