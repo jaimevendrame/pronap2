@@ -100,12 +100,12 @@
 
                                                                     <div class="row">
                                                                         <div class="input-field col s12" >
-                                                                            <input id="fone" type="text" name="cell" value="{{$data->celular}}" readonly>
-                                                                            <input type="hidden" name="id" value="{{$data->id}}">
+                                                                            <input id="fone" type="text" name="cell" value="{{$data->celular or old('celular')}}" readonly>
+                                                                            <input type="hidden" name="id" value="{{$data->id or old('id')}}">
                                                                             <label for="fone">Celular</label>
                                                                         </div>
                                                                         <div class="input-field col s12">
-                                                                            <textarea id="texto" name="mensagem" onkeyup="limitaTextarea(this.value)" class="materialize-textarea">OLA {{$data->nome}}</textarea>
+                                                                            <textarea id="texto" name="mensagem" onkeyup="limitaTextarea(this.value)" class="materialize-textarea">OLA {{$data->nome or old('id')}}</textarea>
                                                                             <label for="texto">Mensagem</label>
                                                                         </div>
                                                                         <div class="input-field col s12 m2 l2 right">

@@ -172,7 +172,7 @@
                             <ul>
                                 <li><a class="white-text" href="/admin/sms/cadastrar">Criar</a></li>
                                 <li><a class="white-text" href="/admin/sms/">Enviados</a></li>
-                               
+
 
                             </ul>
                         </span></div>
