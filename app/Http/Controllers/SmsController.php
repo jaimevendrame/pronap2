@@ -77,8 +77,8 @@ class SmsController extends StandardController
 
             $retorno = $this->smsGo($url) ;
 
-            echo $retorno;
-            
+            var_dump($retorno);
+
                 $insert = Smsenv::create(
                 [
                     "lead_id" => $sms->id,
