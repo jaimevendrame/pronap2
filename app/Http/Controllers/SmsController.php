@@ -43,10 +43,10 @@ class SmsController extends StandardController
 
         $campanha_nome = $campanha_id['title'];
 
-        dd($campanha_nome);
         $ibge_camp = Campanha::select('ibge')->get();
 
         $ibges = $ibge_camp->toArray();
+        dd($ibges);
 
         $dados = array();
 
