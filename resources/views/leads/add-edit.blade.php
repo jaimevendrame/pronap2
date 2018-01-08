@@ -158,7 +158,6 @@
                                                                             <button class="btn waves-effect waves-light blue right hoverable" type="submit" name="action">MATRICULAR
                                                                             </button>
                                                                         </div>
-                                                                        <a href="/admin/word" class="btn"></a></A>
                                                                     </div>
                                                                 </form>
                                                             </div>
