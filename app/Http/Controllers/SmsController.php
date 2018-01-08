@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Lead;
 use App\Models\Painel\Campanha;
-use App\Sms;
+use App\sms;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
