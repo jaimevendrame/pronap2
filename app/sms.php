@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Smsenv extends Model
+class sms extends Model
 {
     protected $fillable = [
         'lead_id',
@@ -20,9 +20,8 @@ class Smsenv extends Model
     ];
 
 
-//    public function leads() {
-//
-//        return $this->belongsTo(Lead::class, 'lead_id');
-//    }
+    public function leads() {
 
+        return $this->belongsTo(Lead::class, 'lead_id');
+    }
 }

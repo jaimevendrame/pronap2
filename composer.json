@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.18"
+        "doctrine/dbal": "^2.6",
+        "laravel/framework": "5.3.18",
+        "phpoffice/phpword": "^0.14.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

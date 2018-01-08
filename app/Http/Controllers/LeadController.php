@@ -30,13 +30,24 @@ class LeadController extends StandardController
     public function indexCampanha($ibge)
     {
         $data = $this->model->where('ibge', $ibge)->paginate($this->totalPorPagina);
+
         $total = $this->model->count();
 
         $campanhas = $this->campanhasAtivas();
 
         $brand = $this->brand;
 
-        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
+        $ibge = $ibge;
+
+        $campanha = Campanha::select('cidade')
+                    ->where('ibge', $ibge)
+                    ->first();
+
+
+
+        $title = 'Listagem de Leads por Campanha: '.$campanha->cidade;
+
+        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas', 'ibge', 'title'));
     }
 
     public function indexForaCampanha()
@@ -60,10 +71,14 @@ class LeadController extends StandardController
 //        dd($data);
         $brand = $this->brand;
 
-        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas'));
+        $ibge = '';
+        $title = 'Listagem de Leads por Campanha: Órfãos';
+
+
+        return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas', 'ibge', 'title'));
     }
 
-    public function pesquisar()
+    public function pesquisarCampanha($ibge)
     {
         $palavraPesquisa = $this->request->get('pesquisar');
         $brand = $this->brand;
@@ -71,18 +86,49 @@ class LeadController extends StandardController
 
         $campanhas = $this->campanhasAtivas();
 
+//        dd($ibge);
 
-        $data = $this->model->where('nome', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('cidade', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('cep', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('celular', 'LIKE', "%$palavraPesquisa%")
-                            ->orWhere('email', 'LIKE', "%$palavraPesquisa%")
+
+        $data = $this->model->where([
+            ['nome', 'LIKE', "%$palavraPesquisa%"],
+            ['ibge', $ibge]
+        ])
+
                             ->paginate(15);
 
-        return view("{$this->nameView}.index", compact('data','brand', 'total', 'campanhas'));
+        return view("{$this->nameView}.indexcampanha", compact('data','brand', 'total', 'campanhas','ibge'));
     }
 
+    public function pesquisarForaCampanha()
+    {
+        $palavraPesquisa = $this->request->get('pesquisar');
+        $brand = $this->brand;
+        $total = $this->model->count();
 
+        $campanhas = $this->campanhasAtivas();
+
+//        dd($ibge);
+
+
+        $ibge_camp = Campanha::select('ibge')->get();
+
+        $ibges = $ibge_camp->toArray();
+
+//        dd($ibges);
+
+
+
+        $data = $this->model->whereNotIn('ibge', $ibges)
+            ->where([
+            ['nome', 'LIKE', "%$palavraPesquisa%"]
+        ])
+
+            ->paginate(15);
+
+        $ibge = '';
+
+        return view("{$this->nameView}.indexcampanha", compact('data','brand', 'total', 'campanhas','ibge'));
+    }
 
     public function cadastrarHomeGo()
     {

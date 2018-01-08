@@ -73,7 +73,10 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                                   <a href="/admin/word/{{$data->nome}}/{{$data->celular}}/{{$data->email}}/{{$data->cidade}}/{{$data_atual}}" class="btn">contrato</a>
+
+                               </form>
+
                                         <div class="col s12 m6">
 
                                             <div class="row">
@@ -115,6 +118,7 @@
                                                                         <span id="cont">155</span>
                                                                     </div>
                                                                 </form>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -154,6 +158,7 @@
                                                                             <button class="btn waves-effect waves-light blue right hoverable" type="submit" name="action">MATRICULAR
                                                                             </button>
                                                                         </div>
+                                                                        <a href="/admin/word" class="btn"></a></A>
                                                                     </div>
                                                                 </form>
                                                             </div>

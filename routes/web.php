@@ -153,9 +153,10 @@ Route::group([
         Route::any('/leads/pesquisar', 'LeadController@pesquisar');
         Route::any('/leads/sms', 'LeadController@sendSMSInd');
 
-        Route::get('/leads/campanha/{ibge}', 'LeadController@indexCampanha')->name('camapanha');
-        Route::get('/leads/foracampanha/', 'LeadController@indexForaCampanha')->name('camapanha');
+        Route::get('/leads/campanha/{ibge}', 'LeadController@indexCampanha')->name('camapanhaX');
+        Route::get('/leads/foracampanha/', 'LeadController@indexForaCampanha')->name('camapanhaFora');
         Route::any('/leads/pesquisar/campanha/{ibge}', 'LeadController@pesquisarCampanha');
+        Route::any('/leads/pesquisar/campanha/', 'LeadController@pesquisarForaCampanha');
 
 
     //SMS
@@ -167,6 +168,10 @@ Route::group([
         Route::get('/sms/editar/{id}', 'SmsController@edit');
 
 
+
+//phpWord
+
+        Route::get('/word/{aluno}/{celular}/{email}/{cidade}/{dataatual}', 'StandardController@createWordDocx')->name('createWordDocx');
 
 
 

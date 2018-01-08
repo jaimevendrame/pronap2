@@ -32,8 +32,9 @@ class Lead extends Model
         'cep'   => 'required',
     ];
 
-    public function smsx()
+
+    public function sms()
     {
-        return $this->hasOne(Smsenv::class);
+        return $this->hasOne(Sms::class);
     }
 }

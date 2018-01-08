@@ -6,18 +6,10 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content ">
-                        <span class="card-title">Listagem de Leads por Campanha:
-
-                            {{--@if(isset($campanhas))--}}
-                                {{--@forelse($campanhas as $campanha)--}}
-                                    {{--@if($campanha->ibge == $data[0]->ibge)--}}
-                                        {{--<strong>{{$campanha->title}}</strong>--}}
-                                    {{--@endif--}}
-                                {{--@empty @endforelse--}}
-                            {{--@endif--}}
+                        <span class="card-title">{{$title}}
                             <span class="badge">{{$data->count()}}/{{$total}}</span></span>
 
-                        <form class="form-inline" method="POST" action="/admin/leads/pesquisar">
+                        <form class="form-inline" method="POST" action="/admin/leads/pesquisar/campanha/{{$ibge}}">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12 m2 l2">

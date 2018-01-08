@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Lead;
 use App\Models\Painel\Campanha;
-use App\Smsenv;
+use App\Sms;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +23,7 @@ class SmsController extends StandardController
 
 
 
-    public function __construct(Smsenv $sms, Request $request)
+    public function __construct(Sms $sms, Request $request)
     {
         $this->model = $sms;
         $this->request = $request;
@@ -78,7 +78,7 @@ class SmsController extends StandardController
 
             sleep(15);
 
-                $insert = Smsenv::create(
+                $insert = Sms::create(
                 [
                     "lead_id" => $sms->id,
                     "campanha"=> $campanha_nome,

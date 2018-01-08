@@ -12,7 +12,7 @@
                             <div class="row">
                                 <div class="input-field col s12 m2 l2">
                                     <a href="/admin/sms/cadastrar" class="btn blue darken-1 waves-effect waves-light tooltipped"
-                                       data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Campanha"><i class="material-icons">add</i>Adicionar</a>
+                                       data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Lead"><i class="material-icons">add</i>Adicionar</a>
                                 </div>
 
                                 <div class="input-field col s12 m8 l8">
