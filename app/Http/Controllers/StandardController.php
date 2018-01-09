@@ -44,7 +44,7 @@ class StandardController extends BaseController
         $cursos = Curso::all();
 
         $data_atual = $this->dataTextoAtual();
-
+        $data_atual = '*';
 
         return view("{$this->nameView}.add-edit",compact('brand', 'campanhas', 'cursos', 'data_atual'));
     }
@@ -85,6 +85,7 @@ class StandardController extends BaseController
 
         $data_atual = $this->dataTextoAtual();
 
+        $data_atual = '*';
         return view("{$this->nameView}.add-edit",compact('data','brand', 'campanhas', 'cursos', 'data_atual'));
 
     }
@@ -150,8 +151,6 @@ class StandardController extends BaseController
     {
 
         $PHPWord = new \PhpOffice\PhpWord\PhpWord();
-
-
 
         $newSection = $PHPWord->addSection( array('marginLeft' => 600, 'marginRight' => 600,
             'marginTop' => 600, 'marginBottom' => 600));
