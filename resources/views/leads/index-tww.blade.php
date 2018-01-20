@@ -18,9 +18,7 @@
 @empty Nenhum registro encontrado! @endforelse </textarea>
                                 <label for="textarea1">Selecione</label>
                             </div>
-
-                            @forelse( $data as $d ){{$d->celular}}
-                            @empty Nenhum registro encontrado! @endforelse
+                            
 
                         </div>
                     </div>
