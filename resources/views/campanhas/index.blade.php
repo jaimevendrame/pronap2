@@ -15,7 +15,7 @@
                                        data-position="bottom" data-delay="50" data-tooltip="Adicionar uma nova Campanha"><i class="material-icons">add</i>Adicionar</a>
                                 </div>
 
-                                <div class="input-field col s12 m8 l8">
+                                <div class="input-field col s12 m6 l6">
                                     <input class="validate" type="text" name="pesquisar" placeholder="Pesquisar">
                                 </div>
                                 <div class="input-field col s12 m2 l2">
@@ -59,6 +59,7 @@
                                         <td>
                                             <a href="campanhas/editar/{{$d->id}}" class="btn orange darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">update</i></a>
                                             <a href="campanhas/delete/{{$d->id}}" class="btn red darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
+                                            <a href="leads/campanha/tww/{{$d->ibge}}" class="btn blue darken-1 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="TWW">TWW</a>
 
                                         </td>
                                     </tr>

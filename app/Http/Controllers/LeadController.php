@@ -50,6 +50,34 @@ class LeadController extends StandardController
         return view("{$this->nameView}.indexcampanha",compact('data','brand','total', 'campanhas', 'ibge', 'title'));
     }
 
+    public function indexCampanhaTww($ibge)
+    {
+        $data = $this->model->where('ibge', $ibge)->get();
+
+        $find =['(', ')', '-'];
+
+        foreach ($data as $d)
+            $d['celular'] = str_replace($find, '', $d['celular']);
+
+        $total = $this->model->count();
+
+        $campanhas = $this->campanhasAtivas();
+
+        $brand = $this->brand;
+
+        $ibge = $ibge;
+
+        $campanha = Campanha::select('cidade')
+                    ->where('ibge', $ibge)
+                    ->first();
+
+
+
+        $title = 'Listagem de Leads de '.$campanha->cidade;
+
+        return view("{$this->nameView}.index-tww",compact('data','brand','total', 'campanhas', 'ibge', 'title'));
+    }
+
     public function indexForaCampanha()
     {
 

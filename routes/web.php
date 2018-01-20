@@ -154,6 +154,7 @@ Route::group([
         Route::any('/leads/sms', 'LeadController@sendSMSInd');
 
         Route::get('/leads/campanha/{ibge}', 'LeadController@indexCampanha')->name('camapanhaX');
+        Route::get('/leads/campanha/tww/{ibge}', 'LeadController@indexCampanhaTww')->name('camapanhaTWW');
         Route::get('/leads/foracampanha/', 'LeadController@indexForaCampanha')->name('camapanhaFora');
         Route::any('/leads/pesquisar/campanha/{ibge}', 'LeadController@pesquisarCampanha');
         Route::any('/leads/pesquisar/campanha/', 'LeadController@pesquisarForaCampanha');
