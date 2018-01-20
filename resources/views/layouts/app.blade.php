@@ -233,6 +233,8 @@
         $('#celular').mask('(00)00000-0000');
 
         $('ul.tabs').tabs();
+        $('#textarea1').trigger('autoresize');
+
 
     });
 
