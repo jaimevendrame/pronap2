@@ -18,7 +18,7 @@
 @empty Nenhum registro encontrado! @endforelse </textarea>
                                 <label for="textarea1">Selecione</label>
                             </div>
-                            
+
 
                         </div>
                     </div>

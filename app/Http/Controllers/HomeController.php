@@ -81,4 +81,12 @@ class HomeController extends Controller
     }
 
 
+
+    public function cido()
+    {
+        return view('cido');
+
+    }
+
+
 }
