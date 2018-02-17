@@ -20,7 +20,7 @@ class Lead extends Model
     public $rules = [
         'nome'  => 'required|min:3|max:150',
         'celular'  => 'required|min:11|max:14|unique:leads',
-        'email'  => 'required|email|unique:leads',
+        'email'  => 'email|unique:leads',
         'cep'   => 'required',
 
     ];
@@ -28,7 +28,7 @@ class Lead extends Model
     public $rulesEdit = [
         'nome'  => 'required|min:3|max:150',
         'celular'  => 'required|min:11|max:14',
-        'email'  => 'required|email',
+        'email'  => 'email',
         'cep'   => 'required',
     ];
 

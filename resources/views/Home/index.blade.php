@@ -52,9 +52,9 @@
                                         <input type="text" class="form-control input-lg" id="nome" name="nome" placeholder="NOME">
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="email" class="form-control input-lg" id="email" name="email" placeholder="E-MAIL">
-                                    </div>
+                                    {{--<div class="form-group">--}}
+                                        {{--<input type="email" class="form-control input-lg" id="email" name="email" placeholder="E-MAIL">--}}
+                                    {{--</div>--}}
 
                                     <div class="col-md-12 text-right">
                                         <button type="reset" class="btn btn-default btn-lg">Limpar</button>
