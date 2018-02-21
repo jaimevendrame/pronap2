@@ -179,7 +179,7 @@ class StandardController extends BaseController
         $textrun->addTextBreak();
         $textrun->addText('CONTRATADA', $boldFontStyleName);
         $textrun->addText(', Prona.info Cursos Profissionalizantes, CNPJ: 23.996.875/0001-90, situada na Rua Célia Simão Broza,
-572- Campo Mourão-PR, WHATSAPP PARA CONTATO E SUPORTE: 47-9.9606-8545');
+572- Campo Mourão-PR, WHATSAPP PARA CONTATO E SUPORTE: 44-9.9740-6186');
         $textrun->addTextBreak();
         $textrun->addText('CONTRATANTE:', $boldFontStyleName);
         $textrun->addTextBreak();
