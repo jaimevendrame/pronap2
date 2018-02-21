@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                                    @if(isset($data->nome))
-                                   <a href="/admin/word/{{$data->nome}}/{{$data->celular}}/{{$data->email}}/{{$data->cidade}}/{{$data_atual}}" class="btn">contrato</a>
+                                   <a href="/admin/word/{{$data->nome}}/{{$data->celular}}/@if(isset($data->email)) {{$data->email}} @else 'Null' @endif/{{$data->cidade}}/{{$data_atual}}" class="btn">contrato</a>
                                     @endif
                                </form>
 
