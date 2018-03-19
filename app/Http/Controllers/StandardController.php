@@ -215,7 +215,7 @@ empresa nacionalmente reconhecida acessível através do portal: webensina.com.b
         $textrun->addText('VALOR: ', $boldFontStyleName);
         $textrun->addText('A CONTRATADA oferece os cursos abaixo em condições especiais por fazerem parte do projeto pronac.info (programa 
 nacional de cursos) idealizado e mantido pelo CONTRATANTE, assim sendo, para a realização dos cursos o aluno terá uma única
-despesa referente a manutenção da plataforma e subsequente emissão do certificado através da mesma plataforma como segue:
+despesa referente a manutenção da plataforma e suporte pedagógico como segue:
 O contratante opta no momento da contratação por fazer _____curso(s) com custo R$38,00 cada um , Totalizando__________');
         $textrun->addText('CURSOS DISPONIVEIS: ', $boldFontStyleName);
         $textrun->addTextBreak();
